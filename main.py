@@ -1,6 +1,7 @@
 import networkx as nx
 import yaml
 import itertools
+import math
 import matplotlib.pyplot as plt
 
 with open("graphs/1.yml") as f:
@@ -53,15 +54,37 @@ def create_mdg():
 def calc_throughput():
     latencies = {k: {'TC': v['TC'], 'TD': v['TD']} for k, v in MDG.nodes.items()}
     bottle_neck = max(MDG.nodes, key=lambda x: max(MDG.nodes[x]['TC'], MDG.nodes[x]['TD']))
+    MDG.graph['TS'] = max(latencies[bottle_neck].values())
     print(latencies)
     print(bottle_neck, latencies[bottle_neck])
-    print(f"throughput {config['g_total'] / max(latencies[bottle_neck].values())} MB/s")
+    print(f"throughput {config['pkt_size'] / MDG.graph['TS']} MB/s")
+
+
+def calc_tq(rho, T, N):  # O(N^2)
+    def b(n: int):
+        res = 0
+        factorial = 1
+        for k in range(n + 1):
+            tmp = rho * (k - n)
+            res += tmp ** k / factorial * math.exp(-tmp)
+            factorial *= k + 1
+        return res
+
+    assert N <= 28
+    return T * (N - 1 - (sum((b(k) for k in range(N))) - N) / (rho * b(N - 1)))
 
 
 def calc_latency():
+    for v in MDG.nodes.values():
+        rho = v['TD'] / MDG.graph['TS']
+        b = v['B'] * config['block_size'] / (1 << 20)
+        n = round(v['N'] / config['block_size']) + 1
+        v['TQ'] = calc_tq(rho, b, n)
+
     for k, v in DAG.edges.items():
         b = max(DAG.nodes[k[0]]['B'], DAG.nodes[k[1]]['B'])
-        v['T'] = v['f'] * DAG.nodes[k[1]]['A'] + v['g'] * b  # TODO: TQ
+        tq = MDG.nodes[node_name[k[1]]]['TQ']
+        v['T'] = tq + v['f'] * DAG.nodes[k[1]]['A'] + v['g'] * b
     longest_path = nx.dag_longest_path(DAG, 'T')
     print([node_name[i] for i in longest_path])
     print([DAG[longest_path[i]][longest_path[i + 1]]['T'] for i in range(len(longest_path) - 1)])
@@ -77,3 +100,6 @@ calc_latency()
 # plt.show()
 # nx.draw(MDG, pos=nx.spring_layout(MDG), with_labels=True)
 # plt.show()
+# plt.plot([calc_tq(i / 100, 1, 28) for i in range(1, 500)])
+# plt.show()
+# pass

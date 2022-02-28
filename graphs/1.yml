@@ -1,25 +1,31 @@
-g_total: 0.005 # 5KB
+pkt_size: 0.005 # 5KB
+block_size: 256 # 256B
 nodes:
   CPU:
     A: 1 # 1GFLOPs/s
     B: 0.00022779043280182233 # 4390MB/s
     S: false
+    N: 4096
   Memory:
     A: 0
     B: 0.00022779043280182233 # 4390MB/s
     S: true
+    N: 4096
   NIC:
     A: 0
     B: 7.8125e-05 # 100 Gbps, 12,800 MB/s
     S: true
+    N: 0
   PCIe:
     A: 0
     B: 0.0002538071065989848 # 3,940 MB/s per x4 line
     S: false
+    N: 256
   SSD:
     A: 0
     B: 0.000625 # 1600MB/s
     S: true
+    N: 4096
 path:
   - f: 0
     g: 0.0045
