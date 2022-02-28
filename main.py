@@ -2,6 +2,7 @@ import networkx as nx
 import yaml
 import itertools
 import math
+from scipy.stats import poisson
 import matplotlib.pyplot as plt
 
 with open("graphs/1.yml") as f:
@@ -60,18 +61,21 @@ def calc_throughput():
     print(f"throughput {config['pkt_size'] / MDG.graph['TS']} MB/s")
 
 
-def calc_tq(rho, T, N):  # O(N^2)
-    def b(n: int):
-        res = 0
-        factorial = 1
-        for k in range(n + 1):
-            tmp = rho * (k - n)
-            res += tmp ** k / factorial * math.exp(-tmp)
-            factorial *= k + 1
-        return res
-
-    assert N <= 28
-    return T * (N - 1 - (sum((b(k) for k in range(N))) - N) / (rho * b(N - 1)))
+def calc_tq(rho, T, N: int) -> float:
+    alpha = []
+    i_max = 0
+    for i_max in range(N):
+        alpha.append(poisson.pmf(k=i_max, mu=rho))
+        if alpha[-1] == 0.0:
+            break
+    a = [1, math.exp(rho) - 1]
+    for n in range(2, N + 1):
+        tmp = a[-1] - sum((alpha[i] * a[n - i] for i in range(1, min(n, i_max)))) - alpha[min(n - 1, i_max)]
+        a.append(math.exp(rho) * tmp)
+    b = [a[0]]
+    for k in range(1, N + 1):
+        b.append(b[-1] + a[k])
+    return T * (N - 1 - (sum((b[k] for k in range(N))) - N) / (rho * b[N - 1]))
 
 
 def calc_latency():
