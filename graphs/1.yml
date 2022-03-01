@@ -6,26 +6,31 @@ nodes:
     B: 0.00022779043280182233 # 4390MB/s
     S: false
     N: 4096
+    P: 1
   Memory:
     A: 0
     B: 0.00022779043280182233 # 4390MB/s
     S: true
     N: 4096
+    P: 1
   NIC:
     A: 0
     B: 7.8125e-05 # 100 Gbps, 12,800 MB/s
     S: true
     N: 0
+    P: 1
   PCIe:
     A: 0
     B: 0.0002538071065989848 # 3,940 MB/s per x4 line
     S: false
     N: 256
+    P: 1
   SSD:
-    A: 0
+    A: 1
     B: 0.000625 # 1600MB/s
     S: true
     N: 4096
+    P: 32
 path:
   - f: 0
     g: 0.0045
@@ -47,7 +52,7 @@ path:
     g: 0.004
     u: Memory
     v: PCIe
-  - f: 0
+  - f: 70.0e-6
     g: 0.004
     u: PCIe
     v: SSD

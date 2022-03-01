@@ -45,7 +45,7 @@ def create_mdg():
         edge = node_name[i[0]], node_name[i[1]]
         MDG.add_edge(*edge, **DAG[i[0]][i[1]])
     for k, v in MDG.nodes.items():
-        v['TC'] = v['A'] * sum((j['f'] for i in MDG.predecessors(k) for j in MDG[i][k].values()))
+        v['TC'] = v['A'] * sum((j['f'] for i in MDG.predecessors(k) for j in MDG[i][k].values())) / v['P']
         v['TD'] = sum((j['g'] for i in MDG.predecessors(k) for j in MDG[i][k].values()))
         if v['S']:
             v['TD'] += sum((j['g'] for i in MDG.successors(k) for j in MDG[k][i].values()))
