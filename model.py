@@ -5,7 +5,7 @@ import math
 from scipy.stats import poisson
 import matplotlib.pyplot as plt
 
-with open("graphs/1.yml") as f:
+with open("graphs/v1/1.yml") as f:
     config = yaml.safe_load(f)
 
 DAG = nx.DiGraph()

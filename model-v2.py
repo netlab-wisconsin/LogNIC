@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 def read_config():
-    with open("graphs/2.yml") as f:
+    with open("graphs/v2/2.yml") as f:
         config = yaml.safe_load(f)
 
     config["hardware"]["nodes"]["ingress"] = {"Q_num": 1, "Q_len": 1}
@@ -101,16 +101,17 @@ def calc_latency():
     return latency / len(use_cases)
 
 
-CONFIG = read_config()
-use_cases = [create_dag(i) for i in CONFIG["software"]]
-P = calc_throughput()
-latencies = []
-M = 100
-for i in range(2 * M):
-    use_cases[0].graph['bandwidth-in'] = P * i / M
-    latencies.append(calc_latency()*1E6)
-plt.plot(latencies)
-plt.show()
-pass
-# nx.draw(use_cases[0], pos=nx.spring_layout(use_cases[0]), with_labels=True)
-# plt.show()
+if __name__ == '__main__':
+    CONFIG = read_config()
+    use_cases = [create_dag(i) for i in CONFIG["software"]]
+    P = calc_throughput()
+    latencies = []
+    M = 100
+    for i in range(2 * M):
+        use_cases[0].graph['bandwidth-in'] = P * i / M
+        latencies.append(calc_latency() * 1E6)
+    plt.plot(latencies)
+    plt.show()
+    pass
+    # nx.draw(use_cases[0], pos=nx.spring_layout(use_cases[0]), with_labels=True)
+    # plt.show()
