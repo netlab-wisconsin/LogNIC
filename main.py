@@ -61,7 +61,7 @@ def calc_throughput():
     print(f"throughput {config['pkt_size'] / MDG.graph['TS']} MB/s")
 
 
-def calc_tq(rho, T, N: int) -> float:
+def calc_md1n(rho, T, N: int) -> float:
     alpha = []
     i_max = 0
     for i_max in range(N):
@@ -78,12 +78,18 @@ def calc_tq(rho, T, N: int) -> float:
     return T * (N - 1 - (sum((b[k] for k in range(N))) - N) / (rho * b[N - 1]))
 
 
+def calc_mm1n(rho, mu, N: int) -> float:
+    if rho == 1:
+        return (N - 1) / 2 / mu
+    return (rho / (1 - rho) - N * rho ** N / (1 - rho ** N)) / mu
+
+
 def calc_latency():
     for v in MDG.nodes.values():
         rho = v['TD'] / MDG.graph['TS']
         b = v['B'] * config['block_size'] / (1 << 20)
         n = round(v['N'] / config['block_size']) + 1
-        v['TQ'] = calc_tq(rho, b, n)
+        v['TQ'] = calc_md1n(rho, b, n)
 
     for k, v in DAG.edges.items():
         b = max(DAG.nodes[k[0]]['B'], DAG.nodes[k[1]]['B'])
@@ -104,6 +110,7 @@ calc_latency()
 # plt.show()
 # nx.draw(MDG, pos=nx.spring_layout(MDG), with_labels=True)
 # plt.show()
-# plt.plot([calc_tq(i / 100, 1, 28) for i in range(1, 500)])
-# plt.show()
+plt.plot([calc_mm1n(i / 100, 1, 10) for i in range(1, 200)])
+plt.plot([calc_mm1n(i / 100, 1, 1000) for i in range(1, 200)])
+plt.show()
 # pass
