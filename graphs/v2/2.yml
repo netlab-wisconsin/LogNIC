@@ -8,11 +8,9 @@ hardware:
     CPU-egress: 3.940
     CPU-ingress: 3.940
     CPU-SSD: 1.6
-    ingress-SSD: 1.6
 software:
-  -
-    bandwidth-in: 1.5
-    granularity-in: 1024
+  - bandwidth-in: 1.5
+    granularity-in: 4096
     nodes:
       CPU0:
         phy_node: CPU
@@ -37,19 +35,19 @@ software:
         Q_len: 512
     edges:
       ingress-CPU0:
-        INTF: 0.05
-        DRAM: 0.05
+        INTF: 1
+        DRAM: 1
         total: 0.05
-      ingress-SSD:
-        INTF: 1.7
-        DRAM: 0.85
+      CPU0-SSD:
+        INTF: 0.85
+        DRAM: 0
         total: 0.85
       SSD-CPU1:
         INTF: 0.0
-        DRAM: 0.05
+        DRAM: 0.0
         total: 0.05
       CPU1-egress:
-        INTF: 0.0
+        INTF: 0.05
         DRAM: 0.05
         total: 0.05
 

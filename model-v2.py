@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 def read_config():
-    with open("graphs/v2/2.yml") as f:
+    with open("graphs/v2/get-1KB-4SSDs.yml") as f:
         config = yaml.safe_load(f)
 
     config["hardware"]["nodes"]["ingress"] = {"Q_num": 1, "Q_len": 1}
@@ -113,5 +113,5 @@ if __name__ == '__main__':
     plt.plot(latencies)
     plt.show()
     pass
-    # nx.draw(use_cases[0], pos=nx.spring_layout(use_cases[0]), with_labels=True)
-    # plt.show()
+    nx.draw(use_cases[0], pos=nx.spring_layout(use_cases[0]), with_labels=True)
+    plt.show()
