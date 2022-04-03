@@ -50,7 +50,7 @@ software:
         phy_node: SSD0
         partition: 0.5
         overhead: 70.0e-6
-        performance: 0.2124004364013671875
+        performance: 0.42685794
         Q_num: 1
         Q_len: 128
       SSD1_0:
@@ -64,7 +64,7 @@ software:
         phy_node: SSD1
         partition: 0.5
         overhead: 70.0e-6
-        performance: 0.2124004364013671875
+        performance: 0.42685794
         Q_num: 1
         Q_len: 128
       SSD2_0:
@@ -78,7 +78,7 @@ software:
         phy_node: SSD2
         partition: 0.5
         overhead: 70.0e-6
-        performance: 0.2124004364013671875
+        performance: 0.42685794
         Q_num: 1
         Q_len: 128
       SSD3_0:
@@ -92,7 +92,7 @@ software:
         phy_node: SSD3
         partition: 0.5
         overhead: 70.0e-6
-        performance: 0.2124004364013671875
+        performance: 0.42685794
         Q_num: 1
         Q_len: 128
     edges:

@@ -1,0 +1,27 @@
+hardware:
+  nodes:
+    IP:
+  edges:
+    IP-egress: 1.0
+    IP-ingress: 1.0
+software:
+  - bandwidth-in: 1.0
+    granularity-in: 4096
+    nodes:
+      IP:
+        phy_node: IP
+        partition: 1.0
+        overhead: 0.0e-6
+        performance: 1.0
+        Q_num: 1.0
+        Q_len: 1.0
+    edges:
+      ingress-IP:
+        INTF: 0.0
+        DRAM: 0.0
+        total: 1.0
+      IP-egress:
+        INTF: 0.0
+        DRAM: 0.0
+        total: 0.0
+

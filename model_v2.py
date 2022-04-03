@@ -3,9 +3,9 @@ import yaml
 import matplotlib.pyplot as plt
 
 
-def read_config():
-    with open("graphs/v2/get-1KB-4SSDs.yml") as f:
-        config = yaml.safe_load(f)
+def read_config(yml_path):
+    with open(yml_path) as yml:
+        config = yaml.safe_load(yml)
 
     config["hardware"]["nodes"]["ingress"] = {"Q_num": 1, "Q_len": 1}
     config["hardware"]["nodes"]["egress"] = config["hardware"]["nodes"]["ingress"]
@@ -75,8 +75,8 @@ def calc_mm1n(rho, N: int) -> float:
         return rho / (1 - rho)
 
 
-def calc_latency():
-    for dag in use_cases:
+def calc_latency(dags, print_tag=False):
+    for dag in dags:
         for k, v in dag.nodes.items():
             if v['performance'] is None:
                 v['q_lat'] = 0.0
@@ -84,34 +84,40 @@ def calc_latency():
                 continue
             total = sum([dag.edges[(i, k)]["total"] for i in dag.predecessors(k)])
             rho = dag.in_degree(k) * dag.graph['bandwidth-in'] * total / (v['performance'] * v['partition'])
-            lat = dag.graph['g_in'] * total / v['performance'] / v['partition']
-            v['q_lat'] = calc_mm1n(rho, v['Q_num'] * v['Q_len']) * lat
+            lat = dag.graph['g_in'] * total * v['Q_num'] / v['performance'] / v['partition']
+            v['q_lat'] = calc_mm1n(rho, v['Q_len']) * lat
             v['lat'] = v['q_lat'] + lat + v['overhead']
 
     latency = 0
-    for dag in use_cases:
+    for dag in dags:
         for k, v in dag.edges.items():
-            v['lat'] = dag.nodes[k[0]]['lat'] + v['total'] * dag.graph['g_in'] / v['bw']
+            if 'bw' in v:
+                v['lat'] = dag.nodes[k[0]]['lat'] + v['total'] * dag.graph['g_in'] / v['bw']
+            else:
+                v['lat'] = dag.nodes[k[0]]['lat']
         longest_path = nx.dag_longest_path(dag, 'lat')
         lat = nx.dag_longest_path_length(dag, 'lat')
         latency += lat
-        print(longest_path)
-        print(f"latency {lat * 10 ** 6} us")
+        if print_tag:
+            print(longest_path)
+            print(f"latency {lat * 10 ** 6} us")
 
-    return latency / len(use_cases)
+    return latency / len(dags)
 
 
 if __name__ == '__main__':
-    CONFIG = read_config()
+    CONFIG = read_config('graphs/v2/NVMe-oF/4KB-random read.yml')
     use_cases = [create_dag(i) for i in CONFIG["software"]]
     P = calc_throughput()
     latencies = []
+    bw = []
     M = 100
-    for i in range(2 * M):
-        use_cases[0].graph['bandwidth-in'] = P * i / M
-        latencies.append(calc_latency() * 1E6)
-    plt.plot(latencies)
+    for i in range(M + 1):
+        bw.append(P * i / M)
+        use_cases[0].graph['bandwidth-in'] = bw[-1]
+        latencies.append(calc_latency(use_cases, i == 0 or i == M) * 1E6)
+    plt.plot(bw, latencies)
     plt.show()
     pass
-    nx.draw(use_cases[0], pos=nx.spring_layout(use_cases[0]), with_labels=True)
-    plt.show()
+    # nx.draw(use_cases[0], pos=nx.spring_layout(use_cases[0]), with_labels=True)
+    # plt.show()
