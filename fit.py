@@ -3,24 +3,24 @@ import re
 import matplotlib.pyplot as plt
 import networkx as nx
 from scipy.optimize import curve_fit
+import numpy as np
 
 
 def read_ssd_data(path):
     with open(path) as f:
         log = f.read()
-    bw = list(re.findall(r"  read :.+, bw=([0-9.]+[KM])B/s", log))
-    bw = [float(i[:-1]) / (1024 * 1024 if i[-1] == 'K' else 1024) for i in bw]
-    lat = list(map(float, re.findall(r" {5}lat \(usec\): .+ avg=([0-9.]+)", log)))
+    bw = list(re.findall(r"bw \(  ([KM])iB/s\):.+ avg=([0-9.]+)", log))
+    bw = [float(i[1]) / (1024 * 1024 if i[0] == 'K' else 1024) for i in bw]
+    lat = re.findall(r" lat \(([un])sec\):.+avg= *([0-9.]+)", log)
+    lat = [float(i[1]) / (1024 if i[0] == 'n' else 1) for i in lat]
     return bw, lat
 
 
 dag = nx.DiGraph()
 
 
-def func(x, Q_num, Q_len, overhead):
-    # overhead = 65e-6
-    dag.nodes['IP'].update(
-        {'overhead': overhead * 1e-6, 'Q_num': Q_num, 'Q_len': Q_len})
+def func(x, performance, Q_num, Q_len, overhead):
+    dag.nodes['IP'].update({'performance': performance, 'overhead': overhead * 1e-6, 'Q_num': Q_num, 'Q_len': Q_len})
     res = []
     for i in x:
         dag.graph['bandwidth-in'] = i
@@ -29,16 +29,16 @@ def func(x, Q_num, Q_len, overhead):
 
 
 def main():
-    bw, lat = read_ssd_data("data/SSD-4KB-read.txt")
-    bw, lat = bw[:32], lat[:32]
-
+    data_range = 110
+    bw, lat = read_ssd_data("data/SSD-4KB-randread.txt")
     config = read_config("graphs/v2/single-ip.yml")
     global dag
     dag = create_dag(config['software'][0])
-    dag.nodes['IP']['performance'] = max(bw)
-    arg, _ = curve_fit(func, bw, lat)
-    print(arg)
+    arg, _ = curve_fit(func, bw[:data_range], lat[:data_range], bounds=((0, 0, 1, 0), (np.inf, np.inf, np.inf, np.inf)))
+    print("performance(GB/s) Q_num Q_len overhead(us)")
+    print(*arg)
     plt.plot(bw, lat)
+    bw = [arg[0] * i / 100 for i in range(90)]
     plt.plot(bw, func(bw, *arg))
     plt.show()
 
