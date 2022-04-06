@@ -1,0 +1,1108 @@
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=1
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26988 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26996: Wed Apr  6 10:26:53 2022
+  write: IOPS=47.3k, BW=185MiB/s (194MB/s)(10.8GiB/60001msec); 0 zone resets
+    slat (nsec): min=520, max=8305, avg=549.57, stdev=36.75
+    clat (nsec): min=13016, max=61193, avg=20177.64, stdev=1308.88
+     lat (nsec): min=19089, max=61753, avg=20727.21, stdev=1309.03
+    clat percentiles (nsec):
+     |  1.00th=[19072],  5.00th=[19328], 10.00th=[19328], 20.00th=[19584],
+     | 30.00th=[19584], 40.00th=[19584], 50.00th=[19840], 60.00th=[19840],
+     | 70.00th=[20096], 80.00th=[20352], 90.00th=[20864], 95.00th=[24192],
+     | 99.00th=[24960], 99.50th=[25216], 99.90th=[25984], 99.95th=[26240],
+     | 99.99th=[27776]
+   bw (  KiB/s): min=188264, max=192632, per=100.00%, avg=189162.76, stdev=1383.93, samples=119
+   iops        : min=47066, max=48158, avg=47290.69, stdev=345.98, samples=119
+  lat (usec)   : 20=64.80%, 50=35.20%, 100=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=191, majf=0, minf=0
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,2837174,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=185MiB/s (194MB/s), 185MiB/s-185MiB/s (194MB/s-194MB/s), io=10.8GiB (11.6GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=2
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27002 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27010: Wed Apr  6 10:27:54 2022
+  write: IOPS=92.8k, BW=363MiB/s (380MB/s)(21.2GiB/60001msec); 0 zone resets
+    slat (nsec): min=456, max=49401, avg=497.06, stdev=41.73
+    clat (usec): min=5, max=7510, avg=20.59, stdev= 4.51
+     lat (usec): min=18, max=7511, avg=21.09, stdev= 4.51
+    clat percentiles (nsec):
+     |  1.00th=[19328],  5.00th=[20096], 10.00th=[20096], 20.00th=[20352],
+     | 30.00th=[20352], 40.00th=[20352], 50.00th=[20608], 60.00th=[20608],
+     | 70.00th=[20608], 80.00th=[20864], 90.00th=[21120], 95.00th=[21120],
+     | 99.00th=[21888], 99.50th=[22656], 99.90th=[24960], 99.95th=[25472],
+     | 99.99th=[27008]
+   bw (  KiB/s): min=367424, max=372128, per=100.00%, avg=371384.54, stdev=642.69, samples=119
+   iops        : min=91856, max=93032, avg=92846.13, stdev=160.67, samples=119
+  lat (usec)   : 10=0.01%, 20=4.31%, 50=95.69%, 100=0.01%, 250=0.01%
+  lat (msec)   : 10=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=190, majf=0, minf=0
+  IO depths    : 1=0.1%, 2=100.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,5570522,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=2
+
+Run status group 0 (all jobs):
+  WRITE: bw=363MiB/s (380MB/s), 363MiB/s-363MiB/s (380MB/s-380MB/s), io=21.2GiB (22.8GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=3
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27011 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27019: Wed Apr  6 10:28:55 2022
+  write: IOPS=134k, BW=522MiB/s (548MB/s)(30.6GiB/60001msec); 0 zone resets
+    slat (nsec): min=496, max=18833, avg=542.45, stdev=38.13
+    clat (nsec): min=13897, max=70001, avg=21490.34, stdev=875.07
+     lat (nsec): min=18145, max=70529, avg=22032.79, stdev=873.98
+    clat percentiles (nsec):
+     |  1.00th=[19584],  5.00th=[20352], 10.00th=[20608], 20.00th=[20864],
+     | 30.00th=[20864], 40.00th=[21120], 50.00th=[21376], 60.00th=[21888],
+     | 70.00th=[22144], 80.00th=[22144], 90.00th=[22656], 95.00th=[22912],
+     | 99.00th=[23424], 99.50th=[23936], 99.90th=[25216], 99.95th=[25984],
+     | 99.99th=[30336]
+   bw (  KiB/s): min=533448, max=537104, per=100.00%, avg=534707.16, stdev=432.68, samples=119
+   iops        : min=133362, max=134276, avg=133676.79, stdev=108.17, samples=119
+  lat (usec)   : 20=1.64%, 50=98.36%, 100=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=193, majf=0, minf=0
+  IO depths    : 1=0.1%, 2=100.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,8020156,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=3
+
+Run status group 0 (all jobs):
+  WRITE: bw=522MiB/s (548MB/s), 522MiB/s-522MiB/s (548MB/s-548MB/s), io=30.6GiB (32.8GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=4
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27020 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27028: Wed Apr  6 10:29:56 2022
+  write: IOPS=178k, BW=696MiB/s (730MB/s)(40.8GiB/60000msec); 0 zone resets
+    slat (nsec): min=512, max=20065, avg=559.13, stdev=37.41
+    clat (usec): min=8, max=21729, avg=21.48, stdev=16.98
+     lat (usec): min=18, max=21729, avg=22.04, stdev=16.98
+    clat percentiles (nsec):
+     |  1.00th=[19072],  5.00th=[19584], 10.00th=[19840], 20.00th=[20352],
+     | 30.00th=[20608], 40.00th=[20864], 50.00th=[21120], 60.00th=[21120],
+     | 70.00th=[21632], 80.00th=[22400], 90.00th=[23680], 95.00th=[24960],
+     | 99.00th=[26752], 99.50th=[27264], 99.90th=[29056], 99.95th=[29824],
+     | 99.99th=[34048]
+   bw (  KiB/s): min=624928, max=717472, per=100.00%, avg=712903.26, stdev=8394.35, samples=119
+   iops        : min=156232, max=179368, avg=178225.80, stdev=2098.58, samples=119
+  lat (usec)   : 10=0.01%, 20=11.30%, 50=88.69%, 100=0.01%, 250=0.01%
+  lat (usec)   : 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%, 50=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=226, majf=0, minf=2
+  IO depths    : 1=0.1%, 2=0.1%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,10693039,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=4
+
+Run status group 0 (all jobs):
+  WRITE: bw=696MiB/s (730MB/s), 696MiB/s-696MiB/s (730MB/s-730MB/s), io=40.8GiB (43.8GB), run=60000-60000msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=5
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27029 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27038: Wed Apr  6 10:30:56 2022
+  write: IOPS=229k, BW=896MiB/s (940MB/s)(52.5GiB/60001msec); 0 zone resets
+    slat (nsec): min=528, max=10328, avg=572.44, stdev=35.94
+    clat (usec): min=10, max=21052, avg=20.76, stdev=32.57
+     lat (usec): min=18, max=21053, avg=21.33, stdev=32.57
+    clat percentiles (usec):
+     |  1.00th=[   19],  5.00th=[   20], 10.00th=[   20], 20.00th=[   20],
+     | 30.00th=[   20], 40.00th=[   21], 50.00th=[   21], 60.00th=[   21],
+     | 70.00th=[   21], 80.00th=[   22], 90.00th=[   22], 95.00th=[   23],
+     | 99.00th=[   28], 99.50th=[   29], 99.90th=[   30], 99.95th=[   32],
+     | 99.99th=[  149]
+   bw (  KiB/s): min=469464, max=933032, per=100.00%, avg=917750.39, stdev=48532.41, samples=119
+   iops        : min=117366, max=233258, avg=229437.58, stdev=12133.10, samples=119
+  lat (usec)   : 20=36.30%, 50=63.68%, 100=0.01%, 250=0.01%, 500=0.01%
+  lat (usec)   : 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%, 50=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=207, majf=0, minf=2
+  IO depths    : 1=0.1%, 2=0.1%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,13766143,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=5
+
+Run status group 0 (all jobs):
+  WRITE: bw=896MiB/s (940MB/s), 896MiB/s-896MiB/s (940MB/s-940MB/s), io=52.5GiB (56.4GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=6
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27040 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27048: Wed Apr  6 10:31:57 2022
+  write: IOPS=266k, BW=1040MiB/s (1091MB/s)(61.0GiB/60001msec); 0 zone resets
+    slat (nsec): min=528, max=9920, avg=575.19, stdev=36.13
+    clat (usec): min=12, max=10102, avg=21.49, stdev=28.83
+     lat (usec): min=18, max=10102, avg=22.06, stdev=28.83
+    clat percentiles (nsec):
+     |  1.00th=[19328],  5.00th=[19840], 10.00th=[20096], 20.00th=[20608],
+     | 30.00th=[20864], 40.00th=[20864], 50.00th=[21120], 60.00th=[21376],
+     | 70.00th=[21632], 80.00th=[21888], 90.00th=[22400], 95.00th=[22912],
+     | 99.00th=[25728], 99.50th=[27776], 99.90th=[31360], 99.95th=[33024],
+     | 99.99th=[59136]
+   bw (  MiB/s): min=  439, max= 1051, per=100.00%, avg=1040.47, stdev=62.04, samples=119
+   iops        : min=112462, max=269296, avg=266361.11, stdev=15881.92, samples=119
+  lat (usec)   : 20=8.37%, 50=91.61%, 100=0.01%, 250=0.01%, 500=0.01%
+  lat (usec)   : 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=194, majf=0, minf=2
+  IO depths    : 1=0.1%, 2=0.1%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.1%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,15982225,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=6
+
+Run status group 0 (all jobs):
+  WRITE: bw=1040MiB/s (1091MB/s), 1040MiB/s-1040MiB/s (1091MB/s-1091MB/s), io=61.0GiB (65.5GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=7
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27049 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27057: Wed Apr  6 10:32:58 2022
+  write: IOPS=305k, BW=1192MiB/s (1250MB/s)(69.9GiB/60001msec); 0 zone resets
+    slat (nsec): min=496, max=17576, avg=548.59, stdev=53.00
+    clat (usec): min=14, max=1497, avg=21.90, stdev= 1.42
+     lat (usec): min=18, max=1498, avg=22.45, stdev= 1.42
+    clat percentiles (nsec):
+     |  1.00th=[19840],  5.00th=[20352], 10.00th=[20608], 20.00th=[21120],
+     | 30.00th=[21376], 40.00th=[21632], 50.00th=[21888], 60.00th=[22144],
+     | 70.00th=[22400], 80.00th=[22656], 90.00th=[23168], 95.00th=[23680],
+     | 99.00th=[24960], 99.50th=[25472], 99.90th=[27520], 99.95th=[28544],
+     | 99.99th=[35072]
+   bw (  MiB/s): min= 1188, max= 1195, per=100.00%, avg=1192.44, stdev= 1.45, samples=119
+   iops        : min=304158, max=305994, avg=305265.82, stdev=372.49, samples=119
+  lat (usec)   : 20=2.01%, 50=97.99%, 100=0.01%
+  lat (msec)   : 2=0.01%
+  cpu          : usr=99.96%, sys=0.00%, ctx=4636, majf=0, minf=0
+  IO depths    : 1=0.1%, 2=0.1%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.1%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,18314669,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=7
+
+Run status group 0 (all jobs):
+  WRITE: bw=1192MiB/s (1250MB/s), 1192MiB/s-1192MiB/s (1250MB/s-1250MB/s), io=69.9GiB (75.0GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=8
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27058 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27066: Wed Apr  6 10:33:59 2022
+  write: IOPS=322k, BW=1257MiB/s (1318MB/s)(73.7GiB/60001msec); 0 zone resets
+    slat (nsec): min=504, max=35513, avg=550.55, stdev=35.95
+    clat (usec): min=16, max=2734, avg=23.84, stdev= 5.21
+     lat (usec): min=19, max=2734, avg=24.39, stdev= 5.21
+    clat percentiles (nsec):
+     |  1.00th=[21120],  5.00th=[21888], 10.00th=[22400], 20.00th=[22912],
+     | 30.00th=[23168], 40.00th=[23424], 50.00th=[23680], 60.00th=[23936],
+     | 70.00th=[24192], 80.00th=[24704], 90.00th=[25472], 95.00th=[25984],
+     | 99.00th=[28544], 99.50th=[30080], 99.90th=[34048], 99.95th=[35584],
+     | 99.99th=[42240]
+   bw (  MiB/s): min= 1245, max= 1270, per=100.00%, avg=1257.46, stdev= 4.95, samples=119
+   iops        : min=318832, max=325214, avg=321908.79, stdev=1267.18, samples=119
+  lat (usec)   : 20=0.01%, 50=99.98%, 100=0.01%, 250=0.01%, 500=0.01%
+  lat (usec)   : 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=12, majf=0, minf=2
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=100.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.1%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19312015,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=8
+
+Run status group 0 (all jobs):
+  WRITE: bw=1257MiB/s (1318MB/s), 1257MiB/s-1257MiB/s (1318MB/s-1318MB/s), io=73.7GiB (79.1GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=9
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27067 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27075: Wed Apr  6 10:34:59 2022
+  write: IOPS=326k, BW=1273MiB/s (1335MB/s)(74.6GiB/60001msec); 0 zone resets
+    slat (nsec): min=472, max=9785, avg=520.01, stdev=36.08
+    clat (usec): min=17, max=6685, avg=26.67, stdev=14.65
+     lat (usec): min=20, max=6685, avg=27.19, stdev=14.65
+    clat percentiles (nsec):
+     |  1.00th=[23168],  5.00th=[24192], 10.00th=[24704], 20.00th=[25216],
+     | 30.00th=[25728], 40.00th=[25984], 50.00th=[26496], 60.00th=[26752],
+     | 70.00th=[27264], 80.00th=[27776], 90.00th=[28800], 95.00th=[29568],
+     | 99.00th=[31360], 99.50th=[32128], 99.90th=[34560], 99.95th=[36096],
+     | 99.99th=[86528]
+   bw (  MiB/s): min= 1248, max= 1304, per=100.00%, avg=1273.37, stdev=10.84, samples=119
+   iops        : min=319514, max=334030, avg=325981.46, stdev=2774.23, samples=119
+  lat (usec)   : 20=0.01%, 50=99.98%, 100=0.01%, 250=0.01%, 500=0.01%
+  lat (usec)   : 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=190, majf=0, minf=2
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=100.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.1%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19556471,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=9
+
+Run status group 0 (all jobs):
+  WRITE: bw=1273MiB/s (1335MB/s), 1273MiB/s-1273MiB/s (1335MB/s-1335MB/s), io=74.6GiB (80.1GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=10
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27076 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27084: Wed Apr  6 10:36:00 2022
+  write: IOPS=322k, BW=1259MiB/s (1320MB/s)(73.8GiB/60001msec); 0 zone resets
+    slat (nsec): min=472, max=7048, avg=513.60, stdev=34.64
+    clat (usec): min=20, max=6267, avg=30.07, stdev=12.39
+     lat (usec): min=21, max=6267, avg=30.58, stdev=12.39
+    clat percentiles (nsec):
+     |  1.00th=[26496],  5.00th=[27520], 10.00th=[28032], 20.00th=[28544],
+     | 30.00th=[29056], 40.00th=[29568], 50.00th=[29824], 60.00th=[30336],
+     | 70.00th=[30592], 80.00th=[31360], 90.00th=[32128], 95.00th=[33024],
+     | 99.00th=[36096], 99.50th=[37120], 99.90th=[39680], 99.95th=[41216],
+     | 99.99th=[77312]
+   bw (  MiB/s): min= 1211, max= 1286, per=100.00%, avg=1259.51, stdev=13.62, samples=119
+   iops        : min=310184, max=329218, avg=322434.71, stdev=3486.92, samples=119
+  lat (usec)   : 50=99.98%, 100=0.01%, 250=0.01%, 500=0.01%, 750=0.01%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=8, majf=0, minf=2
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=100.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.1%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19343559,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=10
+
+Run status group 0 (all jobs):
+  WRITE: bw=1259MiB/s (1320MB/s), 1259MiB/s-1259MiB/s (1320MB/s-1320MB/s), io=73.8GiB (79.2GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=11
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27087 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27095: Wed Apr  6 10:37:01 2022
+  write: IOPS=325k, BW=1270MiB/s (1332MB/s)(74.4GiB/60001msec); 0 zone resets
+    slat (nsec): min=520, max=8744, avg=569.54, stdev=35.99
+    clat (usec): min=21, max=6402, avg=32.80, stdev=12.16
+     lat (usec): min=22, max=6402, avg=33.37, stdev=12.16
+    clat percentiles (nsec):
+     |  1.00th=[29312],  5.00th=[30080], 10.00th=[30592], 20.00th=[31360],
+     | 30.00th=[31872], 40.00th=[32128], 50.00th=[32384], 60.00th=[33024],
+     | 70.00th=[33536], 80.00th=[34048], 90.00th=[35072], 95.00th=[36096],
+     | 99.00th=[38656], 99.50th=[39680], 99.90th=[42240], 99.95th=[43264],
+     | 99.99th=[77312]
+   bw (  MiB/s): min= 1252, max= 1304, per=100.00%, avg=1270.11, stdev= 9.65, samples=119
+   iops        : min=320552, max=333936, avg=325149.03, stdev=2470.13, samples=119
+  lat (usec)   : 50=99.98%, 100=0.01%, 250=0.01%, 500=0.01%, 750=0.01%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=27, majf=0, minf=2
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=100.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.1%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19506554,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=11
+
+Run status group 0 (all jobs):
+  WRITE: bw=1270MiB/s (1332MB/s), 1270MiB/s-1270MiB/s (1332MB/s-1332MB/s), io=74.4GiB (79.9GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=12
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27096 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27104: Wed Apr  6 10:38:02 2022
+  write: IOPS=324k, BW=1264MiB/s (1326MB/s)(74.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=488, max=10552, avg=531.64, stdev=35.22
+    clat (usec): min=22, max=5193, avg=36.08, stdev= 7.85
+     lat (usec): min=23, max=5193, avg=36.61, stdev= 7.85
+    clat percentiles (nsec):
+     |  1.00th=[32128],  5.00th=[33024], 10.00th=[33536], 20.00th=[34560],
+     | 30.00th=[35072], 40.00th=[35584], 50.00th=[36096], 60.00th=[36096],
+     | 70.00th=[36608], 80.00th=[37632], 90.00th=[38144], 95.00th=[39680],
+     | 99.00th=[42752], 99.50th=[43776], 99.90th=[46848], 99.95th=[48384],
+     | 99.99th=[68096]
+   bw (  MiB/s): min= 1246, max= 1279, per=100.00%, avg=1264.48, stdev= 6.86, samples=119
+   iops        : min=319150, max=327652, avg=323707.60, stdev=1756.42, samples=119
+  lat (usec)   : 50=99.97%, 100=0.02%, 250=0.01%, 500=0.01%, 750=0.01%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=192, majf=0, minf=2
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=100.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.1%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19420911,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=12
+
+Run status group 0 (all jobs):
+  WRITE: bw=1264MiB/s (1326MB/s), 1264MiB/s-1264MiB/s (1326MB/s-1326MB/s), io=74.1GiB (79.5GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=13
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27105 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27113: Wed Apr  6 10:39:02 2022
+  write: IOPS=324k, BW=1265MiB/s (1327MB/s)(74.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=488, max=17393, avg=529.52, stdev=38.48
+    clat (usec): min=23, max=4051, avg=39.14, stdev= 8.63
+     lat (usec): min=24, max=4051, avg=39.67, stdev= 8.63
+    clat percentiles (nsec):
+     |  1.00th=[36608],  5.00th=[37120], 10.00th=[37632], 20.00th=[38144],
+     | 30.00th=[38144], 40.00th=[38656], 50.00th=[38656], 60.00th=[39168],
+     | 70.00th=[39168], 80.00th=[39680], 90.00th=[40704], 95.00th=[42240],
+     | 99.00th=[46336], 99.50th=[47872], 99.90th=[51456], 99.95th=[53504],
+     | 99.99th=[70144]
+   bw (  MiB/s): min= 1246, max= 1276, per=100.00%, avg=1265.45, stdev= 6.75, samples=119
+   iops        : min=318984, max=326906, avg=323955.13, stdev=1728.01, samples=119
+  lat (usec)   : 50=99.81%, 100=0.18%, 250=0.01%, 500=0.01%, 750=0.01%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=518, majf=0, minf=2
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=100.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.1%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19437101,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=13
+
+Run status group 0 (all jobs):
+  WRITE: bw=1265MiB/s (1327MB/s), 1265MiB/s-1265MiB/s (1327MB/s-1327MB/s), io=74.1GiB (79.6GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=14
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27114 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27122: Wed Apr  6 10:40:03 2022
+  write: IOPS=325k, BW=1268MiB/s (1329MB/s)(74.3GiB/60001msec); 0 zone resets
+    slat (nsec): min=528, max=15936, avg=587.30, stdev=39.33
+    clat (usec): min=27, max=3971, avg=42.09, stdev= 9.06
+     lat (usec): min=27, max=3972, avg=42.68, stdev= 9.06
+    clat percentiles (nsec):
+     |  1.00th=[38144],  5.00th=[39680], 10.00th=[40192], 20.00th=[40704],
+     | 30.00th=[41216], 40.00th=[41216], 50.00th=[41728], 60.00th=[41728],
+     | 70.00th=[42240], 80.00th=[42752], 90.00th=[43776], 95.00th=[45824],
+     | 99.00th=[50432], 99.50th=[51968], 99.90th=[56064], 99.95th=[57600],
+     | 99.99th=[82432]
+   bw (  MiB/s): min= 1254, max= 1283, per=100.00%, avg=1268.00, stdev= 7.20, samples=119
+   iops        : min=321046, max=328450, avg=324607.45, stdev=1843.64, samples=119
+  lat (usec)   : 50=98.68%, 100=1.31%, 250=0.01%, 500=0.01%, 750=0.01%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=205, majf=0, minf=2
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=100.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.1%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19475358,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=14
+
+Run status group 0 (all jobs):
+  WRITE: bw=1268MiB/s (1329MB/s), 1268MiB/s-1268MiB/s (1329MB/s-1329MB/s), io=74.3GiB (79.8GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=15
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27123 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27131: Wed Apr  6 10:41:04 2022
+  write: IOPS=326k, BW=1272MiB/s (1334MB/s)(74.6GiB/60001msec); 0 zone resets
+    slat (nsec): min=488, max=32344, avg=526.19, stdev=43.52
+    clat (usec): min=27, max=6145, avg=45.07, stdev=16.05
+     lat (usec): min=28, max=6146, avg=45.59, stdev=16.05
+    clat percentiles (usec):
+     |  1.00th=[   39],  5.00th=[   41], 10.00th=[   42], 20.00th=[   44],
+     | 30.00th=[   44], 40.00th=[   45], 50.00th=[   45], 60.00th=[   46],
+     | 70.00th=[   46], 80.00th=[   47], 90.00th=[   48], 95.00th=[   51],
+     | 99.00th=[   55], 99.50th=[   57], 99.90th=[   61], 99.95th=[   63],
+     | 99.99th=[  208]
+   bw (  MiB/s): min= 1245, max= 1298, per=100.00%, avg=1272.47, stdev=10.32, samples=119
+   iops        : min=318878, max=332494, avg=325753.26, stdev=2641.12, samples=119
+  lat (usec)   : 50=94.33%, 100=5.66%, 250=0.01%, 500=0.01%, 750=0.01%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=99.98%, sys=0.00%, ctx=556, majf=0, minf=0
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=100.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.1%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19543180,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=15
+
+Run status group 0 (all jobs):
+  WRITE: bw=1272MiB/s (1334MB/s), 1272MiB/s-1272MiB/s (1334MB/s-1334MB/s), io=74.6GiB (80.0GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=16
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27133 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27141: Wed Apr  6 10:42:05 2022
+  write: IOPS=323k, BW=1262MiB/s (1323MB/s)(73.9GiB/60001msec); 0 zone resets
+    slat (nsec): min=480, max=10920, avg=521.68, stdev=34.61
+    clat (usec): min=29, max=4431, avg=48.55, stdev= 9.46
+     lat (usec): min=30, max=4432, avg=49.08, stdev= 9.46
+    clat percentiles (nsec):
+     |  1.00th=[42240],  5.00th=[43776], 10.00th=[44288], 20.00th=[46336],
+     | 30.00th=[47360], 40.00th=[48384], 50.00th=[48896], 60.00th=[49408],
+     | 70.00th=[49920], 80.00th=[50432], 90.00th=[51456], 95.00th=[52992],
+     | 99.00th=[58624], 99.50th=[60160], 99.90th=[64768], 99.95th=[67072],
+     | 99.99th=[83456]
+   bw (  MiB/s): min= 1242, max= 1274, per=100.00%, avg=1262.11, stdev= 6.74, samples=119
+   iops        : min=317998, max=326304, avg=323101.31, stdev=1725.63, samples=119
+  lat (usec)   : 50=75.96%, 100=24.03%, 250=0.01%, 500=0.01%, 750=0.01%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=2, majf=0, minf=0
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.1%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19384771,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=16
+
+Run status group 0 (all jobs):
+  WRITE: bw=1262MiB/s (1323MB/s), 1262MiB/s-1262MiB/s (1323MB/s-1323MB/s), io=73.9GiB (79.4GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=17
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27142 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27151: Wed Apr  6 10:43:05 2022
+  write: IOPS=322k, BW=1259MiB/s (1320MB/s)(73.8GiB/60001msec); 0 zone resets
+    slat (nsec): min=520, max=13576, avg=574.69, stdev=39.31
+    clat (usec): min=31, max=4230, avg=51.70, stdev= 9.67
+     lat (usec): min=32, max=4231, avg=52.28, stdev= 9.67
+    clat percentiles (nsec):
+     |  1.00th=[45824],  5.00th=[46848], 10.00th=[47872], 20.00th=[48384],
+     | 30.00th=[49408], 40.00th=[50944], 50.00th=[51968], 60.00th=[52480],
+     | 70.00th=[53504], 80.00th=[54016], 90.00th=[55040], 95.00th=[56064],
+     | 99.00th=[62720], 99.50th=[65280], 99.90th=[70144], 99.95th=[72192],
+     | 99.99th=[79360]
+   bw (  MiB/s): min= 1239, max= 1274, per=100.00%, avg=1259.47, stdev= 6.35, samples=119
+   iops        : min=317216, max=326302, avg=322425.16, stdev=1625.78, samples=119
+  lat (usec)   : 50=35.56%, 100=64.44%, 250=0.01%, 500=0.01%, 750=0.01%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=233, majf=0, minf=2
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.1%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19342235,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=17
+
+Run status group 0 (all jobs):
+  WRITE: bw=1259MiB/s (1320MB/s), 1259MiB/s-1259MiB/s (1320MB/s-1320MB/s), io=73.8GiB (79.2GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=18
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27152 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27160: Wed Apr  6 10:44:06 2022
+  write: IOPS=321k, BW=1255MiB/s (1315MB/s)(73.5GiB/60001msec); 0 zone resets
+    slat (nsec): min=520, max=72257, avg=572.59, stdev=40.75
+    clat (usec): min=34, max=3161, avg=55.01, stdev= 6.45
+     lat (usec): min=35, max=3162, avg=55.58, stdev= 6.45
+    clat percentiles (nsec):
+     |  1.00th=[48896],  5.00th=[50432], 10.00th=[50944], 20.00th=[51968],
+     | 30.00th=[52480], 40.00th=[53504], 50.00th=[55040], 60.00th=[56064],
+     | 70.00th=[56576], 80.00th=[57600], 90.00th=[58624], 95.00th=[59648],
+     | 99.00th=[66048], 99.50th=[69120], 99.90th=[74240], 99.95th=[76288],
+     | 99.99th=[83456]
+   bw (  MiB/s): min= 1234, max= 1266, per=100.00%, avg=1254.62, stdev= 7.33, samples=119
+   iops        : min=316028, max=324270, avg=321182.59, stdev=1877.16, samples=119
+  lat (usec)   : 50=3.07%, 100=96.93%, 250=0.01%, 500=0.01%, 750=0.01%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=196, majf=0, minf=2
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19269564,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=18
+
+Run status group 0 (all jobs):
+  WRITE: bw=1255MiB/s (1315MB/s), 1255MiB/s-1255MiB/s (1315MB/s-1315MB/s), io=73.5GiB (78.9GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=19
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27161 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27169: Wed Apr  6 10:45:07 2022
+  write: IOPS=321k, BW=1254MiB/s (1315MB/s)(73.5GiB/60001msec); 0 zone resets
+    slat (nsec): min=472, max=19840, avg=521.89, stdev=36.20
+    clat (usec): min=34, max=5825, avg=58.20, stdev=13.78
+     lat (usec): min=35, max=5826, avg=58.72, stdev=13.78
+    clat percentiles (usec):
+     |  1.00th=[   52],  5.00th=[   53], 10.00th=[   54], 20.00th=[   55],
+     | 30.00th=[   56], 40.00th=[   57], 50.00th=[   59], 60.00th=[   60],
+     | 70.00th=[   61], 80.00th=[   62], 90.00th=[   63], 95.00th=[   65],
+     | 99.00th=[   73], 99.50th=[   75], 99.90th=[   80], 99.95th=[   83],
+     | 99.99th=[  112]
+   bw (  MiB/s): min= 1233, max= 1278, per=100.00%, avg=1254.41, stdev=11.74, samples=119
+   iops        : min=315836, max=327296, avg=321129.71, stdev=3005.29, samples=119
+  lat (usec)   : 50=0.06%, 100=99.93%, 250=0.01%, 500=0.01%, 750=0.01%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=190, majf=0, minf=2
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19265377,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=19
+
+Run status group 0 (all jobs):
+  WRITE: bw=1254MiB/s (1315MB/s), 1254MiB/s-1254MiB/s (1315MB/s-1315MB/s), io=73.5GiB (78.9GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=20
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27170 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27178: Wed Apr  6 10:46:08 2022
+  write: IOPS=311k, BW=1213MiB/s (1272MB/s)(71.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=488, max=11312, avg=543.00, stdev=38.60
+    clat (usec): min=36, max=30666, avg=63.44, stdev=47.39
+     lat (usec): min=37, max=30667, avg=63.98, stdev=47.39
+    clat percentiles (usec):
+     |  1.00th=[   57],  5.00th=[   58], 10.00th=[   59], 20.00th=[   60],
+     | 30.00th=[   60], 40.00th=[   61], 50.00th=[   62], 60.00th=[   65],
+     | 70.00th=[   66], 80.00th=[   67], 90.00th=[   69], 95.00th=[   71],
+     | 99.00th=[   82], 99.50th=[   85], 99.90th=[   95], 99.95th=[  122],
+     | 99.99th=[ 1090]
+   bw (  MiB/s): min=  537, max= 1247, per=100.00%, avg=1213.01, stdev=75.68, samples=119
+   iops        : min=137562, max=319408, avg=310531.19, stdev=19374.64, samples=119
+  lat (usec)   : 50=0.02%, 100=99.91%, 250=0.04%, 500=0.01%, 750=0.01%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%, 50=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=193, majf=0, minf=2
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,18631413,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=20
+
+Run status group 0 (all jobs):
+  WRITE: bw=1213MiB/s (1272MB/s), 1213MiB/s-1213MiB/s (1272MB/s-1272MB/s), io=71.1GiB (76.3GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=21
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27179 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27187: Wed Apr  6 10:47:08 2022
+  write: IOPS=312k, BW=1220MiB/s (1280MB/s)(71.5GiB/60001msec); 0 zone resets
+    slat (nsec): min=496, max=20017, avg=542.20, stdev=36.32
+    clat (usec): min=39, max=20631, avg=66.21, stdev=32.11
+     lat (usec): min=40, max=20632, avg=66.75, stdev=32.11
+    clat percentiles (usec):
+     |  1.00th=[   61],  5.00th=[   62], 10.00th=[   63], 20.00th=[   63],
+     | 30.00th=[   64], 40.00th=[   64], 50.00th=[   65], 60.00th=[   65],
+     | 70.00th=[   70], 80.00th=[   72], 90.00th=[   73], 95.00th=[   74],
+     | 99.00th=[   80], 99.50th=[   84], 99.90th=[   91], 99.95th=[   95],
+     | 99.99th=[  143]
+   bw (  MiB/s): min=  903, max= 1246, per=99.99%, avg=1220.16, stdev=30.25, samples=119
+   iops        : min=231314, max=319082, avg=312361.04, stdev=7744.16, samples=119
+  lat (usec)   : 50=0.01%, 100=99.97%, 250=0.02%, 500=0.01%, 750=0.01%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%, 50=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=194, majf=0, minf=2
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,18743858,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=21
+
+Run status group 0 (all jobs):
+  WRITE: bw=1220MiB/s (1280MB/s), 1220MiB/s-1220MiB/s (1280MB/s-1280MB/s), io=71.5GiB (76.8GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=22
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27188 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27196: Wed Apr  6 10:48:09 2022
+  write: IOPS=323k, BW=1261MiB/s (1323MB/s)(73.9GiB/60001msec); 0 zone resets
+    slat (nsec): min=504, max=13249, avg=539.16, stdev=35.51
+    clat (usec): min=41, max=2959, avg=67.14, stdev= 6.94
+     lat (usec): min=42, max=2959, avg=67.68, stdev= 6.94
+    clat percentiles (usec):
+     |  1.00th=[   61],  5.00th=[   62], 10.00th=[   63], 20.00th=[   64],
+     | 30.00th=[   64], 40.00th=[   65], 50.00th=[   66], 60.00th=[   68],
+     | 70.00th=[   71], 80.00th=[   72], 90.00th=[   74], 95.00th=[   75],
+     | 99.00th=[   82], 99.50th=[   85], 99.90th=[   92], 99.95th=[   95],
+     | 99.99th=[  102]
+   bw (  MiB/s): min= 1247, max= 1273, per=100.00%, avg=1261.32, stdev= 6.55, samples=119
+   iops        : min=319466, max=326046, avg=322898.59, stdev=1677.05, samples=119
+  lat (usec)   : 50=0.01%, 100=99.98%, 250=0.01%, 500=0.01%, 750=0.01%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=276, majf=0, minf=0
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19373627,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=22
+
+Run status group 0 (all jobs):
+  WRITE: bw=1261MiB/s (1323MB/s), 1261MiB/s-1261MiB/s (1323MB/s-1323MB/s), io=73.9GiB (79.4GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=23
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27197 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27205: Wed Apr  6 10:49:10 2022
+  write: IOPS=324k, BW=1265MiB/s (1326MB/s)(74.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=488, max=40137, avg=544.96, stdev=43.09
+    clat (usec): min=42, max=3330, avg=70.07, stdev= 8.67
+     lat (usec): min=43, max=3330, avg=70.61, stdev= 8.67
+    clat percentiles (usec):
+     |  1.00th=[   64],  5.00th=[   65], 10.00th=[   66], 20.00th=[   67],
+     | 30.00th=[   68], 40.00th=[   68], 50.00th=[   69], 60.00th=[   70],
+     | 70.00th=[   72], 80.00th=[   76], 90.00th=[   78], 95.00th=[   79],
+     | 99.00th=[   86], 99.50th=[   90], 99.90th=[   96], 99.95th=[   99],
+     | 99.99th=[  109]
+   bw (  MiB/s): min= 1251, max= 1275, per=100.00%, avg=1264.94, stdev= 6.12, samples=119
+   iops        : min=320298, max=326440, avg=323824.45, stdev=1567.19, samples=119
+  lat (usec)   : 50=0.01%, 100=99.95%, 250=0.04%, 500=0.01%, 750=0.01%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=606, majf=0, minf=2
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19429289,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=23
+
+Run status group 0 (all jobs):
+  WRITE: bw=1265MiB/s (1326MB/s), 1265MiB/s-1265MiB/s (1326MB/s-1326MB/s), io=74.1GiB (79.6GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=24
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27206 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27214: Wed Apr  6 10:50:11 2022
+  write: IOPS=324k, BW=1266MiB/s (1327MB/s)(74.2GiB/60001msec); 0 zone resets
+    slat (nsec): min=496, max=19777, avg=546.72, stdev=37.05
+    clat (usec): min=44, max=4564, avg=73.11, stdev=12.16
+     lat (usec): min=44, max=4564, avg=73.65, stdev=12.16
+    clat percentiles (usec):
+     |  1.00th=[   67],  5.00th=[   69], 10.00th=[   69], 20.00th=[   70],
+     | 30.00th=[   71], 40.00th=[   71], 50.00th=[   72], 60.00th=[   72],
+     | 70.00th=[   75], 80.00th=[   79], 90.00th=[   81], 95.00th=[   82],
+     | 99.00th=[   90], 99.50th=[   94], 99.90th=[  100], 99.95th=[  103],
+     | 99.99th=[  116]
+   bw (  MiB/s): min= 1244, max= 1281, per=100.00%, avg=1265.97, stdev= 6.47, samples=119
+   iops        : min=318496, max=328112, avg=324087.29, stdev=1656.06, samples=119
+  lat (usec)   : 50=0.01%, 100=99.89%, 250=0.10%, 500=0.01%, 750=0.01%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=191, majf=0, minf=2
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19441888,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=24
+
+Run status group 0 (all jobs):
+  WRITE: bw=1266MiB/s (1327MB/s), 1266MiB/s-1266MiB/s (1327MB/s-1327MB/s), io=74.2GiB (79.6GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=25
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27215 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27223: Wed Apr  6 10:51:12 2022
+  write: IOPS=324k, BW=1266MiB/s (1328MB/s)(74.2GiB/60001msec); 0 zone resets
+    slat (nsec): min=472, max=21200, avg=513.70, stdev=36.46
+    clat (usec): min=46, max=4817, avg=76.16, stdev=12.61
+     lat (usec): min=46, max=4818, avg=76.67, stdev=12.61
+    clat percentiles (usec):
+     |  1.00th=[   71],  5.00th=[   72], 10.00th=[   73], 20.00th=[   73],
+     | 30.00th=[   74], 40.00th=[   74], 50.00th=[   75], 60.00th=[   75],
+     | 70.00th=[   76], 80.00th=[   82], 90.00th=[   85], 95.00th=[   87],
+     | 99.00th=[   93], 99.50th=[   97], 99.90th=[  104], 99.95th=[  108],
+     | 99.99th=[  118]
+   bw (  MiB/s): min= 1244, max= 1279, per=100.00%, avg=1266.28, stdev= 7.19, samples=119
+   iops        : min=318520, max=327532, avg=324167.80, stdev=1841.73, samples=119
+  lat (usec)   : 50=0.01%, 100=99.73%, 250=0.26%, 500=0.01%, 750=0.01%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=191, majf=0, minf=2
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19450448,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=25
+
+Run status group 0 (all jobs):
+  WRITE: bw=1266MiB/s (1328MB/s), 1266MiB/s-1266MiB/s (1328MB/s-1328MB/s), io=74.2GiB (79.7GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=26
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27225 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27233: Wed Apr  6 10:52:12 2022
+  write: IOPS=325k, BW=1270MiB/s (1332MB/s)(74.4GiB/60001msec); 0 zone resets
+    slat (nsec): min=488, max=12352, avg=546.00, stdev=40.25
+    clat (usec): min=47, max=5461, avg=78.99, stdev=18.67
+     lat (usec): min=48, max=5462, avg=79.53, stdev=18.67
+    clat percentiles (usec):
+     |  1.00th=[   73],  5.00th=[   74], 10.00th=[   75], 20.00th=[   76],
+     | 30.00th=[   76], 40.00th=[   77], 50.00th=[   77], 60.00th=[   78],
+     | 70.00th=[   79], 80.00th=[   85], 90.00th=[   88], 95.00th=[   90],
+     | 99.00th=[   98], 99.50th=[  101], 99.90th=[  108], 99.95th=[  112],
+     | 99.99th=[  461]
+   bw (  MiB/s): min= 1248, max= 1292, per=100.00%, avg=1270.39, stdev= 9.14, samples=119
+   iops        : min=319672, max=330818, avg=325219.76, stdev=2339.09, samples=119
+  lat (usec)   : 50=0.01%, 100=99.40%, 250=0.59%, 500=0.01%, 750=0.01%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=549, majf=0, minf=0
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19511814,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=26
+
+Run status group 0 (all jobs):
+  WRITE: bw=1270MiB/s (1332MB/s), 1270MiB/s-1270MiB/s (1332MB/s-1332MB/s), io=74.4GiB (79.9GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=27
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27234 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27242: Wed Apr  6 10:53:13 2022
+  write: IOPS=324k, BW=1266MiB/s (1328MB/s)(74.2GiB/60001msec); 0 zone resets
+    slat (nsec): min=512, max=12392, avg=563.16, stdev=36.89
+    clat (usec): min=52, max=4775, avg=82.26, stdev=13.42
+     lat (usec): min=52, max=4776, avg=82.82, stdev=13.42
+    clat percentiles (usec):
+     |  1.00th=[   78],  5.00th=[   79], 10.00th=[   79], 20.00th=[   80],
+     | 30.00th=[   80], 40.00th=[   80], 50.00th=[   81], 60.00th=[   81],
+     | 70.00th=[   82], 80.00th=[   84], 90.00th=[   93], 95.00th=[   94],
+     | 99.00th=[  100], 99.50th=[  104], 99.90th=[  112], 99.95th=[  115],
+     | 99.99th=[  127]
+   bw (  MiB/s): min= 1246, max= 1280, per=100.00%, avg=1266.43, stdev= 6.93, samples=119
+   iops        : min=319148, max=327790, avg=324205.65, stdev=1774.09, samples=119
+  lat (usec)   : 100=99.06%, 250=0.94%, 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=191, majf=0, minf=2
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19452302,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=27
+
+Run status group 0 (all jobs):
+  WRITE: bw=1266MiB/s (1328MB/s), 1266MiB/s-1266MiB/s (1328MB/s-1328MB/s), io=74.2GiB (79.7GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=28
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27243 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27251: Wed Apr  6 10:54:14 2022
+  write: IOPS=325k, BW=1269MiB/s (1330MB/s)(74.3GiB/60001msec); 0 zone resets
+    slat (nsec): min=496, max=48281, avg=534.45, stdev=36.97
+    clat (usec): min=52, max=4606, avg=85.21, stdev=12.24
+     lat (usec): min=53, max=4606, avg=85.75, stdev=12.24
+    clat percentiles (usec):
+     |  1.00th=[   80],  5.00th=[   81], 10.00th=[   82], 20.00th=[   82],
+     | 30.00th=[   83], 40.00th=[   83], 50.00th=[   84], 60.00th=[   84],
+     | 70.00th=[   85], 80.00th=[   87], 90.00th=[   96], 95.00th=[   98],
+     | 99.00th=[  104], 99.50th=[  109], 99.90th=[  116], 99.95th=[  119],
+     | 99.99th=[  130]
+   bw (  MiB/s): min= 1250, max= 1285, per=100.00%, avg=1268.67, stdev= 7.14, samples=119
+   iops        : min=320200, max=329052, avg=324780.10, stdev=1826.67, samples=119
+  lat (usec)   : 100=98.16%, 250=1.84%, 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=194, majf=0, minf=2
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19486546,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=28
+
+Run status group 0 (all jobs):
+  WRITE: bw=1269MiB/s (1330MB/s), 1269MiB/s-1269MiB/s (1330MB/s-1330MB/s), io=74.3GiB (79.8GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=29
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27252 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27260: Wed Apr  6 10:55:15 2022
+  write: IOPS=317k, BW=1239MiB/s (1300MB/s)(72.6GiB/60001msec); 0 zone resets
+    slat (nsec): min=488, max=9888, avg=529.35, stdev=35.09
+    clat (usec): min=54, max=16034, avg=90.41, stdev=37.49
+     lat (usec): min=55, max=16034, avg=90.94, stdev=37.49
+    clat percentiles (usec):
+     |  1.00th=[   84],  5.00th=[   86], 10.00th=[   86], 20.00th=[   87],
+     | 30.00th=[   87], 40.00th=[   88], 50.00th=[   88], 60.00th=[   89],
+     | 70.00th=[   90], 80.00th=[   94], 90.00th=[  101], 95.00th=[  104],
+     | 99.00th=[  112], 99.50th=[  115], 99.90th=[  123], 99.95th=[  126],
+     | 99.99th=[  281]
+   bw (  MiB/s): min= 1055, max= 1278, per=100.00%, avg=1239.45, stdev=50.26, samples=119
+   iops        : min=270310, max=327264, avg=317299.98, stdev=12866.21, samples=119
+  lat (usec)   : 100=87.93%, 250=12.05%, 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=188, majf=0, minf=2
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19038424,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=29
+
+Run status group 0 (all jobs):
+  WRITE: bw=1239MiB/s (1300MB/s), 1239MiB/s-1239MiB/s (1300MB/s-1300MB/s), io=72.6GiB (78.0GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=30
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27261 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27269: Wed Apr  6 10:56:15 2022
+  write: IOPS=323k, BW=1263MiB/s (1324MB/s)(74.0GiB/60001msec); 0 zone resets
+    slat (nsec): min=496, max=7856, avg=551.84, stdev=35.93
+    clat (usec): min=56, max=3762, avg=91.81, stdev=11.25
+     lat (usec): min=57, max=3763, avg=92.36, stdev=11.25
+    clat percentiles (usec):
+     |  1.00th=[   87],  5.00th=[   88], 10.00th=[   89], 20.00th=[   89],
+     | 30.00th=[   90], 40.00th=[   90], 50.00th=[   91], 60.00th=[   91],
+     | 70.00th=[   92], 80.00th=[   92], 90.00th=[   99], 95.00th=[  105],
+     | 99.00th=[  111], 99.50th=[  115], 99.90th=[  123], 99.95th=[  126],
+     | 99.99th=[  139]
+   bw (  MiB/s): min= 1248, max= 1281, per=100.00%, avg=1263.33, stdev= 6.58, samples=119
+   iops        : min=319674, max=328118, avg=323411.97, stdev=1683.74, samples=119
+  lat (usec)   : 100=90.82%, 250=9.17%, 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=77, majf=0, minf=0
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19401107,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=30
+
+Run status group 0 (all jobs):
+  WRITE: bw=1263MiB/s (1324MB/s), 1263MiB/s-1263MiB/s (1324MB/s-1324MB/s), io=74.0GiB (79.5GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=31
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27270 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27278: Wed Apr  6 10:57:16 2022
+  write: IOPS=325k, BW=1271MiB/s (1333MB/s)(74.5GiB/60001msec); 0 zone resets
+    slat (nsec): min=464, max=12544, avg=516.65, stdev=37.86
+    clat (usec): min=58, max=5040, avg=94.30, stdev=18.72
+     lat (usec): min=59, max=5041, avg=94.81, stdev=18.72
+    clat percentiles (usec):
+     |  1.00th=[   89],  5.00th=[   90], 10.00th=[   91], 20.00th=[   91],
+     | 30.00th=[   92], 40.00th=[   92], 50.00th=[   93], 60.00th=[   93],
+     | 70.00th=[   94], 80.00th=[   96], 90.00th=[  102], 95.00th=[  108],
+     | 99.00th=[  114], 99.50th=[  117], 99.90th=[  125], 99.95th=[  129],
+     | 99.99th=[  701]
+   bw (  MiB/s): min= 1241, max= 1286, per=100.00%, avg=1271.19, stdev= 9.71, samples=119
+   iops        : min=317950, max=329416, avg=325424.15, stdev=2486.30, samples=119
+  lat (usec)   : 100=87.39%, 250=12.59%, 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=363, majf=0, minf=0
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19524100,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=31
+
+Run status group 0 (all jobs):
+  WRITE: bw=1271MiB/s (1333MB/s), 1271MiB/s-1271MiB/s (1333MB/s-1333MB/s), io=74.5GiB (80.0GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=32
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid27281 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=27289: Wed Apr  6 10:58:17 2022
+  write: IOPS=325k, BW=1268MiB/s (1329MB/s)(74.3GiB/60001msec); 0 zone resets
+    slat (nsec): min=496, max=38665, avg=550.41, stdev=37.73
+    clat (usec): min=59, max=4716, avg=97.63, stdev=15.04
+     lat (usec): min=60, max=4716, avg=98.18, stdev=15.04
+    clat percentiles (usec):
+     |  1.00th=[   92],  5.00th=[   94], 10.00th=[   94], 20.00th=[   95],
+     | 30.00th=[   96], 40.00th=[   96], 50.00th=[   96], 60.00th=[   97],
+     | 70.00th=[   97], 80.00th=[   98], 90.00th=[  103], 95.00th=[  111],
+     | 99.00th=[  117], 99.50th=[  121], 99.90th=[  130], 99.95th=[  133],
+     | 99.99th=[  285]
+   bw (  MiB/s): min= 1249, max= 1289, per=100.00%, avg=1268.00, stdev= 8.28, samples=119
+   iops        : min=319802, max=330098, avg=324607.87, stdev=2119.83, samples=119
+  lat (usec)   : 100=86.21%, 250=13.78%, 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=189, majf=0, minf=2
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=100.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19474965,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=32
+
+Run status group 0 (all jobs):
+  WRITE: bw=1268MiB/s (1329MB/s), 1268MiB/s-1268MiB/s (1329MB/s-1329MB/s), io=74.3GiB (79.8GB), run=60001-60001msec

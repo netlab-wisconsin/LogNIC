@@ -9,6 +9,7 @@ dag = nx.DiGraph()
 
 
 def func(x, performance, Q_num, Q_len, overhead):
+    performance = 1.2525390625
     dag.nodes['IP'].update({'performance': performance, 'overhead': overhead * 1e-6, 'Q_num': Q_num, 'Q_len': Q_len})
     res = []
     for i in x:
@@ -18,24 +19,24 @@ def func(x, performance, Q_num, Q_len, overhead):
 
 
 def main():
-    data_range = 120
-    bw, lat = read_ssd_data("data/SSD-4KB-randread.txt")
+    data_range = 4
+    bw, lat = read_ssd_data("data/SSD/4KB-seqwrite.txt")
     config = read_config("graphs/v2/single-ip.yml")
     global dag
     dag = create_dag(config['software'][0])
     arg, _ = curve_fit(func, bw[:data_range], lat[:data_range], bounds=((0, 0, 1, 0), (np.inf, np.inf, np.inf, np.inf)))
     print("performance(GB/s) Q_num Q_len overhead(us)")
     print(*arg)
-    plt.plot(bw[:128], lat[:128])
-    bw = [arg[0] * i / 100 for i in range(91)]
+    plt.plot(bw[:5], lat[:5])
+    bw = [arg[0] * i / 100 for i in range(160)]
     plt.plot(bw, func(bw, *arg))
     plt.show()
 
 
 if __name__ == '__main__':
-    main()
-    # bw, lat = read_ssd_data("data/SSD-128KB-seqread.txt")
-    # plt.plot(bw, lat)
-    # bw, lat = read_ssd_data("data/NVMe-oF-4KB-randread.txt")
-    # plt.plot(bw, lat)
-    # plt.show()
+    # main()
+    bw, lat = read_ssd_data("data/SSD/4KB-seqwrite.txt")
+    plt.plot(bw[:5], lat[:5])
+    bw, lat = read_ssd_data("data/NVMe-oF/4KB-seqwrite.txt")
+    plt.plot(bw[:10], lat[:10])
+    plt.show()

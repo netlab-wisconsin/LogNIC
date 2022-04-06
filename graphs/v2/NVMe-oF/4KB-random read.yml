@@ -5,8 +5,8 @@ hardware:
     CPU:
     SSD:
   edges:
-    CPU-egress: 3.940
-    CPU-ingress: 3.940
+    CPU-egress: 12.5
+    CPU-ingress: 12.5
     CPU-SSD: 3.940
 software:
   - bandwidth-in: 1.5

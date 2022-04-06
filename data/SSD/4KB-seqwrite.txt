@@ -1,0 +1,1277 @@
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=1
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26767 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26772: Wed Apr  6 09:46:36 2022
+  write: IOPS=110k, BW=431MiB/s (452MB/s)(25.2GiB/60001msec); 0 zone resets
+    slat (nsec): min=176, max=20264, avg=207.50, stdev=34.05
+    clat (usec): min=8, max=29369, avg= 8.44, stdev=28.88
+     lat (usec): min=8, max=29369, avg= 8.65, stdev=28.88
+    clat percentiles (nsec):
+     |  1.00th=[ 8160],  5.00th=[ 8256], 10.00th=[ 8256], 20.00th=[ 8256],
+     | 30.00th=[ 8256], 40.00th=[ 8384], 50.00th=[ 8384], 60.00th=[ 8384],
+     | 70.00th=[ 8512], 80.00th=[ 8512], 90.00th=[ 8640], 95.00th=[ 8768],
+     | 99.00th=[ 9280], 99.50th=[ 9664], 99.90th=[11456], 99.95th=[12864],
+     | 99.99th=[16320]
+   bw (  KiB/s): min=416200, max=445224, per=100.00%, avg=441122.15, stdev=6737.31, samples=119
+   iops        : min=104050, max=111306, avg=110280.54, stdev=1684.33, samples=119
+  lat (usec)   : 10=99.66%, 20=0.34%, 50=0.01%, 100=0.01%, 250=0.01%
+  lat (usec)   : 750=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%, 50=0.01%
+  cpu          : usr=99.97%, sys=0.00%, ctx=3559, majf=0, minf=1
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,6617048,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=431MiB/s (452MB/s), 431MiB/s-431MiB/s (452MB/s-452MB/s), io=25.2GiB (27.1GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=2
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26777 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26782: Wed Apr  6 09:47:38 2022
+  write: IOPS=212k, BW=826MiB/s (867MB/s)(48.4GiB/60000msec); 0 zone resets
+    slat (nsec): min=184, max=37600, avg=218.40, stdev=26.94
+    clat (nsec): min=8064, max=70393, avg=8823.96, stdev=372.13
+     lat (nsec): min=8280, max=70609, avg=9042.36, stdev=375.16
+    clat percentiles (nsec):
+     |  1.00th=[ 8256],  5.00th=[ 8384], 10.00th=[ 8384], 20.00th=[ 8512],
+     | 30.00th=[ 8640], 40.00th=[ 8640], 50.00th=[ 8768], 60.00th=[ 8896],
+     | 70.00th=[ 9024], 80.00th=[ 9152], 90.00th=[ 9280], 95.00th=[ 9536],
+     | 99.00th=[ 9792], 99.50th=[10048], 99.90th=[10816], 99.95th=[11456],
+     | 99.99th=[13504]
+   bw (  KiB/s): min=840888, max=852480, per=100.00%, avg=846358.05, stdev=2445.63, samples=119
+   iops        : min=210222, max=213120, avg=211589.51, stdev=611.41, samples=119
+  lat (usec)   : 10=99.43%, 20=0.57%, 50=0.01%, 100=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=1301, majf=0, minf=1
+  IO depths    : 1=0.1%, 2=100.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,12694788,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=2
+
+Run status group 0 (all jobs):
+  WRITE: bw=826MiB/s (867MB/s), 826MiB/s-826MiB/s (867MB/s-867MB/s), io=48.4GiB (52.0GB), run=60000-60000msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=3
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26783 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26788: Wed Apr  6 09:48:40 2022
+  write: IOPS=289k, BW=1128MiB/s (1183MB/s)(66.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=208, max=30088, avg=245.66, stdev=30.20
+    clat (nsec): min=8080, max=1754.4k, avg=9726.01, stdev=893.28
+     lat (nsec): min=8320, max=1754.7k, avg=9971.67, stdev=893.48
+    clat percentiles (nsec):
+     |  1.00th=[ 8768],  5.00th=[ 9024], 10.00th=[ 9152], 20.00th=[ 9408],
+     | 30.00th=[ 9408], 40.00th=[ 9536], 50.00th=[ 9664], 60.00th=[ 9792],
+     | 70.00th=[ 9920], 80.00th=[10048], 90.00th=[10304], 95.00th=[10688],
+     | 99.00th=[11456], 99.50th=[11712], 99.90th=[12480], 99.95th=[12864],
+     | 99.99th=[14400]
+   bw (  MiB/s): min= 1120, max= 1131, per=100.00%, avg=1128.44, stdev= 2.18, samples=119
+   iops        : min=286832, max=289750, avg=288880.15, stdev=558.61, samples=119
+  lat (usec)   : 10=77.84%, 20=22.15%, 50=0.01%, 100=0.01%, 250=0.01%
+  lat (msec)   : 2=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=1431, majf=0, minf=1
+  IO depths    : 1=0.1%, 2=100.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,17331992,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=3
+
+Run status group 0 (all jobs):
+  WRITE: bw=1128MiB/s (1183MB/s), 1128MiB/s-1128MiB/s (1183MB/s-1183MB/s), io=66.1GiB (71.0GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=4
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26790 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26795: Wed Apr  6 09:49:42 2022
+  write: IOPS=326k, BW=1274MiB/s (1335MB/s)(74.6GiB/60001msec); 0 zone resets
+    slat (nsec): min=176, max=29641, avg=202.20, stdev=30.22
+    clat (usec): min=8, max=6216, avg=11.70, stdev= 7.85
+     lat (usec): min=8, max=6217, avg=11.90, stdev= 7.85
+    clat percentiles (nsec):
+     |  1.00th=[ 9536],  5.00th=[10176], 10.00th=[10560], 20.00th=[10944],
+     | 30.00th=[11200], 40.00th=[11456], 50.00th=[11584], 60.00th=[11712],
+     | 70.00th=[11968], 80.00th=[12352], 90.00th=[12992], 95.00th=[13504],
+     | 99.00th=[14528], 99.50th=[14912], 99.90th=[16064], 99.95th=[16768],
+     | 99.99th=[24704]
+   bw (  MiB/s): min= 1251, max= 1309, per=100.00%, avg=1273.68, stdev=11.00, samples=119
+   iops        : min=320338, max=335226, avg=326060.89, stdev=2814.80, samples=119
+  lat (usec)   : 10=3.62%, 20=96.37%, 50=0.01%, 100=0.01%, 250=0.01%
+  lat (usec)   : 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=99.98%, sys=0.00%, ctx=2246, majf=0, minf=1
+  IO depths    : 1=0.1%, 2=0.1%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19561540,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=4
+
+Run status group 0 (all jobs):
+  WRITE: bw=1274MiB/s (1335MB/s), 1274MiB/s-1274MiB/s (1335MB/s-1335MB/s), io=74.6GiB (80.1GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=5
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26796 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26801: Wed Apr  6 09:50:45 2022
+  write: IOPS=328k, BW=1281MiB/s (1343MB/s)(75.0GiB/60001msec); 0 zone resets
+    slat (nsec): min=208, max=9216, avg=243.35, stdev=25.73
+    clat (usec): min=8, max=8088, avg=14.59, stdev=15.28
+     lat (usec): min=8, max=8089, avg=14.84, stdev=15.28
+    clat percentiles (nsec):
+     |  1.00th=[11968],  5.00th=[12864], 10.00th=[13248], 20.00th=[13632],
+     | 30.00th=[13888], 40.00th=[14144], 50.00th=[14400], 60.00th=[14528],
+     | 70.00th=[14912], 80.00th=[15424], 90.00th=[16064], 95.00th=[16768],
+     | 99.00th=[18048], 99.50th=[18816], 99.90th=[20352], 99.95th=[21376],
+     | 99.99th=[79360]
+   bw (  MiB/s): min= 1249, max= 1307, per=100.00%, avg=1280.83, stdev=10.05, samples=119
+   iops        : min=319894, max=334752, avg=327892.66, stdev=2573.82, samples=119
+  lat (usec)   : 10=0.01%, 20=99.86%, 50=0.12%, 100=0.01%, 250=0.01%
+  lat (usec)   : 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=191, majf=0, minf=0
+  IO depths    : 1=0.1%, 2=0.1%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19671032,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=5
+
+Run status group 0 (all jobs):
+  WRITE: bw=1281MiB/s (1343MB/s), 1281MiB/s-1281MiB/s (1343MB/s-1343MB/s), io=75.0GiB (80.6GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=6
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26802 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26807: Wed Apr  6 09:51:47 2022
+  write: IOPS=328k, BW=1280MiB/s (1342MB/s)(75.0GiB/60001msec); 0 zone resets
+    slat (nsec): min=216, max=29369, avg=247.59, stdev=26.27
+    clat (usec): min=9, max=11911, avg=17.64, stdev=19.38
+     lat (usec): min=9, max=11911, avg=17.89, stdev=19.38
+    clat percentiles (usec):
+     |  1.00th=[   15],  5.00th=[   16], 10.00th=[   17], 20.00th=[   17],
+     | 30.00th=[   18], 40.00th=[   18], 50.00th=[   18], 60.00th=[   18],
+     | 70.00th=[   18], 80.00th=[   19], 90.00th=[   20], 95.00th=[   21],
+     | 99.00th=[   22], 99.50th=[   23], 99.90th=[   25], 99.95th=[   27],
+     | 99.99th=[  163]
+   bw (  MiB/s): min= 1245, max= 1300, per=100.00%, avg=1280.21, stdev=10.55, samples=119
+   iops        : min=318784, max=333032, avg=327733.61, stdev=2701.80, samples=119
+  lat (usec)   : 10=0.01%, 20=94.88%, 50=5.09%, 100=0.01%, 250=0.01%
+  lat (usec)   : 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=302, majf=0, minf=0
+  IO depths    : 1=0.1%, 2=0.1%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.1%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19661567,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=6
+
+Run status group 0 (all jobs):
+  WRITE: bw=1280MiB/s (1342MB/s), 1280MiB/s-1280MiB/s (1342MB/s-1342MB/s), io=75.0GiB (80.5GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=7
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26808 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26813: Wed Apr  6 09:52:49 2022
+  write: IOPS=328k, BW=1281MiB/s (1343MB/s)(75.0GiB/60001msec); 0 zone resets
+    slat (nsec): min=184, max=29409, avg=223.39, stdev=25.76
+    clat (usec): min=9, max=8945, avg=20.73, stdev=18.62
+     lat (usec): min=10, max=8945, avg=20.96, stdev=18.62
+    clat percentiles (usec):
+     |  1.00th=[   17],  5.00th=[   18], 10.00th=[   18], 20.00th=[   19],
+     | 30.00th=[   20], 40.00th=[   21], 50.00th=[   21], 60.00th=[   22],
+     | 70.00th=[   22], 80.00th=[   23], 90.00th=[   24], 95.00th=[   25],
+     | 99.00th=[   27], 99.50th=[   28], 99.90th=[   31], 99.95th=[   47],
+     | 99.99th=[  265]
+   bw (  MiB/s): min= 1249, max= 1301, per=100.00%, avg=1280.67, stdev=10.46, samples=119
+   iops        : min=319922, max=333268, avg=327851.26, stdev=2677.67, samples=119
+  lat (usec)   : 10=0.01%, 20=34.00%, 50=65.96%, 100=0.02%, 250=0.01%
+  lat (usec)   : 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=302, majf=0, minf=1
+  IO depths    : 1=0.1%, 2=0.1%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.1%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19669729,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=7
+
+Run status group 0 (all jobs):
+  WRITE: bw=1281MiB/s (1343MB/s), 1281MiB/s-1281MiB/s (1343MB/s-1343MB/s), io=75.0GiB (80.6GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=8
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26815 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26820: Wed Apr  6 09:53:51 2022
+  write: IOPS=328k, BW=1281MiB/s (1343MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=216, max=8288, avg=245.58, stdev=24.95
+    clat (usec): min=9, max=7737, avg=23.74, stdev=19.10
+     lat (usec): min=10, max=7737, avg=23.98, stdev=19.10
+    clat percentiles (usec):
+     |  1.00th=[   19],  5.00th=[   21], 10.00th=[   21], 20.00th=[   22],
+     | 30.00th=[   22], 40.00th=[   22], 50.00th=[   23], 60.00th=[   24],
+     | 70.00th=[   26], 80.00th=[   27], 90.00th=[   28], 95.00th=[   29],
+     | 99.00th=[   32], 99.50th=[   33], 99.90th=[   42], 99.95th=[   81],
+     | 99.99th=[  375]
+   bw (  MiB/s): min= 1254, max= 1305, per=100.00%, avg=1281.22, stdev=10.50, samples=119
+   iops        : min=321162, max=334148, avg=327992.22, stdev=2687.04, samples=119
+  lat (usec)   : 10=0.01%, 20=4.39%, 50=95.52%, 100=0.05%, 250=0.02%
+  lat (usec)   : 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=303, majf=0, minf=1
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=100.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.1%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19677995,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=8
+
+Run status group 0 (all jobs):
+  WRITE: bw=1281MiB/s (1343MB/s), 1281MiB/s-1281MiB/s (1343MB/s-1343MB/s), io=75.1GiB (80.6GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=9
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26822 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26827: Wed Apr  6 09:54:53 2022
+  write: IOPS=328k, BW=1281MiB/s (1343MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=184, max=65137, avg=230.93, stdev=29.99
+    clat (usec): min=9, max=14766, avg=26.82, stdev=27.90
+     lat (usec): min=10, max=14766, avg=27.05, stdev=27.90
+    clat percentiles (usec):
+     |  1.00th=[   22],  5.00th=[   24], 10.00th=[   24], 20.00th=[   25],
+     | 30.00th=[   25], 40.00th=[   26], 50.00th=[   26], 60.00th=[   27],
+     | 70.00th=[   28], 80.00th=[   30], 90.00th=[   32], 95.00th=[   33],
+     | 99.00th=[   36], 99.50th=[   37], 99.90th=[   57], 99.95th=[  102],
+     | 99.99th=[  502]
+   bw (  MiB/s): min= 1252, max= 1314, per=100.00%, avg=1281.19, stdev=11.14, samples=119
+   iops        : min=320736, max=336628, avg=327984.10, stdev=2850.66, samples=119
+  lat (usec)   : 10=0.01%, 20=0.21%, 50=99.68%, 100=0.06%, 250=0.03%
+  lat (usec)   : 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=363, majf=0, minf=1
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=100.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.1%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19678288,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=9
+
+Run status group 0 (all jobs):
+  WRITE: bw=1281MiB/s (1343MB/s), 1281MiB/s-1281MiB/s (1343MB/s-1343MB/s), io=75.1GiB (80.6GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=10
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26828 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26833: Wed Apr  6 09:55:56 2022
+  write: IOPS=328k, BW=1281MiB/s (1344MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=192, max=18664, avg=232.30, stdev=28.85
+    clat (usec): min=9, max=12622, avg=29.87, stdev=28.80
+     lat (usec): min=10, max=12622, avg=30.10, stdev=28.80
+    clat percentiles (usec):
+     |  1.00th=[   25],  5.00th=[   27], 10.00th=[   28], 20.00th=[   28],
+     | 30.00th=[   29], 40.00th=[   29], 50.00th=[   29], 60.00th=[   30],
+     | 70.00th=[   30], 80.00th=[   32], 90.00th=[   35], 95.00th=[   36],
+     | 99.00th=[   39], 99.50th=[   41], 99.90th=[   74], 99.95th=[  129],
+     | 99.99th=[  553]
+   bw (  MiB/s): min= 1241, max= 1315, per=100.00%, avg=1281.42, stdev=11.11, samples=119
+   iops        : min=317938, max=336768, avg=328044.47, stdev=2844.43, samples=119
+  lat (usec)   : 10=0.01%, 20=0.02%, 50=99.83%, 100=0.08%, 250=0.04%
+  lat (usec)   : 500=0.01%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=512, majf=0, minf=1
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=100.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.1%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19681014,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=10
+
+Run status group 0 (all jobs):
+  WRITE: bw=1281MiB/s (1344MB/s), 1281MiB/s-1281MiB/s (1344MB/s-1344MB/s), io=75.1GiB (80.6GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=11
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26834 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26839: Wed Apr  6 09:56:58 2022
+  write: IOPS=328k, BW=1281MiB/s (1343MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=168, max=21928, avg=201.99, stdev=34.88
+    clat (usec): min=9, max=11561, avg=32.97, stdev=29.13
+     lat (usec): min=10, max=11561, avg=33.17, stdev=29.13
+    clat percentiles (usec):
+     |  1.00th=[   29],  5.00th=[   30], 10.00th=[   31], 20.00th=[   31],
+     | 30.00th=[   32], 40.00th=[   32], 50.00th=[   33], 60.00th=[   33],
+     | 70.00th=[   34], 80.00th=[   35], 90.00th=[   37], 95.00th=[   38],
+     | 99.00th=[   41], 99.50th=[   42], 99.90th=[   91], 99.95th=[  155],
+     | 99.99th=[  676]
+   bw (  MiB/s): min= 1254, max= 1318, per=100.00%, avg=1281.16, stdev=10.73, samples=119
+   iops        : min=321192, max=337580, avg=327977.41, stdev=2746.29, samples=119
+  lat (usec)   : 10=0.01%, 20=0.01%, 50=99.79%, 100=0.12%, 250=0.06%
+  lat (usec)   : 500=0.02%, 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=99.95%, sys=0.00%, ctx=5446, majf=0, minf=1
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=100.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.1%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19678570,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=11
+
+Run status group 0 (all jobs):
+  WRITE: bw=1281MiB/s (1343MB/s), 1281MiB/s-1281MiB/s (1343MB/s-1343MB/s), io=75.1GiB (80.6GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=12
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26840 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26845: Wed Apr  6 09:58:00 2022
+  write: IOPS=328k, BW=1282MiB/s (1344MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=208, max=7600, avg=241.47, stdev=26.94
+    clat (usec): min=12, max=9615, avg=35.90, stdev=26.77
+     lat (usec): min=12, max=9615, avg=36.15, stdev=26.77
+    clat percentiles (usec):
+     |  1.00th=[   31],  5.00th=[   33], 10.00th=[   34], 20.00th=[   35],
+     | 30.00th=[   35], 40.00th=[   35], 50.00th=[   36], 60.00th=[   36],
+     | 70.00th=[   37], 80.00th=[   38], 90.00th=[   39], 95.00th=[   41],
+     | 99.00th=[   44], 99.50th=[   45], 99.90th=[  101], 99.95th=[  182],
+     | 99.99th=[  685]
+   bw (  MiB/s): min= 1252, max= 1316, per=100.00%, avg=1282.00, stdev=11.02, samples=119
+   iops        : min=320766, max=337150, avg=328190.81, stdev=2821.70, samples=119
+  lat (usec)   : 20=0.01%, 50=99.74%, 100=0.16%, 250=0.07%, 500=0.02%
+  lat (usec)   : 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=303, majf=0, minf=1
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=100.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.1%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19689297,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=12
+
+Run status group 0 (all jobs):
+  WRITE: bw=1282MiB/s (1344MB/s), 1282MiB/s-1282MiB/s (1344MB/s-1344MB/s), io=75.1GiB (80.6GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=13
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26846 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26851: Wed Apr  6 09:59:02 2022
+  write: IOPS=328k, BW=1282MiB/s (1344MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=184, max=29512, avg=223.61, stdev=29.85
+    clat (usec): min=12, max=11695, avg=39.01, stdev=28.69
+     lat (usec): min=12, max=11695, avg=39.24, stdev=28.69
+    clat percentiles (usec):
+     |  1.00th=[   34],  5.00th=[   36], 10.00th=[   37], 20.00th=[   38],
+     | 30.00th=[   38], 40.00th=[   38], 50.00th=[   39], 60.00th=[   39],
+     | 70.00th=[   40], 80.00th=[   41], 90.00th=[   43], 95.00th=[   44],
+     | 99.00th=[   47], 99.50th=[   50], 99.90th=[  118], 99.95th=[  196],
+     | 99.99th=[  693]
+   bw (  MiB/s): min= 1251, max= 1320, per=100.00%, avg=1281.54, stdev=11.53, samples=119
+   iops        : min=320360, max=337938, avg=328075.06, stdev=2950.63, samples=119
+  lat (usec)   : 20=0.01%, 50=99.54%, 100=0.33%, 250=0.09%, 500=0.02%
+  lat (usec)   : 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=603, majf=0, minf=1
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=100.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.1%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19684364,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=13
+
+Run status group 0 (all jobs):
+  WRITE: bw=1282MiB/s (1344MB/s), 1282MiB/s-1282MiB/s (1344MB/s-1344MB/s), io=75.1GiB (80.6GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=14
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26854 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26859: Wed Apr  6 10:00:04 2022
+  write: IOPS=328k, BW=1282MiB/s (1344MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=176, max=29697, avg=217.72, stdev=27.45
+    clat (usec): min=12, max=9985, avg=42.06, stdev=31.43
+     lat (usec): min=12, max=9986, avg=42.28, stdev=31.43
+    clat percentiles (usec):
+     |  1.00th=[   37],  5.00th=[   39], 10.00th=[   40], 20.00th=[   40],
+     | 30.00th=[   41], 40.00th=[   41], 50.00th=[   41], 60.00th=[   42],
+     | 70.00th=[   43], 80.00th=[   44], 90.00th=[   46], 95.00th=[   48],
+     | 99.00th=[   51], 99.50th=[   53], 99.90th=[  122], 99.95th=[  221],
+     | 99.99th=[  742]
+   bw (  MiB/s): min= 1252, max= 1316, per=100.00%, avg=1282.60, stdev=11.49, samples=119
+   iops        : min=320678, max=337064, avg=328346.86, stdev=2941.47, samples=119
+  lat (usec)   : 20=0.01%, 50=98.82%, 100=1.05%, 250=0.09%, 500=0.02%
+  lat (usec)   : 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=444, majf=0, minf=1
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=100.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.1%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19694942,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=14
+
+Run status group 0 (all jobs):
+  WRITE: bw=1282MiB/s (1344MB/s), 1282MiB/s-1282MiB/s (1344MB/s-1344MB/s), io=75.1GiB (80.7GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=15
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26860 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26865: Wed Apr  6 10:01:06 2022
+  write: IOPS=328k, BW=1282MiB/s (1344MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=176, max=29696, avg=207.31, stdev=24.72
+    clat (usec): min=13, max=10850, avg=45.14, stdev=35.37
+     lat (usec): min=13, max=10850, avg=45.34, stdev=35.37
+    clat percentiles (usec):
+     |  1.00th=[   39],  5.00th=[   41], 10.00th=[   42], 20.00th=[   43],
+     | 30.00th=[   44], 40.00th=[   44], 50.00th=[   44], 60.00th=[   45],
+     | 70.00th=[   46], 80.00th=[   47], 90.00th=[   49], 95.00th=[   51],
+     | 99.00th=[   55], 99.50th=[   57], 99.90th=[  135], 99.95th=[  227],
+     | 99.99th=[  758]
+   bw (  MiB/s): min= 1248, max= 1307, per=100.00%, avg=1281.67, stdev=11.19, samples=119
+   iops        : min=319672, max=334794, avg=328108.32, stdev=2864.68, samples=119
+  lat (usec)   : 20=0.01%, 50=93.77%, 100=6.08%, 250=0.11%, 500=0.02%
+  lat (usec)   : 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=322, majf=0, minf=1
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=100.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.1%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19685987,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=15
+
+Run status group 0 (all jobs):
+  WRITE: bw=1282MiB/s (1344MB/s), 1282MiB/s-1282MiB/s (1344MB/s-1344MB/s), io=75.1GiB (80.6GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=16
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26866 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26871: Wed Apr  6 10:02:09 2022
+  write: IOPS=328k, BW=1282MiB/s (1344MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=208, max=41992, avg=242.71, stdev=31.27
+    clat (usec): min=15, max=11306, avg=48.09, stdev=33.81
+     lat (usec): min=16, max=11306, avg=48.33, stdev=33.81
+    clat percentiles (usec):
+     |  1.00th=[   41],  5.00th=[   44], 10.00th=[   45], 20.00th=[   46],
+     | 30.00th=[   46], 40.00th=[   47], 50.00th=[   47], 60.00th=[   48],
+     | 70.00th=[   49], 80.00th=[   50], 90.00th=[   52], 95.00th=[   55],
+     | 99.00th=[   59], 99.50th=[   63], 99.90th=[  161], 99.95th=[  260],
+     | 99.99th=[  766]
+   bw (  MiB/s): min= 1236, max= 1304, per=100.00%, avg=1282.30, stdev=11.89, samples=119
+   iops        : min=316534, max=333912, avg=328268.32, stdev=3042.97, samples=119
+  lat (usec)   : 20=0.01%, 50=81.85%, 100=17.94%, 250=0.16%, 500=0.03%
+  lat (usec)   : 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=663, majf=0, minf=1
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.1%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19694000,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=16
+
+Run status group 0 (all jobs):
+  WRITE: bw=1282MiB/s (1344MB/s), 1282MiB/s-1282MiB/s (1344MB/s-1344MB/s), io=75.1GiB (80.7GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=17
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26872 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26877: Wed Apr  6 10:03:11 2022
+  write: IOPS=328k, BW=1282MiB/s (1344MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=176, max=16193, avg=213.99, stdev=25.64
+    clat (usec): min=16, max=11029, avg=51.18, stdev=36.00
+     lat (usec): min=16, max=11029, avg=51.39, stdev=36.00
+    clat percentiles (usec):
+     |  1.00th=[   44],  5.00th=[   47], 10.00th=[   48], 20.00th=[   49],
+     | 30.00th=[   49], 40.00th=[   50], 50.00th=[   50], 60.00th=[   51],
+     | 70.00th=[   52], 80.00th=[   53], 90.00th=[   56], 95.00th=[   58],
+     | 99.00th=[   62], 99.50th=[   66], 99.90th=[  157], 99.95th=[  269],
+     | 99.99th=[  791]
+   bw (  MiB/s): min= 1253, max= 1313, per=100.00%, avg=1281.83, stdev=12.03, samples=119
+   iops        : min=320814, max=336238, avg=328148.55, stdev=3080.04, samples=119
+  lat (usec)   : 20=0.01%, 50=52.22%, 100=47.59%, 250=0.14%, 500=0.03%
+  lat (usec)   : 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=279, majf=0, minf=0
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.1%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19686871,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=17
+
+Run status group 0 (all jobs):
+  WRITE: bw=1282MiB/s (1344MB/s), 1282MiB/s-1282MiB/s (1344MB/s-1344MB/s), io=75.1GiB (80.6GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=18
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26878 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26883: Wed Apr  6 10:04:13 2022
+  write: IOPS=328k, BW=1281MiB/s (1344MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=192, max=7496, avg=241.66, stdev=26.20
+    clat (usec): min=17, max=12742, avg=54.25, stdev=41.79
+     lat (usec): min=17, max=12743, avg=54.49, stdev=41.79
+    clat percentiles (usec):
+     |  1.00th=[   47],  5.00th=[   49], 10.00th=[   50], 20.00th=[   51],
+     | 30.00th=[   52], 40.00th=[   53], 50.00th=[   53], 60.00th=[   54],
+     | 70.00th=[   55], 80.00th=[   57], 90.00th=[   59], 95.00th=[   61],
+     | 99.00th=[   65], 99.50th=[   70], 99.90th=[  159], 99.95th=[  269],
+     | 99.99th=[  816]
+   bw (  MiB/s): min= 1247, max= 1317, per=100.00%, avg=1281.40, stdev=11.51, samples=119
+   iops        : min=319380, max=337246, avg=328037.85, stdev=2946.35, samples=119
+  lat (usec)   : 20=0.01%, 50=9.08%, 100=90.72%, 250=0.15%, 500=0.03%
+  lat (usec)   : 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=304, majf=0, minf=1
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19681446,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=18
+
+Run status group 0 (all jobs):
+  WRITE: bw=1281MiB/s (1344MB/s), 1281MiB/s-1281MiB/s (1344MB/s-1344MB/s), io=75.1GiB (80.6GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=19
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26885 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26890: Wed Apr  6 10:05:15 2022
+  write: IOPS=328k, BW=1282MiB/s (1345MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=208, max=29872, avg=240.47, stdev=27.11
+    clat (usec): min=18, max=12313, avg=57.22, stdev=37.98
+     lat (usec): min=19, max=12313, avg=57.46, stdev=37.98
+    clat percentiles (usec):
+     |  1.00th=[   50],  5.00th=[   52], 10.00th=[   53], 20.00th=[   55],
+     | 30.00th=[   55], 40.00th=[   56], 50.00th=[   56], 60.00th=[   57],
+     | 70.00th=[   58], 80.00th=[   60], 90.00th=[   63], 95.00th=[   64],
+     | 99.00th=[   70], 99.50th=[   74], 99.90th=[  172], 99.95th=[  281],
+     | 99.99th=[  832]
+   bw (  MiB/s): min= 1253, max= 1305, per=100.00%, avg=1282.57, stdev=11.95, samples=119
+   iops        : min=320814, max=334280, avg=328338.99, stdev=3059.30, samples=119
+  lat (usec)   : 20=0.01%, 50=1.81%, 100=97.95%, 250=0.18%, 500=0.04%
+  lat (usec)   : 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=302, majf=0, minf=1
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19699305,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=19
+
+Run status group 0 (all jobs):
+  WRITE: bw=1282MiB/s (1345MB/s), 1282MiB/s-1282MiB/s (1345MB/s-1345MB/s), io=75.1GiB (80.7GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=20
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26891 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26896: Wed Apr  6 10:06:17 2022
+  write: IOPS=328k, BW=1282MiB/s (1344MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=192, max=29457, avg=228.62, stdev=26.73
+    clat (usec): min=18, max=13303, avg=60.33, stdev=35.61
+     lat (usec): min=19, max=13303, avg=60.56, stdev=35.61
+    clat percentiles (usec):
+     |  1.00th=[   52],  5.00th=[   55], 10.00th=[   57], 20.00th=[   58],
+     | 30.00th=[   58], 40.00th=[   59], 50.00th=[   59], 60.00th=[   60],
+     | 70.00th=[   61], 80.00th=[   63], 90.00th=[   66], 95.00th=[   68],
+     | 99.00th=[   73], 99.50th=[   78], 99.90th=[  198], 99.95th=[  314],
+     | 99.99th=[  914]
+   bw (  MiB/s): min= 1250, max= 1315, per=100.00%, avg=1281.98, stdev=11.35, samples=119
+   iops        : min=320126, max=336824, avg=328187.97, stdev=2905.64, samples=119
+  lat (usec)   : 20=0.01%, 50=0.46%, 100=99.26%, 250=0.21%, 500=0.05%
+  lat (usec)   : 750=0.01%, 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=291, majf=0, minf=0
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19687914,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=20
+
+Run status group 0 (all jobs):
+  WRITE: bw=1282MiB/s (1344MB/s), 1282MiB/s-1282MiB/s (1344MB/s-1344MB/s), io=75.1GiB (80.6GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=21
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26897 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26902: Wed Apr  6 10:07:20 2022
+  write: IOPS=328k, BW=1282MiB/s (1344MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=176, max=16088, avg=215.78, stdev=25.27
+    clat (usec): min=20, max=11488, avg=63.34, stdev=43.03
+     lat (usec): min=20, max=11489, avg=63.56, stdev=43.03
+    clat percentiles (usec):
+     |  1.00th=[   54],  5.00th=[   58], 10.00th=[   59], 20.00th=[   60],
+     | 30.00th=[   61], 40.00th=[   62], 50.00th=[   62], 60.00th=[   63],
+     | 70.00th=[   64], 80.00th=[   67], 90.00th=[   69], 95.00th=[   71],
+     | 99.00th=[   77], 99.50th=[   82], 99.90th=[  190], 99.95th=[  302],
+     | 99.99th=[  889]
+   bw (  MiB/s): min= 1249, max= 1317, per=100.00%, avg=1281.95, stdev=11.74, samples=119
+   iops        : min=319880, max=337168, avg=328178.66, stdev=3004.47, samples=119
+  lat (usec)   : 50=0.25%, 100=99.45%, 250=0.24%, 500=0.04%, 750=0.01%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=453, majf=0, minf=0
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19689881,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=21
+
+Run status group 0 (all jobs):
+  WRITE: bw=1282MiB/s (1344MB/s), 1282MiB/s-1282MiB/s (1344MB/s-1344MB/s), io=75.1GiB (80.6GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=22
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26904 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26909: Wed Apr  6 10:08:22 2022
+  write: IOPS=328k, BW=1282MiB/s (1344MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=176, max=29760, avg=222.09, stdev=26.53
+    clat (usec): min=21, max=12410, avg=66.42, stdev=44.52
+     lat (usec): min=21, max=12410, avg=66.64, stdev=44.52
+    clat percentiles (usec):
+     |  1.00th=[   58],  5.00th=[   61], 10.00th=[   62], 20.00th=[   63],
+     | 30.00th=[   64], 40.00th=[   64], 50.00th=[   65], 60.00th=[   66],
+     | 70.00th=[   68], 80.00th=[   70], 90.00th=[   73], 95.00th=[   75],
+     | 99.00th=[   80], 99.50th=[   85], 99.90th=[  206], 99.95th=[  322],
+     | 99.99th=[  996]
+   bw (  MiB/s): min= 1254, max= 1306, per=100.00%, avg=1281.69, stdev=11.13, samples=119
+   iops        : min=321242, max=334520, avg=328113.09, stdev=2849.55, samples=119
+  lat (usec)   : 50=0.07%, 100=99.62%, 250=0.24%, 500=0.05%, 750=0.01%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=99.99%, sys=0.01%, ctx=282, majf=0, minf=1
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19684349,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=22
+
+Run status group 0 (all jobs):
+  WRITE: bw=1282MiB/s (1344MB/s), 1282MiB/s-1282MiB/s (1344MB/s-1344MB/s), io=75.1GiB (80.6GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=23
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26910 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26915: Wed Apr  6 10:09:24 2022
+  write: IOPS=328k, BW=1281MiB/s (1344MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=216, max=5816, avg=246.36, stdev=26.55
+    clat (usec): min=23, max=11516, avg=69.44, stdev=46.18
+     lat (usec): min=24, max=11516, avg=69.69, stdev=46.18
+    clat percentiles (usec):
+     |  1.00th=[   60],  5.00th=[   63], 10.00th=[   65], 20.00th=[   67],
+     | 30.00th=[   67], 40.00th=[   68], 50.00th=[   69], 60.00th=[   69],
+     | 70.00th=[   71], 80.00th=[   73], 90.00th=[   76], 95.00th=[   78],
+     | 99.00th=[   83], 99.50th=[   89], 99.90th=[  219], 99.95th=[  347],
+     | 99.99th=[ 1188]
+   bw (  MiB/s): min= 1243, max= 1306, per=100.00%, avg=1281.44, stdev=11.92, samples=119
+   iops        : min=318398, max=334554, avg=328048.27, stdev=3051.14, samples=119
+  lat (usec)   : 50=0.04%, 100=99.62%, 250=0.26%, 500=0.05%, 750=0.01%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=302, majf=0, minf=1
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19682668,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=23
+
+Run status group 0 (all jobs):
+  WRITE: bw=1281MiB/s (1344MB/s), 1281MiB/s-1281MiB/s (1344MB/s-1344MB/s), io=75.1GiB (80.6GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=24
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26917 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26922: Wed Apr  6 10:10:26 2022
+  write: IOPS=328k, BW=1282MiB/s (1344MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=176, max=7056, avg=225.57, stdev=26.21
+    clat (usec): min=23, max=14432, avg=72.49, stdev=47.21
+     lat (usec): min=24, max=14432, avg=72.72, stdev=47.21
+    clat percentiles (usec):
+     |  1.00th=[   62],  5.00th=[   67], 10.00th=[   68], 20.00th=[   69],
+     | 30.00th=[   70], 40.00th=[   71], 50.00th=[   71], 60.00th=[   72],
+     | 70.00th=[   74], 80.00th=[   76], 90.00th=[   79], 95.00th=[   81],
+     | 99.00th=[   87], 99.50th=[   95], 99.90th=[  229], 99.95th=[  359],
+     | 99.99th=[ 1237]
+   bw (  MiB/s): min= 1250, max= 1312, per=100.00%, avg=1281.81, stdev=12.35, samples=119
+   iops        : min=320030, max=336084, avg=328143.01, stdev=3162.46, samples=119
+  lat (usec)   : 50=0.01%, 100=99.56%, 250=0.34%, 500=0.05%, 750=0.01%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=300, majf=0, minf=1
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19686548,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=24
+
+Run status group 0 (all jobs):
+  WRITE: bw=1282MiB/s (1344MB/s), 1282MiB/s-1282MiB/s (1344MB/s-1344MB/s), io=75.1GiB (80.6GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=25
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26923 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26928: Wed Apr  6 10:11:28 2022
+  write: IOPS=320k, BW=1251MiB/s (1312MB/s)(73.3GiB/60001msec); 0 zone resets
+    slat (nsec): min=208, max=5728, avg=243.62, stdev=26.24
+    clat (usec): min=26, max=19250, avg=77.39, stdev=55.52
+     lat (usec): min=26, max=19251, avg=77.64, stdev=55.52
+    clat percentiles (usec):
+     |  1.00th=[   65],  5.00th=[   69], 10.00th=[   71], 20.00th=[   72],
+     | 30.00th=[   74], 40.00th=[   75], 50.00th=[   76], 60.00th=[   77],
+     | 70.00th=[   78], 80.00th=[   82], 90.00th=[   86], 95.00th=[   89],
+     | 99.00th=[   98], 99.50th=[  108], 99.90th=[  277], 99.95th=[  416],
+     | 99.99th=[ 1336]
+   bw (  MiB/s): min= 1059, max= 1311, per=100.00%, avg=1251.12, stdev=63.80, samples=119
+   iops        : min=271106, max=335644, avg=320286.18, stdev=16331.85, samples=119
+  lat (usec)   : 50=0.01%, 100=99.26%, 250=0.62%, 500=0.08%, 750=0.02%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=302, majf=0, minf=0
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19218168,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=25
+
+Run status group 0 (all jobs):
+  WRITE: bw=1251MiB/s (1312MB/s), 1251MiB/s-1251MiB/s (1312MB/s-1312MB/s), io=73.3GiB (78.7GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=26
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26929 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26934: Wed Apr  6 10:12:31 2022
+  write: IOPS=328k, BW=1282MiB/s (1344MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=176, max=8984, avg=210.59, stdev=24.87
+    clat (usec): min=27, max=9266, avg=78.63, stdev=42.58
+     lat (usec): min=28, max=9266, avg=78.84, stdev=42.58
+    clat percentiles (usec):
+     |  1.00th=[   68],  5.00th=[   72], 10.00th=[   74], 20.00th=[   75],
+     | 30.00th=[   76], 40.00th=[   76], 50.00th=[   77], 60.00th=[   78],
+     | 70.00th=[   80], 80.00th=[   82], 90.00th=[   85], 95.00th=[   88],
+     | 99.00th=[   95], 99.50th=[  104], 99.90th=[  251], 99.95th=[  367],
+     | 99.99th=[ 1319]
+   bw (  MiB/s): min= 1248, max= 1301, per=100.00%, avg=1282.32, stdev=10.90, samples=119
+   iops        : min=319574, max=333212, avg=328273.92, stdev=2791.22, samples=119
+  lat (usec)   : 50=0.01%, 100=99.40%, 250=0.49%, 500=0.07%, 750=0.01%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=660, majf=0, minf=1
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19694805,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=26
+
+Run status group 0 (all jobs):
+  WRITE: bw=1282MiB/s (1344MB/s), 1282MiB/s-1282MiB/s (1344MB/s-1344MB/s), io=75.1GiB (80.7GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=27
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26935 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26940: Wed Apr  6 10:13:33 2022
+  write: IOPS=328k, BW=1282MiB/s (1345MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=208, max=29497, avg=244.51, stdev=26.61
+    clat (usec): min=27, max=13855, avg=81.58, stdev=48.24
+     lat (usec): min=28, max=13855, avg=81.83, stdev=48.24
+    clat percentiles (usec):
+     |  1.00th=[   71],  5.00th=[   75], 10.00th=[   76], 20.00th=[   78],
+     | 30.00th=[   78], 40.00th=[   79], 50.00th=[   80], 60.00th=[   81],
+     | 70.00th=[   83], 80.00th=[   85], 90.00th=[   89], 95.00th=[   91],
+     | 99.00th=[   98], 99.50th=[  108], 99.90th=[  269], 99.95th=[  408],
+     | 99.99th=[ 1123]
+   bw (  MiB/s): min= 1249, max= 1319, per=100.00%, avg=1282.22, stdev=11.68, samples=119
+   iops        : min=319916, max=337748, avg=328247.38, stdev=2991.08, samples=119
+  lat (usec)   : 50=0.01%, 100=99.21%, 250=0.67%, 500=0.07%, 750=0.02%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=303, majf=0, minf=1
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19695505,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=27
+
+Run status group 0 (all jobs):
+  WRITE: bw=1282MiB/s (1345MB/s), 1282MiB/s-1282MiB/s (1345MB/s-1345MB/s), io=75.1GiB (80.7GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=28
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26941 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26946: Wed Apr  6 10:14:35 2022
+  write: IOPS=328k, BW=1282MiB/s (1344MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=208, max=31201, avg=241.27, stdev=26.93
+    clat (usec): min=32, max=11680, avg=84.64, stdev=45.66
+     lat (usec): min=33, max=11680, avg=84.88, stdev=45.66
+    clat percentiles (usec):
+     |  1.00th=[   73],  5.00th=[   77], 10.00th=[   79], 20.00th=[   81],
+     | 30.00th=[   81], 40.00th=[   82], 50.00th=[   83], 60.00th=[   84],
+     | 70.00th=[   86], 80.00th=[   88], 90.00th=[   92], 95.00th=[   94],
+     | 99.00th=[  101], 99.50th=[  113], 99.90th=[  285], 99.95th=[  453],
+     | 99.99th=[ 1385]
+   bw (  MiB/s): min= 1252, max= 1317, per=100.00%, avg=1282.25, stdev=11.31, samples=119
+   iops        : min=320666, max=337324, avg=328254.96, stdev=2895.77, samples=119
+  lat (usec)   : 50=0.01%, 100=98.80%, 250=1.07%, 500=0.08%, 750=0.02%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=302, majf=0, minf=0
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19693072,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=28
+
+Run status group 0 (all jobs):
+  WRITE: bw=1282MiB/s (1344MB/s), 1282MiB/s-1282MiB/s (1344MB/s-1344MB/s), io=75.1GiB (80.7GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=29
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26948 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26953: Wed Apr  6 10:15:37 2022
+  write: IOPS=328k, BW=1281MiB/s (1344MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=208, max=29129, avg=240.28, stdev=26.55
+    clat (usec): min=30, max=15682, avg=87.74, stdev=54.36
+     lat (usec): min=31, max=15682, avg=87.98, stdev=54.36
+    clat percentiles (usec):
+     |  1.00th=[   76],  5.00th=[   80], 10.00th=[   82], 20.00th=[   83],
+     | 30.00th=[   84], 40.00th=[   85], 50.00th=[   86], 60.00th=[   87],
+     | 70.00th=[   89], 80.00th=[   91], 90.00th=[   95], 95.00th=[   98],
+     | 99.00th=[  105], 99.50th=[  118], 99.90th=[  289], 99.95th=[  449],
+     | 99.99th=[ 1385]
+   bw (  MiB/s): min= 1245, max= 1311, per=100.00%, avg=1281.59, stdev=11.66, samples=119
+   iops        : min=318792, max=335848, avg=328086.44, stdev=2985.79, samples=119
+  lat (usec)   : 50=0.01%, 100=97.53%, 250=2.34%, 500=0.08%, 750=0.02%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=303, majf=0, minf=0
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19683116,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=29
+
+Run status group 0 (all jobs):
+  WRITE: bw=1281MiB/s (1344MB/s), 1281MiB/s-1281MiB/s (1344MB/s-1344MB/s), io=75.1GiB (80.6GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=30
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26954 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26959: Wed Apr  6 10:16:39 2022
+  write: IOPS=328k, BW=1282MiB/s (1344MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=184, max=27768, avg=251.89, stdev=30.11
+    clat (usec): min=30, max=14297, avg=90.76, stdev=49.95
+     lat (usec): min=31, max=14297, avg=91.01, stdev=49.95
+    clat percentiles (usec):
+     |  1.00th=[   78],  5.00th=[   83], 10.00th=[   85], 20.00th=[   86],
+     | 30.00th=[   87], 40.00th=[   88], 50.00th=[   89], 60.00th=[   90],
+     | 70.00th=[   92], 80.00th=[   95], 90.00th=[   98], 95.00th=[  101],
+     | 99.00th=[  110], 99.50th=[  128], 99.90th=[  302], 99.95th=[  441],
+     | 99.99th=[ 1369]
+   bw (  MiB/s): min= 1240, max= 1311, per=100.00%, avg=1281.84, stdev=12.12, samples=119
+   iops        : min=317476, max=335620, avg=328151.73, stdev=3101.45, samples=119
+  lat (usec)   : 50=0.01%, 100=93.97%, 250=5.89%, 500=0.09%, 750=0.01%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=723, majf=0, minf=0
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19687165,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=30
+
+Run status group 0 (all jobs):
+  WRITE: bw=1282MiB/s (1344MB/s), 1282MiB/s-1282MiB/s (1344MB/s-1344MB/s), io=75.1GiB (80.6GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=31
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26960 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26965: Wed Apr  6 10:17:42 2022
+  write: IOPS=328k, BW=1282MiB/s (1345MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=176, max=32153, avg=226.61, stdev=28.50
+    clat (usec): min=37, max=12477, avg=93.78, stdev=48.17
+     lat (usec): min=40, max=12477, avg=94.01, stdev=48.17
+    clat percentiles (usec):
+     |  1.00th=[   82],  5.00th=[   86], 10.00th=[   88], 20.00th=[   89],
+     | 30.00th=[   90], 40.00th=[   91], 50.00th=[   92], 60.00th=[   93],
+     | 70.00th=[   95], 80.00th=[   98], 90.00th=[  101], 95.00th=[  104],
+     | 99.00th=[  113], 99.50th=[  123], 99.90th=[  310], 99.95th=[  461],
+     | 99.99th=[ 1418]
+   bw (  MiB/s): min= 1241, max= 1305, per=100.00%, avg=1282.54, stdev=12.09, samples=119
+   iops        : min=317934, max=334286, avg=328329.61, stdev=3095.01, samples=119
+  lat (usec)   : 50=0.01%, 100=87.48%, 250=12.38%, 500=0.10%, 750=0.02%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=303, majf=0, minf=1
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=100.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19697687,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=31
+
+Run status group 0 (all jobs):
+  WRITE: bw=1282MiB/s (1345MB/s), 1282MiB/s-1282MiB/s (1345MB/s-1345MB/s), io=75.1GiB (80.7GB), run=60001-60001msec
+iops-test-job: (g=0): rw=write, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=spdk, iodepth=32
+fio-3.29
+Starting 1 thread
+Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26970 ]
+EAL: Detected 8 lcore(s)
+EAL: Probing VFIO support...
+EAL: VFIO support initialized
+EAL: NUMA support not available consider that all memory is in socket_id 0
+EAL: PCI device 0000:01:00.0 on NUMA socket 0
+EAL:   probe driver: 144d:a808 spdk_nvme
+EAL:   using IOMMU type 1 (Type 1)
+EAL: Releasing pci mapped resource for 0000:01:00.0
+EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
+
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26975: Wed Apr  6 10:18:44 2022
+  write: IOPS=328k, BW=1282MiB/s (1344MB/s)(75.1GiB/60001msec); 0 zone resets
+    slat (nsec): min=200, max=6016, avg=244.39, stdev=26.40
+    clat (usec): min=32, max=11953, avg=96.85, stdev=52.75
+     lat (usec): min=33, max=11953, avg=97.09, stdev=52.75
+    clat percentiles (usec):
+     |  1.00th=[   84],  5.00th=[   88], 10.00th=[   90], 20.00th=[   92],
+     | 30.00th=[   93], 40.00th=[   94], 50.00th=[   94], 60.00th=[   96],
+     | 70.00th=[   98], 80.00th=[  101], 90.00th=[  104], 95.00th=[  108],
+     | 99.00th=[  116], 99.50th=[  130], 99.90th=[  322], 99.95th=[  506],
+     | 99.99th=[ 1336]
+   bw (  MiB/s): min= 1247, max= 1305, per=100.00%, avg=1281.87, stdev=10.21, samples=119
+   iops        : min=319244, max=334278, avg=328158.96, stdev=2613.12, samples=119
+  lat (usec)   : 50=0.01%, 100=78.42%, 250=21.43%, 500=0.11%, 750=0.02%
+  lat (usec)   : 1000=0.01%
+  lat (msec)   : 2=0.01%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=100.00%, sys=0.00%, ctx=301, majf=0, minf=0
+  IO depths    : 1=0.1%, 2=0.1%, 4=0.1%, 8=0.1%, 16=0.1%, 32=100.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.1%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,19689577,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=32
+
+Run status group 0 (all jobs):
+  WRITE: bw=1282MiB/s (1344MB/s), 1282MiB/s-1282MiB/s (1344MB/s-1344MB/s), io=75.1GiB (80.6GB), run=60001-60001msec

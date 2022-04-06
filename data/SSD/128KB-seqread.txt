@@ -159,7 +159,7 @@ iops-test-job: (g=0): rw=read, bs=(R) 128KiB-128KiB, (W) 128KiB-128KiB, (T) 128K
 fio-3.29
 Starting 1 thread
 Starting SPDK v19.10.1 / DPDK 17.11.2 initialization...
-[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid21758 ]
+[ DPDK EAL parameters: fio --no-shconf -c 0x1 -m 0 --base-virtaddr=0x200000000000 --file-prefix=spdk_pid26751 ]
 EAL: Detected 8 lcore(s)
 EAL: Probing VFIO support...
 EAL: VFIO support initialized
@@ -167,33 +167,37 @@ EAL: NUMA support not available consider that all memory is in socket_id 0
 EAL: PCI device 0000:01:00.0 on NUMA socket 0
 EAL:   probe driver: 144d:a808 spdk_nvme
 EAL:   using IOMMU type 1 (Type 1)
-EAL: Releasing pci mapped resource for 0000:01:00.0
+Jobs: 1 (f=1): [R(1)][31.2%][r=2575MiB/s][r=20.6k IOPS][eta 00m:11s]
+Jobs: 1 (f=1): [R(1)][53.3%][r=2529MiB/s][r=20.2k IOPS][eta 00m:07s]
+Jobs: 1 (f=1): [R(1)][73.3%][r=2448MiB/s][r=19.6k IOPS][eta 00m:04s]
+Jobs: 1 (f=1): [R(1)][93.3%][r=2594MiB/s][r=20.8k IOPS][eta 00m:01s]
+EAL: Releasing pci mapped resource for 0000:01:00.0IOPS][eta 00m:00s]
 EAL: Calling pci_unmap_resource for 0000:01:00.0 at 0x200080000000
-
-iops-test-job: (groupid=0, jobs=1): err= 0: pid=21763: Wed Apr  6 03:45:50 2022
-  read: IOPS=19.9k, BW=2494MiB/s (2615MB/s)(36.5GiB/15001msec)
-    slat (nsec): min=496, max=7176, avg=529.97, stdev=41.14
-    clat (usec): min=116, max=4807, avg=249.63, stdev=68.80
-     lat (usec): min=117, max=4808, avg=250.16, stdev=68.80
+Jobs: 1 (f=0): [f(1)][100.0%][eta 00m:00s]
+iops-test-job: (groupid=0, jobs=1): err= 0: pid=26756: Wed Apr  6 09:39:12 2022
+  read: IOPS=20.0k, BW=2500MiB/s (2621MB/s)(36.6GiB/15001msec)
+    slat (nsec): min=496, max=5768, avg=530.76, stdev=41.31
+    clat (usec): min=108, max=4923, avg=249.03, stdev=69.11
+     lat (usec): min=109, max=4923, avg=249.57, stdev=69.11
     clat percentiles (usec):
      |  1.00th=[  151],  5.00th=[  169], 10.00th=[  180], 20.00th=[  192],
-     | 30.00th=[  208], 40.00th=[  231], 50.00th=[  247], 60.00th=[  262],
-     | 70.00th=[  277], 80.00th=[  297], 90.00th=[  326], 95.00th=[  355],
-     | 99.00th=[  429], 99.50th=[  469], 99.90th=[  603], 99.95th=[  660],
+     | 30.00th=[  206], 40.00th=[  229], 50.00th=[  245], 60.00th=[  262],
+     | 70.00th=[  277], 80.00th=[  297], 90.00th=[  326], 95.00th=[  351],
+     | 99.00th=[  429], 99.50th=[  465], 99.90th=[  594], 99.95th=[  652],
      | 99.99th=[  799]
-   bw (  MiB/s): min= 1795, max= 2613, per=99.90%, avg=2491.40, stdev=166.72, samples=29
-   iops        : min=14360, max=20910, avg=19931.17, stdev=1333.77, samples=29
-  lat (usec)   : 250=52.39%, 500=47.29%, 750=0.30%, 1000=0.01%
-  lat (msec)   : 2=0.01%, 10=0.01%
-  cpu          : usr=99.99%, sys=0.00%, ctx=94, majf=0, minf=0
+   bw (  MiB/s): min= 1777, max= 2602, per=99.89%, avg=2496.95, stdev=170.64, samples=29
+   iops        : min=14216, max=20816, avg=19975.59, stdev=1365.14, samples=29
+  lat (usec)   : 250=52.96%, 500=46.73%, 750=0.30%, 1000=0.01%
+  lat (msec)   : 10=0.01%
+  cpu          : usr=99.99%, sys=0.00%, ctx=193, majf=0, minf=1
   IO depths    : 1=0.1%, 2=0.1%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
      submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
      complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
-     issued rwts: total=299280,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     issued rwts: total=299997,0,0,0 short=0,0,0,0 dropped=0,0,0,0
      latency   : target=0, window=0, percentile=100.00%, depth=5
 
 Run status group 0 (all jobs):
-   READ: bw=2494MiB/s (2615MB/s), 2494MiB/s-2494MiB/s (2615MB/s-2615MB/s), io=36.5GiB (39.2GB), run=15001-15001msec
+   READ: bw=2500MiB/s (2621MB/s), 2500MiB/s-2500MiB/s (2621MB/s-2621MB/s), io=36.6GiB (39.3GB), run=15001-15001msec
 iops-test-job: (g=0): rw=read, bs=(R) 128KiB-128KiB, (W) 128KiB-128KiB, (T) 128KiB-128KiB, ioengine=spdk, iodepth=6
 fio-3.29
 Starting 1 thread
