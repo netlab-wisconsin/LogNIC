@@ -17,22 +17,22 @@ software:
         partition: 0.5
         overhead: 0.0e-6
         performance: 1.0
-        Q_num: 1
-        Q_len: 50
+        Q_num: 13
+        Q_len: 1
       CPU1:
         phy_node: CPU
         partition: 0.5
         overhead: 0.0e-6
         performance: 1.0
-        Q_num: 1
-        Q_len: 50
+        Q_num: 13
+        Q_len: 1
       SSD:
         phy_node: SSD
         partition: 1.0
-        overhead: 81.77714906e-6
-        performance: 1.68
-        Q_num: 5.13155553
-        Q_len: 32
+        overhead: 45.55748303566712e-6
+        performance: 1.90067033024117
+        Q_num: 13.207782733329191
+        Q_len: 228.0142435077496
     edges:
       ingress-CPU0:
         INTF: 0.05

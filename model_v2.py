@@ -2,6 +2,8 @@ import networkx as nx
 import yaml
 import matplotlib.pyplot as plt
 
+from data import read_ssd_data
+
 
 def read_config(yml_path):
     with open(yml_path) as yml:
@@ -112,11 +114,13 @@ if __name__ == '__main__':
     latencies = []
     bw = []
     M = 100
-    for i in range(M + 1):
+    for i in range(M - 10):
         bw.append(P * i / M)
         use_cases[0].graph['bandwidth-in'] = bw[-1]
         latencies.append(calc_latency(use_cases, i == 0 or i == M) * 1E6)
     plt.plot(bw, latencies)
+    bw, lat = read_ssd_data("data/NVMe-oF-4KB-randread.txt")
+    plt.plot(bw, lat)
     plt.show()
     pass
     # nx.draw(use_cases[0], pos=nx.spring_layout(use_cases[0]), with_labels=True)
