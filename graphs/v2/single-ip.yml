@@ -6,7 +6,7 @@ hardware:
     IP-ingress: 1.0
 software:
   - bandwidth-in: 1.0
-    granularity-in: 4096
+    granularity-in: 8192
     nodes:
       IP:
         phy_node: IP

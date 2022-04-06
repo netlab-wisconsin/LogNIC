@@ -108,19 +108,19 @@ def calc_latency(dags, print_tag=False):
 
 
 if __name__ == '__main__':
-    CONFIG = read_config('graphs/v2/NVMe-oF/4KB-sequential write.yml')
+    CONFIG = read_config('graphs/v2/NVMe-oF/8KB-random read.yml')
     use_cases = [create_dag(i) for i in CONFIG["software"]]
     P = calc_throughput()
     latencies = []
     bw = []
     M = 100
-    for i in range(M + 1):
+    for i in range(M -3):
         bw.append(P * i / M)
         use_cases[0].graph['bandwidth-in'] = bw[-1]
         latencies.append(calc_latency(use_cases, i == 0 or i == M) * 1E6)
     plt.plot(bw, latencies)
-    bw, lat = read_ssd_data("data/NVMe-oF/4KB-seqwrite.txt")
-    plt.plot(bw[:9], lat[:9])
+    bw, lat = read_ssd_data("data/NVMe-oF/8KB-randread.txt")
+    plt.plot(bw, lat)
     plt.show()
     pass
     # nx.draw(use_cases[0], pos=nx.spring_layout(use_cases[0]), with_labels=True)

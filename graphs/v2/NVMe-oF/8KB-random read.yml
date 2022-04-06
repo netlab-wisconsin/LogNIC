@@ -1,0 +1,53 @@
+hardware:
+  interface: 3.940
+  memory: 4.390
+  nodes:
+    CPU:
+    SSD:
+  edges:
+    CPU-egress: 12.5
+    CPU-ingress: 12.5
+    CPU-SSD: 3.940
+software:
+  - bandwidth-in: 1.5
+    granularity-in: 8192
+    nodes:
+      CPU0:
+        phy_node: CPU
+        partition: 0.5
+        overhead: 0.0e-6
+        performance: 1.0
+        Q_num: 13
+        Q_len: 1
+      CPU1:
+        phy_node: CPU
+        partition: 0.5
+        overhead: 0.0e-6
+        performance: 1.0
+        Q_num: 13
+        Q_len: 1
+      SSD:
+        phy_node: SSD
+        partition: 1.0
+        overhead: 44.652733034107285e-6
+        performance: 1.8758436934597869
+        Q_num: 6.45729334963448
+        Q_len: 68.3311182166001
+    edges:
+      ingress-CPU0:
+        INTF: 0.05
+        DRAM: 0.05
+        total: 0.05
+      CPU0-SSD:
+        INTF: 0
+        DRAM: 0
+        total: 1
+      SSD-CPU1:
+        INTF: 1
+        DRAM: 1
+        total: 0.05
+      CPU1-egress:
+        INTF: 1
+        DRAM: 0.0
+        total: 1
+
