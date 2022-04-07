@@ -1,8 +1,7 @@
 import networkx as nx
 import yaml
 import matplotlib.pyplot as plt
-
-from data import read_ssd_data
+from data import show_data
 
 
 def read_config(yml_path):
@@ -29,14 +28,14 @@ def create_dag(use_case):
     return dag
 
 
-def calc_throughput():
+def calc_throughput(hardware_cfg, use_cases):
     throughput = []
     bw_edges = {}
     interface = 0
     memory = 0
-    for k, v in CONFIG["hardware"]["edges"].items():
+    for k, v in hardware_cfg["edges"].items():
         e = k.split("-")
-        assert len(e) == 2 and e[0] in CONFIG["hardware"]['nodes'] and e[1] in CONFIG["hardware"]['nodes']
+        assert len(e) == 2 and e[0] in hardware_cfg['nodes'] and e[1] in hardware_cfg['nodes']
         e = tuple(sorted(e))
         bw_edges[e] = {"bw": v, "f": 0}
     for dag in use_cases:
@@ -56,8 +55,8 @@ def calc_throughput():
     for k, v in bw_edges.items():
         throughput.append({"v": v["bw"] / v["f"], "name": f"BW:{k[0]}-{k[1]}"})
 
-    throughput.append({"v": CONFIG["hardware"]["interface"] / interface, "name": f"BW:interface"})
-    throughput.append({"v": CONFIG["hardware"]["memory"] / memory, "name": f"BW:memory"})
+    throughput.append({"v": hardware_cfg["interface"] / interface, "name": f"BW:interface"})
+    throughput.append({"v": hardware_cfg["memory"] / memory, "name": f"BW:memory"})
     throughput.sort(key=lambda x: x['v'])
 
     print("throughput:")
@@ -107,21 +106,26 @@ def calc_latency(dags, print_tag=False):
     return latency / len(dags)
 
 
-if __name__ == '__main__':
-    CONFIG = read_config('graphs/v2/NVMe-oF/8KB-random read.yml')
-    use_cases = [create_dag(i) for i in CONFIG["software"]]
-    P = calc_throughput()
-    latencies = []
-    bw = []
-    M = 100
-    for i in range(M -3):
-        bw.append(P * i / M)
+def run_model(graph, model_range, data, data_range, no_lat=False):
+    config = read_config(graph)
+    use_cases = [create_dag(i) for i in config["software"]]
+    throughput = calc_throughput(config["hardware"], use_cases)
+    if no_lat:
+        return
+    bw, lat = [], []
+    for i in range(model_range):
+        bw.append(throughput * i / 100)
         use_cases[0].graph['bandwidth-in'] = bw[-1]
-        latencies.append(calc_latency(use_cases, i == 0 or i == M) * 1E6)
-    plt.plot(bw, latencies)
-    bw, lat = read_ssd_data("data/NVMe-oF/8KB-randread.txt")
+        lat.append(calc_latency(use_cases, i == 0 or i == model_range - 1) * 1E6)
     plt.plot(bw, lat)
-    plt.show()
+    show_data((data,), (data_range,))
+
+
+if __name__ == '__main__':
+    run_model("graphs/v2/NVMe-oF/4KB-random read.yml", 90, "data/NVMe-oF/4KB-randread.txt", 128)
+    # run_model("graphs/v2/NVMe-oF/8KB-random read.yml", 97, "data/NVMe-oF/8KB-randread.txt", 128)
+    # run_model('graphs/v2/NVMe-oF/4KB-sequential write.yml', 100, "data/NVMe-oF/4KB-seqwrite.txt", 9)
+    # run_model('graphs/v2/NVMe-oF/4KB-rwmixed.yml', 100, None, None, True)
     pass
     # nx.draw(use_cases[0], pos=nx.spring_layout(use_cases[0]), with_labels=True)
     # plt.show()

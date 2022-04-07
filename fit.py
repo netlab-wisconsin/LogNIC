@@ -34,8 +34,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    # bw, lat = read_ssd_data("data/SSD/8KB-randread.txt")
-    # plt.plot(bw, lat)
-    # bw, lat = read_ssd_data("data/NVMe-oF/8KB-randread.txt")
-    # plt.plot(bw, lat)
-    # plt.show()
