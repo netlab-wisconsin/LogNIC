@@ -17,18 +17,28 @@ def read_config(yml_path):
     return config
 
 
-def create_dag(use_case):
-    dag = nx.DiGraph(**{k: v for k, v in use_case.items() if k != 'nodes' and k != 'edges'})
-    dag.add_nodes_from(use_case['nodes'].items())
-    for k, v in use_case['edges'].items():
-        e = k.split("-")
-        assert len(e) == 2 and e[0] in use_case['nodes'] and e[1] in use_case['nodes']
-        dag.add_edge(e[0], e[1], **v)
-    dag.graph['g_in'] = dag.graph['granularity-in'] / float(1 << 30)
-    return dag
+def create_dags(use_cases):
+    bw_sum = 0
+    dags = []
+    for use_case in use_cases:
+        bw_sum += use_case['bandwidth-in']
+    for use_case in use_cases:
+        w = use_case['bandwidth-in'] / bw_sum if bw_sum != 0 else 1
+        dag = nx.DiGraph(**{k: v for k, v in use_case.items() if k != 'nodes' and k != 'edges'})
+        dag.add_nodes_from(use_case['nodes'].items())
+        for k, v in use_case['edges'].items():
+            e = k.split("-")
+            assert len(e) == 2 and e[0] in use_case['nodes'] and e[1] in use_case['nodes']
+            for key in v:
+                v[key] *= w
+            dag.add_edge(e[0], e[1], **v)
+        dag.graph['g_in'] = dag.graph['granularity-in'] / float(1 << 30)
+        dag.graph['weight'] = w
+        dags.append(dag)
+    return dags
 
 
-def calc_throughput(hardware_cfg, use_cases):
+def calc_throughput(hardware_cfg, use_cases, print_tag=False):
     throughput = []
     bw_edges = {}
     interface = 0
@@ -38,7 +48,7 @@ def calc_throughput(hardware_cfg, use_cases):
         assert len(e) == 2 and e[0] in hardware_cfg['nodes'] and e[1] in hardware_cfg['nodes']
         e = tuple(sorted(e))
         bw_edges[e] = {"bw": v, "f": 0}
-    for dag in use_cases:
+    for dag_i, dag in enumerate(use_cases):
         for k, v in dag.edges.items():
             ip_ip = tuple(sorted([dag.nodes[k[0]]['phy_node'], dag.nodes[k[1]]['phy_node']]))
             bw_edges[ip_ip]["f"] += v["total"]
@@ -50,7 +60,8 @@ def calc_throughput(hardware_cfg, use_cases):
             if v["performance"] is None:
                 continue
             total = sum([dag.edges[(i, k)]["total"] for i in dag.predecessors(k)])
-            throughput.append({"v": v["performance"] * v["partition"] / total, "name": f"compute:{v['phy_node']}({k})"})
+            throughput.append(
+                {"v": v["performance"] * v["partition"] / total, "name": f"compute:{v['phy_node']}({dag_i}-{k})"})
 
     for k, v in bw_edges.items():
         throughput.append({"v": v["bw"] / v["f"], "name": f"BW:{k[0]}-{k[1]}"})
@@ -59,11 +70,14 @@ def calc_throughput(hardware_cfg, use_cases):
     throughput.append({"v": hardware_cfg["memory"] / memory, "name": f"BW:memory"})
     throughput.sort(key=lambda x: x['v'])
 
-    print("throughput:")
-    for i in throughput:
-        print(f"%-20s\t\t{i['v']}" % i['name'])
-    print("\n\n")
-
+    if print_tag:
+        print(f"throughput:\t{throughput[0]['v']}\n")
+        for i in throughput:
+            print(f"%-20s\t\t{i['v']}" % i['name'])
+        print("")
+        for dag_i, dag in enumerate(use_cases):
+            print(f"use case {dag_i}:\t{throughput[0]['v'] * dag.graph['weight']}")
+        print("\n\n")
     return throughput[0]['v']
 
 
@@ -108,8 +122,8 @@ def calc_latency(dags, print_tag=False):
 
 def run_model(graph, model_range, data, data_range, no_lat=False):
     config = read_config(graph)
-    use_cases = [create_dag(i) for i in config["software"]]
-    throughput = calc_throughput(config["hardware"], use_cases)
+    use_cases = create_dags(config["software"])
+    throughput = calc_throughput(config["hardware"], use_cases, True)
     if no_lat:
         return
     bw, lat = [], []
@@ -122,10 +136,10 @@ def run_model(graph, model_range, data, data_range, no_lat=False):
 
 
 if __name__ == '__main__':
-    run_model("graphs/v2/NVMe-oF/4KB-random read.yml", 90, "data/NVMe-oF/4KB-randread.txt", 128)
+    # run_model("graphs/v2/NVMe-oF/4KB-random read.yml", 90, "data/NVMe-oF/4KB-randread.txt", 128)
     # run_model("graphs/v2/NVMe-oF/8KB-random read.yml", 97, "data/NVMe-oF/8KB-randread.txt", 128)
     # run_model('graphs/v2/NVMe-oF/4KB-sequential write.yml', 100, "data/NVMe-oF/4KB-seqwrite.txt", 9)
-    # run_model('graphs/v2/NVMe-oF/4KB-rwmixed.yml', 100, None, None, True)
+    run_model('graphs/v2/NVMe-oF/4KB-rwmixed.yml', 100, None, None, True)
     pass
     # nx.draw(use_cases[0], pos=nx.spring_layout(use_cases[0]), with_labels=True)
     # plt.show()

@@ -9,21 +9,21 @@ hardware:
     CPU-ingress: 12.5
     CPU-SSD: 3.940
 software:
-  - bandwidth-in: 1.0
+  - bandwidth-in: 0.4
     granularity-in: 4096
     nodes:
       CPU0:
         phy_node: CPU
-        partition: 0.5
+        partition: 0.25
         performance: 1.0
       CPU1:
         phy_node: CPU
-        partition: 0.5
+        partition: 0.25
         performance: 1.0
       SSD:
         phy_node: SSD
-        partition: 1.0
-        performance: 1.90067033024117
+        partition: 0.28
+        performance: 1.5986328125
     edges:
       ingress-CPU0:
         INTF: 0.05
@@ -42,21 +42,21 @@ software:
         DRAM: 0.0
         total: 1
 
-  - bandwidth-in: 0.5
+  - bandwidth-in: 0.6
     granularity-in: 4096
     nodes:
       CPU0:
         phy_node: CPU
-        partition: 0.5
+        partition: 0.25
         performance: 1.0
       CPU1:
         phy_node: CPU
-        partition: 0.5
+        partition: 0.25
         performance: 1.0
       SSD:
         phy_node: SSD
-        partition: 1.0
-        performance: 1.2525390625
+        partition: 0.72
+        performance: 0.1748046875
     edges:
       ingress-CPU0:
         INTF: 1
