@@ -20,5 +20,5 @@ def show_data(paths, ranges):
 
 
 if __name__ == '__main__':
-    # show_data(["data/SSD/128KB-randread.txt", "data/NVMe-oF/128KB-randread.txt"], (16, 12))
-    show_data(["data/SSD/4KB-randwrite.txt"], (20,))
+    show_data(["data/SSD/128KB-randread.txt", "data/NVMe-oF/128KB-randread.txt"], (10, 10))
+    # show_data(["data/SSD/4KB-randwrite.txt"], (20,))

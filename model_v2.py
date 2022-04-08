@@ -138,8 +138,9 @@ def run_model(graph, model_range, data, data_range, no_lat=False):
 if __name__ == '__main__':
     # run_model("graphs/v2/NVMe-oF/4KB-random read.yml", 90, "data/NVMe-oF/4KB-randread.txt", 128)
     # run_model("graphs/v2/NVMe-oF/8KB-random read.yml", 97, "data/NVMe-oF/8KB-randread.txt", 128)
+    run_model("graphs/v2/NVMe-oF/128KB-random read.yml", 95, "data/NVMe-oF/128KB-randread.txt", 8)
     # run_model('graphs/v2/NVMe-oF/4KB-sequential write.yml', 100, "data/NVMe-oF/4KB-seqwrite.txt", 9)
-    run_model('graphs/v2/NVMe-oF/4KB-rwmixed.yml', 100, None, None, True)
+    # run_model('graphs/v2/NVMe-oF/4KB-rwmixed.yml', 100, None, None, True)
     pass
     # nx.draw(use_cases[0], pos=nx.spring_layout(use_cases[0]), with_labels=True)
     # plt.show()
