@@ -1,7 +1,7 @@
 import networkx as nx
 import yaml
 import matplotlib.pyplot as plt
-from data import show_data
+from data import show_data, to_log_scale, read_ssd_data
 
 
 def read_config(yml_path):
@@ -90,7 +90,7 @@ def calc_mm1n(rho, N: int) -> float:
         return rho / (1 - rho)
 
 
-def calc_latency(dags, print_tag=False):
+def calc_latency(hardware_cfg, dags, print_tag=False):
     for dag in dags:
         for k, v in dag.nodes.items():
             if v['performance'] is None:
@@ -106,10 +106,8 @@ def calc_latency(dags, print_tag=False):
     latency = 0
     for dag in dags:
         for k, v in dag.edges.items():
-            if 'bw' in v:
-                v['lat'] = dag.nodes[k[0]]['lat'] + v['total'] * dag.graph['g_in'] / v['bw']
-            else:
-                v['lat'] = dag.nodes[k[0]]['lat']
+            v['lat'] = dag.nodes[k[0]]['lat'] + max(v['INTF'] / hardware_cfg['interface'],
+                                                    v['DRAM'] / hardware_cfg['memory']) * dag.graph['g_in']
         longest_path = nx.dag_longest_path(dag, 'lat')
         lat = nx.dag_longest_path_length(dag, 'lat')
         latency += lat
@@ -120,7 +118,7 @@ def calc_latency(dags, print_tag=False):
     return latency / len(dags)
 
 
-def run_model(graph, model_range, data, data_range, no_lat=False):
+def run_model(graph, model_range, data, data_range, no_lat=False, log_scale=False):
     config = read_config(graph)
     use_cases = create_dags(config["software"])
     throughput = calc_throughput(config["hardware"], use_cases, True)
@@ -130,15 +128,24 @@ def run_model(graph, model_range, data, data_range, no_lat=False):
     for i in range(model_range):
         bw.append(throughput * i / 100)
         use_cases[0].graph['bandwidth-in'] = bw[-1]
-        lat.append(calc_latency(use_cases, i == 0 or i == model_range - 1) * 1E6)
+        lat.append(calc_latency(config["hardware"], use_cases, i == 0 or i == model_range - 1) * 1E6)
     plt.plot(bw, lat)
     show_data((data,), (data_range,))
+
+    if log_scale:
+        bw_lat = to_log_scale(data, data_range)
+    else:
+        bw_lat = list(zip(*read_ssd_data(data)))[:data_range]
+    for i, j in bw_lat:
+        use_cases[0].graph['bandwidth-in'] = i
+        latency = calc_latency(config["hardware"], use_cases)
+        print(i, j, latency * 1E6)
 
 
 if __name__ == '__main__':
     # run_model("graphs/v2/NVMe-oF/4KB-random read.yml", 90, "data/NVMe-oF/4KB-randread.txt", 128)
-    # run_model("graphs/v2/NVMe-oF/8KB-random read.yml", 97, "data/NVMe-oF/8KB-randread.txt", 128)
-    run_model("graphs/v2/NVMe-oF/128KB-random read.yml", 95, "data/NVMe-oF/128KB-randread.txt", 8)
+    run_model("graphs/v2/NVMe-oF/8KB-random read.yml", 97, "data/NVMe-oF/8KB-randread.txt", 128, log_scale=True)
+    # run_model("graphs/v2/NVMe-oF/128KB-random read.yml", 95, "data/NVMe-oF/128KB-randread.txt", 8)
     # run_model('graphs/v2/NVMe-oF/4KB-sequential write.yml', 100, "data/NVMe-oF/4KB-seqwrite.txt", 9)
     # run_model('graphs/v2/NVMe-oF/4KB-rwmixed.yml', 100, None, None, True)
     pass

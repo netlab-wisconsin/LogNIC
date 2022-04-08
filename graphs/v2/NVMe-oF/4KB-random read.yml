@@ -1,5 +1,5 @@
 hardware:
-  interface: 3.940
+  interface: 7.877
   memory: 4.390
   nodes:
     CPU:
@@ -29,10 +29,10 @@ software:
       SSD:
         phy_node: SSD
         partition: 1.0
-        overhead: 45.55748303566712e-6
-        performance: 1.90067033024117
-        Q_num: 13.207782733329191
-        Q_len: 228.0142435077496
+        overhead: 44.41247570676795e-6
+        performance: 1.9025750718964358
+        Q_num: 13.305472816579764
+        Q_len: 189.5484373483756
     edges:
       ingress-CPU0:
         INTF: 0.05

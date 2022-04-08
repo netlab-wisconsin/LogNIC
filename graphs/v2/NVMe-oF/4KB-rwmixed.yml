@@ -1,5 +1,5 @@
 hardware:
-  interface: 3.940
+  interface: 7.877
   memory: 4.390
   nodes:
     CPU:
