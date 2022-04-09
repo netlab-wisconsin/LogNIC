@@ -6,7 +6,7 @@ hardware:
   edges:
 software:
   - bandwidth-in: 1.0
-    granularity-in: 8192
+    granularity-in: 512
     nodes:
       IP:
         phy_node: IP

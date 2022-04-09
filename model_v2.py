@@ -106,8 +106,8 @@ def calc_latency(hardware_cfg, dags, print_tag=False):
     latency = 0
     for dag in dags:
         for k, v in dag.edges.items():
-            v['lat'] = dag.nodes[k[0]]['lat'] + max(v['INTF'] / hardware_cfg['interface'],
-                                                    v['DRAM'] / hardware_cfg['memory']) * dag.graph['g_in']
+            v['lat'] = dag.nodes[k[0]]['lat'] + dag.graph['g_in'] * (v['INTF'] / hardware_cfg['interface'] +
+                                                                     v['DRAM'] / hardware_cfg['memory'])
         longest_path = nx.dag_longest_path(dag, 'lat')
         lat = nx.dag_longest_path_length(dag, 'lat')
         latency += lat

@@ -11,3 +11,18 @@ performance(GB/s) Q_num Q_len overhead(us)
 sequential write 4KB: 0~4
 performance(GB/s) Q_num Q_len overhead(us)
 1.2525390625 0.05425210760759393 43.7650967831392 7.516650314325481
+
+----------------------------------------------------
+random read 512B: 0~110
+performance(GB/s) Q_num Q_len overhead(us)
+0.2388589925956121 13.429638640149484 186.06055495331788 46.01292871282239
+random read 1KB: 0~110
+performance(GB/s) Q_num Q_len overhead(us)
+0.47715804660925915 13.315204045810264 259.48258076155355 46.61071890303842
+
+sequential write 1KB: 0~12
+performance(GB/s) Q_num Q_len overhead(us)
+0.5119061867932941 0.304697184990106 48.88563041707267 6.066762531808897
+sequential write 512B: 0~12
+performance(GB/s) Q_num Q_len overhead(us)
+0.27511112792455167 0.3542223383583182 50.8795413982299 5.878307272626375

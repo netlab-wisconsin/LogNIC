@@ -32,6 +32,8 @@ def to_log_scale(path, data_range=None):
 
 if __name__ == '__main__':
     # show_data(["data/SSD/4KB-randread.txt", "data/NVMe-oF/4KB-randread.txt"], (128, 150))
-    show_data(["data/NVMe-oF/8KB-randread.txt", "data/NVMe-oF/8KB-randread-2.txt"], (128, 128))
+    # show_data(["data/NVMe-oF/8KB-randread.txt", "data/NVMe-oF/8KB-randread-2.txt"], (128, 128))
+    show_data(["data/SSD/512B-randread.txt"], (128,))
+    # show_data(["data/SSD/1KB-seqwrite.txt", "data/SSD/512B-seqwrite.txt"], (32, 32))
     # show_data(["data/SSD/8KB-seqwrite.txt"], (5,))
     # print(to_log_scale("data/SSD/4KB-randread.txt", None))
