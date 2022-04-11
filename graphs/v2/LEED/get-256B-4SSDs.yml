@@ -23,32 +23,32 @@ software:
         partition: 0.3
         overhead: 0.0e-6
         performance: 1.0
-        Q_num: 1
+        Q_num: 13
         Q_len: 1
       CPU1:
         phy_node: CPU
         partition: 0.4
         overhead: 0.0e-6
         performance: 1.0
-        Q_num: 1
+        Q_num: 13
         Q_len: 1
       CPU2:
         phy_node: CPU
         partition: 0.3
         overhead: 0.0e-6
         performance: 1.0
-        Q_num: 1
+        Q_num: 13
         Q_len: 1
       SSD0_0:
         phy_node: SSD0
-        partition: 0.5
+        partition: 0.4
         performance: 0.2388589925956121
         Q_num: 13.429638640149484
         Q_len: 186.06055495331788
         overhead: 46.01292871282239e-6
       SSD0_1:
         phy_node: SSD0
-        partition: 0.5
+        partition: 0.6
         performance: 0.2388589925956121
         Q_num: 13.429638640149484
         Q_len: 186.06055495331788
@@ -99,7 +99,7 @@ software:
       ingress-CPU0:
         INTF: 0.02 # request header
         DRAM: 0.02
-        total: 0.001
+        total: 0.36
       CPU0-SSD0_0:
         INTF: 0.0
         DRAM: 0.0
@@ -119,19 +119,19 @@ software:
       SSD0_0-CPU1:
         INTF: 0.5
         DRAM: 0.5
-        total: 0.001
+        total: 0.12
       SSD1_0-CPU1:
         INTF: 0.5
         DRAM: 0.5
-        total: 0.0
+        total: 0.12
       SSD2_0-CPU1:
         INTF: 0.5
         DRAM: 0.5
-        total: 0.0
+        total: 0.12
       SSD3_0-CPU1:
         INTF: 0.5
         DRAM: 0.5
-        total: 0.001
+        total: 0.12
       CPU1-SSD0_1:
         INTF: 0.0
         DRAM: 0.0
@@ -151,19 +151,19 @@ software:
       SSD0_1-CPU2:
         INTF: 0.5
         DRAM: 0.5
-        total: 0.001
+        total: 0.12
       SSD1_1-CPU2:
         INTF: 0.5
         DRAM: 0.5
-        total: 0.0
+        total: 0.12
       SSD2_1-CPU2:
         INTF: 0.5
         DRAM: 0.5
-        total: 0.0
+        total: 0.12
       SSD3_1-CPU2:
         INTF: 0.5
         DRAM: 0.5
-        total: 0.0
+        total: 0.12
       CPU2-egress:
         INTF: 1.0
         DRAM: 0.0
