@@ -1,0 +1,174 @@
+hardware:
+  interface: 7.877
+  memory: 4.390
+  nodes:
+    CPU:
+    SSD0:
+    SSD1:
+    SSD2:
+    SSD3:
+  edges:
+    CPU-egress: 12.5
+    CPU-ingress: 12.5
+    CPU-SSD0: 3.940
+    CPU-SSD1: 3.940
+    CPU-SSD2: 3.940
+    CPU-SSD3: 3.940
+software:
+  - bandwidth-in: 1.5
+    granularity-in: 4096
+    nodes:
+      CPU0:
+        phy_node: CPU
+        partition: 0.3
+        overhead: 0.0e-6
+        performance: 1.0
+        Q_num: 13
+        Q_len: 1
+      CPU1:
+        phy_node: CPU
+        partition: 0.4
+        overhead: 0.0e-6
+        performance: 1.0
+        Q_num: 13
+        Q_len: 1
+      CPU2:
+        phy_node: CPU
+        partition: 0.3
+        overhead: 0.0e-6
+        performance: 1.0
+        Q_num: 13
+        Q_len: 1
+      SSD0_0: # read bucket (512B)
+        phy_node: SSD0
+        partition: 0.39
+        performance: 0.2388589925956121
+        Q_num: 13.429638640149484
+        Q_len: 186.06055495331788
+        overhead: 46.01292871282239e-6
+      SSD0_2: # write bucket (512B)
+        phy_node: SSD0
+        partition: 0.61
+        performance: 0.27511112792455167
+        Q_num: 0.3542223383583182
+        Q_len: 50.8795413982299
+        overhead: 5.878307272626375e-6
+      SSD1_0: # read bucket (512B)
+        phy_node: SSD1
+        partition: 0.5
+        performance: 0.2388589925956121
+        Q_num: 13.429638640149484
+        Q_len: 186.06055495331788
+        overhead: 46.01292871282239e-6
+      SSD1_2: # write bucket (512B)
+        phy_node: SSD1
+        partition: 0.5
+        performance: 0.27511112792455167
+        Q_num: 0.3542223383583182
+        Q_len: 50.8795413982299
+        overhead: 5.878307272626375e-6
+      SSD2_0: # read bucket (512B)
+        phy_node: SSD2
+        partition: 0.5
+        performance: 0.2388589925956121
+        Q_num: 13.429638640149484
+        Q_len: 186.06055495331788
+        overhead: 46.01292871282239e-6
+      SSD2_2: # write bucket (512B)
+        phy_node: SSD2
+        partition: 0.5
+        performance: 0.27511112792455167
+        Q_num: 0.3542223383583182
+        Q_len: 50.8795413982299
+        overhead: 5.878307272626375e-6
+      SSD3_0: # read bucket (512B)
+        phy_node: SSD3
+        partition: 0.5
+        performance: 0.2388589925956121
+        Q_num: 13.429638640149484
+        Q_len: 186.06055495331788
+        overhead: 46.01292871282239e-6
+      SSD3_2: # write bucket (512B)
+        phy_node: SSD3
+        partition: 0.5
+        performance: 0.27511112792455167
+        Q_num: 0.3542223383583182
+        Q_len: 50.8795413982299
+        overhead: 5.878307272626375e-6
+    edges:
+      ingress-CPU0:
+        INTF: 0.00
+        DRAM: 0.00
+        total: 0.12 # header
+      # CPU0 -> SSDx_0
+      CPU0-SSD0_0:
+        INTF: 0.0
+        DRAM: 0.0
+        total: 0.125 # 512B
+      CPU0-SSD1_0:
+        INTF: 0.0
+        DRAM: 0.0
+        total: 0.125
+      CPU0-SSD2_0:
+        INTF: 0.0
+        DRAM: 0.0
+        total: 0.125
+      CPU0-SSD3_0:
+        INTF: 0.0
+        DRAM: 0.0
+        total: 0.125
+      # SSDx_0 -> CPU1
+      SSD0_0-CPU1:
+        INTF: 0.125
+        DRAM: 0.125
+        total: 0.03
+      SSD1_0-CPU1:
+        INTF: 0.125
+        DRAM: 0.125
+        total: 0.03
+      SSD2_0-CPU1:
+        INTF: 0.125
+        DRAM: 0.125
+        total: 0.03
+      SSD3_0-CPU1:
+        INTF: 0.125
+        DRAM: 0.125
+        total: 0.03
+      # CPU1 -> SSDx_2
+      CPU1-SSD0_2:
+        INTF: 0.125
+        DRAM: 0.0
+        total: 0.125
+      CPU1-SSD1_2:
+        INTF: 0.125
+        DRAM: 0.0
+        total: 0.125
+      CPU1-SSD2_2:
+        INTF: 0.125
+        DRAM: 0.0
+        total: 0.125
+      CPU1-SSD3_2:
+        INTF: 0.125
+        DRAM: 0.0
+        total: 0.125
+      # SSDx_2 -> CPU2
+      SSD0_2-CPU2:
+        INTF: 0.0
+        DRAM: 0.0
+        total: 0.03
+      SSD1_2-CPU2:
+        INTF: 0.0
+        DRAM: 0.0
+        total: 0.03
+      SSD2_2-CPU2:
+        INTF: 0.0
+        DRAM: 0.0
+        total: 0.03
+      SSD3_2-CPU2:
+        INTF: 0.0
+        DRAM: 0.0
+        total: 0.03
+      CPU2-egress:
+        INTF: 0.0
+        DRAM: 0.0
+        total: 0.12

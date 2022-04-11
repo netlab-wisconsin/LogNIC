@@ -1,0 +1,343 @@
+-------r.spec------1--------------
+NDEBUG
+Starting SPDK v19.10.1 / DPDK 19.08.0 initialization...
+[ DPDK EAL parameters: kv_app --no-shconf -c 0x7F --log-level=lib.eal:6 --log-level=lib.cryptodev:5 --log-level=user1:6 --iova-mode=pa --base-virtaddr=0x200000000000 --match-allocations --file-prefix=spdk_pid95761 ]
+app.c: 639:spdk_app_start: *NOTICE*: Total cores available: 7
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 1
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 2
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 3
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 4
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 5
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 6
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 0
+json_config.c: 561:spdk_app_json_config_load: *NOTICE*: 'subsystems' configuration is empty
+app_thread
+reactor_1
+reactor_2
+reactor_3
+reactor_4
+reactor_5
+reactor_6
+client: connected to node 192.168.1.13:9000.
+rdma client initialized in 2.425098 s.
+99.9%  tail latency: 279.000000 us
+average latency: 99.715300 us
+DEL rate: 9948.308589
+-------r.spec------2--------------
+NDEBUG
+Starting SPDK v19.10.1 / DPDK 19.08.0 initialization...
+[ DPDK EAL parameters: kv_app --no-shconf -c 0x7F --log-level=lib.eal:6 --log-level=lib.cryptodev:5 --log-level=user1:6 --iova-mode=pa --base-virtaddr=0x200000000000 --match-allocations --file-prefix=spdk_pid95928 ]
+app.c: 639:spdk_app_start: *NOTICE*: Total cores available: 7
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 1
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 2
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 3
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 4
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 5
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 6
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 0
+json_config.c: 561:spdk_app_json_config_load: *NOTICE*: 'subsystems' configuration is empty
+app_thread
+reactor_1
+reactor_2
+reactor_3
+reactor_4
+reactor_5
+reactor_6
+client: connected to node 192.168.1.13:9000.
+rdma client initialized in 2.466423 s.
+99.9%  tail latency: 418.000000 us
+average latency: 101.070850 us
+DEL rate: 19636.585708
+-------r.spec------4--------------
+NDEBUG
+Starting SPDK v19.10.1 / DPDK 19.08.0 initialization...
+[ DPDK EAL parameters: kv_app --no-shconf -c 0x7F --log-level=lib.eal:6 --log-level=lib.cryptodev:5 --log-level=user1:6 --iova-mode=pa --base-virtaddr=0x200000000000 --match-allocations --file-prefix=spdk_pid96090 ]
+app.c: 639:spdk_app_start: *NOTICE*: Total cores available: 7
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 1
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 2
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 3
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 4
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 5
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 6
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 0
+json_config.c: 561:spdk_app_json_config_load: *NOTICE*: 'subsystems' configuration is empty
+app_thread
+reactor_1
+reactor_2
+reactor_3
+reactor_4
+reactor_5
+reactor_6
+client: connected to node 192.168.1.13:9000.
+rdma client initialized in 2.440835 s.
+99.9%  tail latency: 616.000000 us
+average latency: 102.662300 us
+DEL rate: 38680.380151
+-------r.spec------8--------------
+NDEBUG
+Starting SPDK v19.10.1 / DPDK 19.08.0 initialization...
+[ DPDK EAL parameters: kv_app --no-shconf -c 0x7F --log-level=lib.eal:6 --log-level=lib.cryptodev:5 --log-level=user1:6 --iova-mode=pa --base-virtaddr=0x200000000000 --match-allocations --file-prefix=spdk_pid96261 ]
+app.c: 639:spdk_app_start: *NOTICE*: Total cores available: 7
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 1
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 2
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 3
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 4
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 5
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 6
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 0
+json_config.c: 561:spdk_app_json_config_load: *NOTICE*: 'subsystems' configuration is empty
+app_thread
+reactor_1
+reactor_2
+reactor_3
+reactor_4
+reactor_5
+reactor_6
+client: connected to node 192.168.1.13:9000.
+rdma client initialized in 2.409464 s.
+99.9%  tail latency: 862.000000 us
+average latency: 106.665900 us
+DEL rate: 74457.391758
+-------r.spec------16--------------
+NDEBUG
+Starting SPDK v19.10.1 / DPDK 19.08.0 initialization...
+[ DPDK EAL parameters: kv_app --no-shconf -c 0x7F --log-level=lib.eal:6 --log-level=lib.cryptodev:5 --log-level=user1:6 --iova-mode=pa --base-virtaddr=0x200000000000 --match-allocations --file-prefix=spdk_pid96448 ]
+app.c: 639:spdk_app_start: *NOTICE*: Total cores available: 7
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 1
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 2
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 3
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 4
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 5
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 6
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 0
+json_config.c: 561:spdk_app_json_config_load: *NOTICE*: 'subsystems' configuration is empty
+app_thread
+reactor_1
+reactor_2
+reactor_3
+reactor_4
+reactor_5
+reactor_6
+client: connected to node 192.168.1.13:9000.
+rdma client initialized in 2.452565 s.
+99.9%  tail latency: 1065.000000 us
+average latency: 115.405488 us
+DEL rate: 137722.906676
+-------r.spec------32--------------
+NDEBUG
+Starting SPDK v19.10.1 / DPDK 19.08.0 initialization...
+[ DPDK EAL parameters: kv_app --no-shconf -c 0x3FF --log-level=lib.eal:6 --log-level=lib.cryptodev:5 --log-level=user1:6 --iova-mode=pa --base-virtaddr=0x200000000000 --match-allocations --file-prefix=spdk_pid96605 ]
+app.c: 639:spdk_app_start: *NOTICE*: Total cores available: 10
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 1
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 2
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 3
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 4
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 5
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 6
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 7
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 8
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 9
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 0
+json_config.c: 561:spdk_app_json_config_load: *NOTICE*: 'subsystems' configuration is empty
+app_thread
+reactor_1
+reactor_2
+reactor_3
+reactor_4
+reactor_5
+reactor_6
+reactor_7
+reactor_8
+reactor_9
+client: connected to node 192.168.1.13:9000.
+rdma client initialized in 2.420781 s.
+99.9%  tail latency: 1207.000000 us
+average latency: 132.969931 us
+DEL rate: 238790.110209
+-------r.spec------64--------------
+NDEBUG
+Starting SPDK v19.10.1 / DPDK 19.08.0 initialization...
+[ DPDK EAL parameters: kv_app --no-shconf -c 0x3FF --log-level=lib.eal:6 --log-level=lib.cryptodev:5 --log-level=user1:6 --iova-mode=pa --base-virtaddr=0x200000000000 --match-allocations --file-prefix=spdk_pid96783 ]
+app.c: 639:spdk_app_start: *NOTICE*: Total cores available: 10
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 1
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 2
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 3
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 4
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 5
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 6
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 7
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 8
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 9
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 0
+json_config.c: 561:spdk_app_json_config_load: *NOTICE*: 'subsystems' configuration is empty
+app_thread
+reactor_1
+reactor_2
+reactor_3
+reactor_4
+reactor_5
+reactor_6
+reactor_7
+reactor_8
+reactor_9
+client: connected to node 192.168.1.13:9000.
+rdma client initialized in 2.406297 s.
+99.9%  tail latency: 1309.000000 us
+average latency: 164.930909 us
+DEL rate: 386099.454393
+-------r.spec------128--------------
+NDEBUG
+Starting SPDK v19.10.1 / DPDK 19.08.0 initialization...
+[ DPDK EAL parameters: kv_app --no-shconf -c 0x3FF --log-level=lib.eal:6 --log-level=lib.cryptodev:5 --log-level=user1:6 --iova-mode=pa --base-virtaddr=0x200000000000 --match-allocations --file-prefix=spdk_pid96964 ]
+app.c: 639:spdk_app_start: *NOTICE*: Total cores available: 10
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 1
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 2
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 3
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 4
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 5
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 6
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 7
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 8
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 9
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 0
+json_config.c: 561:spdk_app_json_config_load: *NOTICE*: 'subsystems' configuration is empty
+app_thread
+reactor_1
+reactor_2
+reactor_3
+reactor_4
+reactor_5
+reactor_6
+reactor_7
+reactor_8
+reactor_9
+client: connected to node 192.168.1.13:9000.
+rdma client initialized in 2.394863 s.
+99.9%  tail latency: 1548.000000 us
+average latency: 235.733980 us
+DEL rate: 540874.704262
+-------r.spec------256--------------
+NDEBUG
+Starting SPDK v19.10.1 / DPDK 19.08.0 initialization...
+[ DPDK EAL parameters: kv_app --no-shconf -c 0x3FF --log-level=lib.eal:6 --log-level=lib.cryptodev:5 --log-level=user1:6 --iova-mode=pa --base-virtaddr=0x200000000000 --match-allocations --file-prefix=spdk_pid97138 ]
+app.c: 639:spdk_app_start: *NOTICE*: Total cores available: 10
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 1
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 2
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 3
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 4
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 5
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 6
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 7
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 8
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 9
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 0
+json_config.c: 561:spdk_app_json_config_load: *NOTICE*: 'subsystems' configuration is empty
+app_thread
+reactor_1
+reactor_2
+reactor_3
+reactor_4
+reactor_5
+reactor_6
+reactor_7
+reactor_8
+reactor_9
+client: connected to node 192.168.1.13:9000.
+rdma client initialized in 2.419531 s.
+99.9%  tail latency: 2019.000000 us
+average latency: 392.361985 us
+DEL rate: 650442.199064
+-------r.spec------512--------------
+NDEBUG
+Starting SPDK v19.10.1 / DPDK 19.08.0 initialization...
+[ DPDK EAL parameters: kv_app --no-shconf -c 0x3FF --log-level=lib.eal:6 --log-level=lib.cryptodev:5 --log-level=user1:6 --iova-mode=pa --base-virtaddr=0x200000000000 --match-allocations --file-prefix=spdk_pid97325 ]
+app.c: 639:spdk_app_start: *NOTICE*: Total cores available: 10
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 1
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 2
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 3
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 4
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 5
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 6
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 7
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 8
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 9
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 0
+json_config.c: 561:spdk_app_json_config_load: *NOTICE*: 'subsystems' configuration is empty
+app_thread
+reactor_1
+reactor_2
+reactor_3
+reactor_4
+reactor_5
+reactor_6
+reactor_7
+reactor_8
+reactor_9
+client: connected to node 192.168.1.13:9000.
+rdma client initialized in 2.402760 s.
+99.9%  tail latency: 4172.000000 us
+average latency: 697.628684 us
+DEL rate: 732309.854030
+-------r.spec------1024--------------
+NDEBUG
+Starting SPDK v19.10.1 / DPDK 19.08.0 initialization...
+[ DPDK EAL parameters: kv_app --no-shconf -c 0x3FF --log-level=lib.eal:6 --log-level=lib.cryptodev:5 --log-level=user1:6 --iova-mode=pa --base-virtaddr=0x200000000000 --match-allocations --file-prefix=spdk_pid97511 ]
+app.c: 639:spdk_app_start: *NOTICE*: Total cores available: 10
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 1
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 2
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 3
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 4
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 5
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 6
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 7
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 8
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 9
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 0
+json_config.c: 561:spdk_app_json_config_load: *NOTICE*: 'subsystems' configuration is empty
+app_thread
+reactor_1
+reactor_2
+reactor_3
+reactor_4
+reactor_5
+reactor_6
+reactor_7
+reactor_8
+reactor_9
+client: connected to node 192.168.1.13:9000.
+rdma client initialized in 2.420883 s.
+99.9%  tail latency: 8217.000000 us
+average latency: 1314.173723 us
+DEL rate: 778324.158635
+-------r.spec------2048--------------
+NDEBUG
+Starting SPDK v19.10.1 / DPDK 19.08.0 initialization...
+[ DPDK EAL parameters: kv_app --no-shconf -c 0x3FF --log-level=lib.eal:6 --log-level=lib.cryptodev:5 --log-level=user1:6 --iova-mode=pa --base-virtaddr=0x200000000000 --match-allocations --file-prefix=spdk_pid97683 ]
+app.c: 639:spdk_app_start: *NOTICE*: Total cores available: 10
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 1
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 2
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 3
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 4
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 5
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 6
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 7
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 8
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 9
+reactor.c: 344:_spdk_reactor_run: *NOTICE*: Reactor started on core 0
+json_config.c: 561:spdk_app_json_config_load: *NOTICE*: 'subsystems' configuration is empty
+app_thread
+reactor_1
+reactor_2
+reactor_3
+reactor_4
+reactor_5
+reactor_6
+reactor_7
+reactor_8
+reactor_9
+client: connected to node 192.168.1.13:9000.
+rdma client initialized in 2.413098 s.
+99.9%  tail latency: 19449.000000 us
+average latency: 2588.873194 us
+DEL rate: 789072.820941
+#####################################################################

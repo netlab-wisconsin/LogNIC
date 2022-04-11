@@ -30,7 +30,7 @@ def read_leed_data(path, granularity):
         for i in f.readlines():
             if i.startswith("average latency"):
                 average_latency.append(float(i.split()[-2]))
-            elif i.startswith("TRANSACTION rate"):
+            elif i.startswith("TRANSACTION rate") or i.startswith("DEL rate"):
                 throughput.append(float(i.split()[-1]) * granularity / (1 << 30))
     return throughput, average_latency
 
