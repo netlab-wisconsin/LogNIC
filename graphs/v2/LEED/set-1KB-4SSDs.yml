@@ -41,21 +41,21 @@ software:
         Q_len: 1
       SSD0_0: # read bucket (512B)
         phy_node: SSD0
-        partition: 0.27
+        partition: 0.2425
         performance: 0.2388589925956121
         Q_num: 13.429638640149484
         Q_len: 186.06055495331788
         overhead: 46.01292871282239e-6
       SSD0_1: # write value (1K)
         phy_node: SSD0
-        partition: 0.34
+        partition: 0.30
         performance: 0.5119061867932941
         Q_num: 0.304697184990106
         Q_len: 48.88563041707267
         overhead: 6.066762531808897e-6
       SSD0_2: # write bucket (512B)
         phy_node: SSD0
-        partition: 0.33
+        partition: 0.3575
         performance: 0.27511112792455167
         Q_num: 0.3542223383583182
         Q_len: 50.8795413982299

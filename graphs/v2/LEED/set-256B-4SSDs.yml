@@ -55,7 +55,7 @@ software:
         overhead: 5.878307272626375e-6
       SSD0_2: # write bucket (512B)
         phy_node: SSD0
-        partition: 0.33
+        partition: 0.308
         performance: 0.27511112792455167
         Q_num: 0.3542223383583182
         Q_len: 50.8795413982299

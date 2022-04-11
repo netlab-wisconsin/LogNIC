@@ -41,14 +41,14 @@ software:
         Q_len: 1
       SSD0_0:
         phy_node: SSD0
-        partition: 0.4
+        partition: 0.415
         performance: 0.2388589925956121
         Q_num: 13.429638640149484
         Q_len: 186.06055495331788
         overhead: 46.01292871282239e-6
       SSD0_1:
         phy_node: SSD0
-        partition: 0.6
+        partition: 0.585
         performance: 0.2388589925956121
         Q_num: 13.429638640149484
         Q_len: 186.06055495331788
