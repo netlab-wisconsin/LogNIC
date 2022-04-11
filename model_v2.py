@@ -140,6 +140,9 @@ def run_model(graph, model_range, bw_lat, no_lat=False, log_scale=False):
         latency = calc_latency(config["hardware"], use_cases)
         print(i, j, latency * 1E6)
 
+    # nx.draw(use_cases[0], pos=nx.spring_layout(use_cases[0]), with_labels=True)
+    # plt.show()
+
 
 if __name__ == '__main__':
     # run_model("graphs/v2/NVMe-oF/4KB-random read.yml", 90, "data/NVMe-oF/4KB-randread.txt", 128)
@@ -148,11 +151,11 @@ if __name__ == '__main__':
     # run_model('graphs/v2/NVMe-oF/4KB-sequential write.yml', 100, "data/NVMe-oF/4KB-seqwrite.txt", 9)
     # run_model('graphs/v2/NVMe-oF/4KB-rwmixed.yml', 100, None, None, True)
     # run_model('graphs/v2/LEED/get-1KB-4SSDs.yml', 96, read_leed_data("data/LEED/1KB-get.txt", 1024, data_range=10))
-    run_model('graphs/v2/LEED/get-256B-4SSDs.yml', 95, read_leed_data("data/LEED/256B-get.txt", 256, data_range=10))
+    # run_model('graphs/v2/LEED/get-256B-4SSDs.yml', 95, read_leed_data("data/LEED/256B-get.txt", 256, data_range=10))
     # run_model("graphs/v2/SSD/4KB-parallel.yml", 90, read_ssd_data("data/SSD/4KB-randread.txt", data_range=128),
     #           log_scale=True)
     # run_model("graphs/v2/SSD/4KB-serial.yml", 90, read_ssd_data("data/SSD/4KB-randread.txt", data_range=128),
     #           log_scale=True)
+    # run_model('graphs/v2/LEED/set-1KB-4SSDs.yml', 99, read_leed_data("data/LEED/1KB-set.txt", 1024, data_range=10))
+    run_model('graphs/v2/LEED/set-256B-4SSDs.yml', 98, read_leed_data("data/LEED/256B-set.txt", 256, data_range=10))
     pass
-    # nx.draw(use_cases[0], pos=nx.spring_layout(use_cases[0]), with_labels=True)
-    # plt.show()

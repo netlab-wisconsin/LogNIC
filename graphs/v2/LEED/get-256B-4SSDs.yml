@@ -97,9 +97,9 @@ software:
         overhead: 46.01292871282239e-6
     edges:
       ingress-CPU0:
-        INTF: 0.02 # request header
+        INTF: 0.02
         DRAM: 0.02
-        total: 0.36
+        total: 0.48 # request header
       CPU0-SSD0_0:
         INTF: 0.0
         DRAM: 0.0

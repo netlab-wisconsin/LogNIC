@@ -56,4 +56,6 @@ if __name__ == '__main__':
     # show_data(["data/SSD/1KB-seqwrite.txt", "data/SSD/512B-seqwrite.txt"], (32, 32))
     # show_data(["data/SSD/8KB-seqwrite.txt"], (5,))
     # print(to_log_scale("data/SSD/4KB-randread.txt", None))
-    show_data([read_leed_data("data/LEED/1KB-get.txt", 1024, data_range=10)])
+    # show_data([read_leed_data("data/LEED/1KB-get.txt", 1024, data_range=10)])
+    show_data([read_leed_data("data/LEED/1KB-set.txt", 1024, data_range=10)])
+    # show_data([read_leed_data("data/LEED/256B-set.txt", 256, data_range=10)])
