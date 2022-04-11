@@ -14,11 +14,11 @@ software:
     nodes:
       CPU0:
         phy_node: CPU
-        partition: 0.25
+        partition: 0.5
         performance: 1.0
       CPU1:
         phy_node: CPU
-        partition: 0.25
+        partition: 0.5
         performance: 1.0
       SSD:
         phy_node: SSD
@@ -47,11 +47,11 @@ software:
     nodes:
       CPU0:
         phy_node: CPU
-        partition: 0.25
+        partition: 0.5
         performance: 1.0
       CPU1:
         phy_node: CPU
-        partition: 0.25
+        partition: 0.5
         performance: 1.0
       SSD:
         phy_node: SSD

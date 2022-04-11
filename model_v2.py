@@ -20,12 +20,19 @@ def read_config(yml_path):
 def create_dags(use_cases):
     bw_sum = 0
     dags = []
+    partition_sum = {}
     for use_case in use_cases:
         bw_sum += use_case['bandwidth-in']
+        for i in use_case['nodes'].values():
+            if i['phy_node'] not in partition_sum:
+                partition_sum[i['phy_node']] = 0
+            partition_sum[i['phy_node']] += i['partition']
     for use_case in use_cases:
         w = use_case['bandwidth-in'] / bw_sum if bw_sum != 0 else 1
         dag = nx.DiGraph(**{k: v for k, v in use_case.items() if k != 'nodes' and k != 'edges'})
         dag.add_nodes_from(use_case['nodes'].items())
+        for v in dag.nodes.values():
+            v['partition'] /= partition_sum[v['phy_node']] if partition_sum[v['phy_node']] else 1
         for k, v in use_case['edges'].items():
             e = k.split("-")
             assert len(e) == 2 and e[0] in use_case['nodes'] and e[1] in use_case['nodes']
@@ -57,9 +64,9 @@ def calc_throughput(hardware_cfg, use_cases, print_tag=False):
             memory += v["DRAM"]
 
         for k, v in dag.nodes.items():
-            if v["performance"] is None:
-                continue
             total = sum([dag.edges[(i, k)]["total"] for i in dag.predecessors(k)])
+            if v["performance"] is None or total == 0:
+                continue
             throughput.append(
                 {"v": v["performance"] * v["partition"] / total, "name": f"compute:{v['phy_node']}({dag_i}-{k})"})
 
@@ -149,7 +156,7 @@ if __name__ == '__main__':
     # run_model("graphs/v2/NVMe-oF/8KB-random read.yml", 97, "data/NVMe-oF/8KB-randread.txt", 128, log_scale=True)
     # run_model("graphs/v2/NVMe-oF/128KB-random read.yml", 95, "data/NVMe-oF/128KB-randread.txt", 8)
     # run_model('graphs/v2/NVMe-oF/4KB-sequential write.yml', 100, "data/NVMe-oF/4KB-seqwrite.txt", 9)
-    # run_model('graphs/v2/NVMe-oF/4KB-rwmixed.yml', 100, None, None, True)
+    # run_model('graphs/v2/NVMe-oF/4KB-rwmixed.yml', 100, None, True)
     # run_model("graphs/v2/SSD/4KB-parallel.yml", 90, read_ssd_data("data/SSD/4KB-randread.txt", data_range=128),
     #           log_scale=True)
     # run_model("graphs/v2/SSD/4KB-serial.yml", 90, read_ssd_data("data/SSD/4KB-randread.txt", data_range=128),
@@ -158,6 +165,7 @@ if __name__ == '__main__':
     # run_model('graphs/v2/LEED/get-256B-4SSDs.yml', 95, read_leed_data("data/LEED/256B-get.txt", 256, data_range=10))
     # run_model('graphs/v2/LEED/set-1KB-4SSDs.yml', 99, read_leed_data("data/LEED/1KB-set.txt", 1024, data_range=10))
     # run_model('graphs/v2/LEED/set-256B-4SSDs.yml', 98, read_leed_data("data/LEED/256B-set.txt", 256, data_range=10))
-    run_model('graphs/v2/LEED/del-1KB-4SSDs.yml', 97, read_leed_data("data/LEED/1KB-del.txt", 1024, data_range=10))
-    run_model('graphs/v2/LEED/del-256B-4SSDs.yml', 97, read_leed_data("data/LEED/256B-del.txt", 256, data_range=10))
+    # run_model('graphs/v2/LEED/del-1KB-4SSDs.yml', 97, read_leed_data("data/LEED/1KB-del.txt", 1024, data_range=10))
+    # run_model('graphs/v2/LEED/del-256B-4SSDs.yml', 97, read_leed_data("data/LEED/256B-del.txt", 256, data_range=10))
+    run_model('graphs/v2/LEED/get&set-256B-4SSDs.yml', 100, None, True)
     pass
