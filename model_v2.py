@@ -1,7 +1,11 @@
 import networkx as nx
 import yaml
 import matplotlib.pyplot as plt
+from numpy import seterr
+
 from data import *
+
+seterr(all='raise')
 
 
 def read_config(yml_path):
@@ -45,7 +49,7 @@ def create_dags(use_cases):
     return dags
 
 
-def calc_throughput(hardware_cfg, use_cases, print_tag=False):
+def calc_throughput(hardware_cfg, use_cases, print_tag=False, return_all=False):
     throughput = []
     bw_edges = {}
     interface = 0
@@ -85,16 +89,29 @@ def calc_throughput(hardware_cfg, use_cases, print_tag=False):
         for dag_i, dag in enumerate(use_cases):
             print(f"use case {dag_i}:\t{throughput[0]['v'] * dag.graph['weight']}")
         print("\n\n")
-    return throughput[0]['v']
+    return throughput if return_all else throughput[0]['v']
 
 
 def calc_mm1n(rho, N: int) -> float:
     if rho == 1:
         return (N - 1) / 2
     try:
-        return rho / (1 - rho) - N / (rho ** -N - 1)
-    except (OverflowError, ZeroDivisionError):
+        rho_n = rho ** -N
+    except (OverflowError, ZeroDivisionError, FloatingPointError):
         return rho / (1 - rho)
+    return rho / (1 - rho) - N / (rho_n - 1)
+
+
+def calc_pn(rho, N: int) -> float:
+    if rho == 1:
+        return 1 / (N + 1)
+    if rho > 10000:
+        return 1
+    try:
+        rho_n = rho ** -N
+    except (OverflowError, ZeroDivisionError, FloatingPointError):
+        return 0
+    return (1 - rho) / (rho_n - rho)
 
 
 def calc_latency(hardware_cfg, dags, print_tag=False):
@@ -105,8 +122,12 @@ def calc_latency(hardware_cfg, dags, print_tag=False):
                 v['lat'] = 0.0
                 continue
             total = sum([dag.edges[(i, k)]["total"] for i in dag.predecessors(k)])
-            rho = dag.in_degree(k) * dag.graph['bandwidth-in'] * total / (v['performance'] * v['partition'])
-            lat = dag.graph['g_in'] * total * v['Q_num'] / v['performance']
+            if v['partition'] == 0:
+                v['q_lat'] = 1.0
+                v['lat'] = 1.0
+                continue
+            rho = dag.graph['bandwidth-in'] * total / (v['performance'] * v['partition'])
+            lat = dag.graph['g_in'] * total * v['Q_num'] / v['performance'] / dag.in_degree(k)
             v['q_lat'] = calc_mm1n(rho, v['Q_len']) * lat
             v['lat'] = v['q_lat'] + lat + v['overhead']
 
@@ -117,12 +138,12 @@ def calc_latency(hardware_cfg, dags, print_tag=False):
                                                                      v['DRAM'] / hardware_cfg['memory'])
         longest_path = nx.dag_longest_path(dag, 'lat')
         lat = nx.dag_longest_path_length(dag, 'lat')
-        latency += lat
+        latency += lat * dag.graph['weight']
         if print_tag:
             print(longest_path)
             print(f"latency {lat * 10 ** 6} us")
 
-    return latency / len(dags)
+    return latency
 
 
 def run_model(graph, model_range, bw_lat, no_lat=False, log_scale=False):
@@ -164,8 +185,11 @@ if __name__ == '__main__':
     # run_model('graphs/v2/LEED/get-1KB-4SSDs.yml', 96, read_leed_data("data/LEED/1KB-get.txt", 1024, data_range=10))
     # run_model('graphs/v2/LEED/get-256B-4SSDs.yml', 95, read_leed_data("data/LEED/256B-get.txt", 256, data_range=10))
     # run_model('graphs/v2/LEED/set-1KB-4SSDs.yml', 98, read_leed_data("data/LEED/1KB-set.txt", 1024, data_range=10))
-    # run_model('graphs/v2/LEED/set-256B-4SSDs.yml', 98, read_leed_data("data/LEED/256B-set.txt", 256, data_range=10))
+    run_model('graphs/v2/LEED/set-256B-4SSDs.yml', 98, read_leed_data("data/LEED/256B-set.txt", 256, data_range=10))
     # run_model('graphs/v2/LEED/del-1KB-4SSDs.yml', 97, read_leed_data("data/LEED/1KB-del.txt", 1024, data_range=10))
-    run_model('graphs/v2/LEED/del-256B-4SSDs.yml', 97, read_leed_data("data/LEED/256B-del.txt", 256, data_range=10))
+    # run_model('graphs/v2/LEED/del-256B-4SSDs.yml', 97, read_leed_data("data/LEED/256B-del.txt", 256, data_range=10))
     # run_model('graphs/v2/LEED/get&set-256B-4SSDs.yml', 100, None, True)
+    # for j in (1, 2, 4, 8, 16):
+    #     plt.plot([calc_pn(i / 100.0, j) for i in range(100)])
+    # plt.show()
     pass
