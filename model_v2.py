@@ -2,10 +2,10 @@ import networkx as nx
 import yaml
 import matplotlib.pyplot as plt
 from numpy import seterr
-
+import numpy as np
 from data import *
 
-seterr(all='raise')
+seterr(all='ignore')
 
 
 def read_config(yml_path):
@@ -40,9 +40,7 @@ def create_dags(use_cases):
         for k, v in use_case['edges'].items():
             e = k.split("-")
             assert len(e) == 2 and e[0] in use_case['nodes'] and e[1] in use_case['nodes']
-            for key in v:
-                v[key] *= w
-            dag.add_edge(e[0], e[1], **v)
+            dag.add_edge(e[0], e[1], **{i: j * w for i, j in v.items()})
         dag.graph['g_in'] = dag.graph['granularity-in'] / float(1 << 30)
         dag.graph['weight'] = w
         dags.append(dag)
@@ -95,23 +93,15 @@ def calc_throughput(hardware_cfg, use_cases, print_tag=False, return_all=False):
 def calc_mm1n(rho, N: int) -> float:
     if rho == 1:
         return (N - 1) / 2
-    try:
-        rho_n = rho ** -N
-    except (OverflowError, ZeroDivisionError, FloatingPointError):
-        return rho / (1 - rho)
-    return rho / (1 - rho) - N / (rho_n - 1)
+    rho = np.array([rho])
+    return (rho / (1 - rho) - N / (rho ** -N - 1))[0]
 
 
 def calc_pn(rho, N: int) -> float:
     if rho == 1:
         return 1 / (N + 1)
-    if rho > 10000:
-        return 1
-    try:
-        rho_n = rho ** -N
-    except (OverflowError, ZeroDivisionError, FloatingPointError):
-        return 0
-    return (1 - rho) / (rho_n - rho)
+    rho = np.array([rho])
+    return ((1 - rho) / (rho ** -N - rho))[0]
 
 
 def calc_real_throughput(hardware_cfg, use_cases):
@@ -126,7 +116,7 @@ def calc_real_throughput(hardware_cfg, use_cases):
         return bw_in * (1 - calc_pn(bw_in / bw[0]['v'], use_cases[int(use_case)].nodes[node]['Q_len']))
 
 
-def calc_latency(hardware_cfg, dags, print_tag=False):
+def calc_latency(hardware_cfg, dags, print_tag=False, return_all=False):
     for dag in dags:
         for k, v in dag.nodes.items():
             if v['performance'] is None:
@@ -143,7 +133,7 @@ def calc_latency(hardware_cfg, dags, print_tag=False):
             v['q_lat'] = calc_mm1n(rho, v['Q_len']) * lat
             v['lat'] = v['q_lat'] + lat + v['overhead']
 
-    latency = 0
+    latency, latencies = 0, []
     for dag in dags:
         for k, v in dag.edges.items():
             v['lat'] = dag.nodes[k[0]]['lat'] + dag.graph['g_in'] * (v['INTF'] / hardware_cfg['interface'] +
@@ -151,11 +141,12 @@ def calc_latency(hardware_cfg, dags, print_tag=False):
         longest_path = nx.dag_longest_path(dag, 'lat')
         lat = nx.dag_longest_path_length(dag, 'lat')
         latency += lat * dag.graph['weight']
+        latencies.append(lat)
         if print_tag:
             print(longest_path)
             print(f"latency {lat * 10 ** 6} us")
 
-    return latency
+    return latencies if return_all else latency
 
 
 def run_model(graph, model_range, bw_lat, no_lat=False, log_scale=False):

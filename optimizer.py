@@ -65,9 +65,8 @@ def leed_operation(op, percentage=0.3, max_lat=None):
         return config["hardware"], dags
 
     config = read_config(f'graphs/v2/LEED/{op}-4SSDs.yml')
-    partition = np.random.random(LEED_CONFIG[op]["partition_num"])
-    partition /= np.sum(partition)
-    x0 = np.concatenate(([0.0], partition))
+    partitions = np.random.random(LEED_CONFIG[op]["partition_num"])
+    x0 = np.concatenate(([0.0], partitions / np.sum(partitions)))
     bounds = [(0, None)] * x0.shape[0]
     constraints = [{'type': "eq", 'fun': lambda x: 1 - sum(x[1:])}]
     if max_lat:
@@ -84,12 +83,43 @@ def leed_operation(op, percentage=0.3, max_lat=None):
     print(calc_real_throughput(hardware_cfg, use_cases), calc_latency(hardware_cfg, use_cases) * 1e6)
 
 
+def leed_mixed(get_pct, get_max_lat, set_max_lat):
+    def create_graph(x):
+        config["software"][0]['bandwidth-in'] = get_pct * x[0]
+        config["software"][1]['bandwidth-in'] = (1 - get_pct) * x[0]
+        dags = create_dags(config["software"])
+        for j in range(4):
+            dags[0].nodes[f"SSD{j}_0"]['partition'] = x[1]
+            dags[0].nodes[f"SSD{j}_1"]['partition'] = x[2]
+            dags[1].nodes[f"SSD{j}_0"]['partition'] = x[3]
+            dags[1].nodes[f"SSD{j}_1"]['partition'] = x[4]
+            dags[1].nodes[f"SSD{j}_2"]['partition'] = x[5]
+        return config["hardware"], dags
+
+    config = read_config('graphs/v2/LEED/get&set-1KB-4SSDs.yml')
+    partitions = np.random.random(5)
+    x0 = np.concatenate(([0.0], partitions / np.sum(partitions)))
+    bounds = [(0, None)] * x0.shape[0]
+    constr = [{'type': "eq", 'fun': lambda x: 1 - sum(x[1:])},
+              # {'type': "eq", 'fun': lambda x: get_max_lat - max(calc_latency(*create_graph(x), return_all=True)) * 1e6},
+              {'type': "eq", 'fun': lambda x: get_max_lat - calc_latency(*create_graph(x)) * 1e6},
+              # {'type': "eq", 'fun': lambda x: get_max_lat - calc_latency(*create_graph(x), return_all=True)[0] * 1e6},
+              # {'type': "eq", 'fun': lambda x: set_max_lat - calc_latency(*create_graph(x), return_all=True)[1] * 1e6}
+              ]
+    res = minimize(lambda x: - calc_real_throughput(*create_graph(x)), x0, method='SLSQP', bounds=bounds,
+                   constraints=constr)['x']
+    print(*res)
+    hardware_cfg, use_cases = create_graph(res)
+    print(calc_real_throughput(hardware_cfg, use_cases), calc_latency(hardware_cfg, use_cases) * 1e6)
+
+
 if __name__ == '__main__':
     # rw_mixed()
     # get_set_mixed()
     # leed_operation('set-1KB', percentage=0.50)
     # leed_operation('set-1KB', max_lat=110)
-    # leed_operation('get-1KB', percentage=0.30)
+    # leed_operation('get-1KB', percentage=1.0)
     # leed_operation('get-1KB', max_lat=200)
-    leed_operation('del-256B', percentage=0.80)
-    leed_operation('del-256B', max_lat=120)
+    # leed_operation('del-256B', percentage=0.80)
+    # leed_operation('del-256B', max_lat=120)
+    leed_mixed(0.0, 180, 110)
