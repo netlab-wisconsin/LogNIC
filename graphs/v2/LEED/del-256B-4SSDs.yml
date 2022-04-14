@@ -46,7 +46,7 @@ software:
         Q_num: 13.429638640149484
         Q_len: 186.06055495331788
         overhead: 46.01292871282239e-6
-      SSD0_2: # write bucket (512B)
+      SSD0_1: # write bucket (512B)
         phy_node: SSD0
         partition: 0.617
         performance: 0.27511112792455167
@@ -60,7 +60,7 @@ software:
         Q_num: 13.429638640149484
         Q_len: 186.06055495331788
         overhead: 46.01292871282239e-6
-      SSD1_2: # write bucket (512B)
+      SSD1_1: # write bucket (512B)
         phy_node: SSD1
         partition: 0.5
         performance: 0.27511112792455167
@@ -74,7 +74,7 @@ software:
         Q_num: 13.429638640149484
         Q_len: 186.06055495331788
         overhead: 46.01292871282239e-6
-      SSD2_2: # write bucket (512B)
+      SSD2_1: # write bucket (512B)
         phy_node: SSD2
         partition: 0.5
         performance: 0.27511112792455167
@@ -88,7 +88,7 @@ software:
         Q_num: 13.429638640149484
         Q_len: 186.06055495331788
         overhead: 46.01292871282239e-6
-      SSD3_2: # write bucket (512B)
+      SSD3_1: # write bucket (512B)
         phy_node: SSD3
         partition: 0.5
         performance: 0.27511112792455167
@@ -134,37 +134,37 @@ software:
         INTF: 0.5
         DRAM: 0.5
         total: 0.12
-      # CPU1 -> SSDx_2
-      CPU1-SSD0_2:
+      # CPU1 -> SSDx_1
+      CPU1-SSD0_1:
         INTF: 0.5
         DRAM: 0.0
         total: 0.5
-      CPU1-SSD1_2:
+      CPU1-SSD1_1:
         INTF: 0.5
         DRAM: 0.0
         total: 0.5
-      CPU1-SSD2_2:
+      CPU1-SSD2_1:
         INTF: 0.5
         DRAM: 0.0
         total: 0.5
-      CPU1-SSD3_2:
+      CPU1-SSD3_1:
         INTF: 0.5
         DRAM: 0.0
         total: 0.5
-      # SSDx_2 -> CPU2
-      SSD0_2-CPU2:
+      # SSDx_1 -> CPU2
+      SSD0_1-CPU2:
         INTF: 0.0
         DRAM: 0.0
         total: 0.12
-      SSD1_2-CPU2:
+      SSD1_1-CPU2:
         INTF: 0.0
         DRAM: 0.0
         total: 0.12
-      SSD2_2-CPU2:
+      SSD2_1-CPU2:
         INTF: 0.0
         DRAM: 0.0
         total: 0.03
-      SSD3_2-CPU2:
+      SSD3_1-CPU2:
         INTF: 0.0
         DRAM: 0.0
         total: 0.12

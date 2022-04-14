@@ -114,6 +114,18 @@ def calc_pn(rho, N: int) -> float:
     return (1 - rho) / (rho_n - rho)
 
 
+def calc_real_throughput(hardware_cfg, use_cases):
+    bw = calc_throughput(hardware_cfg, use_cases, return_all=True)
+    bw_in = sum((i.graph['bandwidth-in'] for i in use_cases))
+    if bw[0]['name'].startswith('BW:'):
+        return bw_in
+    else:
+        use_case, node = re.search(r"\(([0-9]+)-(.+)\)", bw[0]['name']).groups()
+        if bw[0]['v'] == 0:
+            return 0
+        return bw_in * (1 - calc_pn(bw_in / bw[0]['v'], use_cases[int(use_case)].nodes[node]['Q_len']))
+
+
 def calc_latency(hardware_cfg, dags, print_tag=False):
     for dag in dags:
         for k, v in dag.nodes.items():
@@ -168,8 +180,8 @@ def run_model(graph, model_range, bw_lat, no_lat=False, log_scale=False):
         latency = calc_latency(config["hardware"], use_cases)
         print(i, j, latency * 1E6)
 
-    # nx.draw(use_cases[0], pos=nx.spring_layout(use_cases[0]), with_labels=True)
-    # plt.show()
+    nx.draw(use_cases[0], pos=nx.spring_layout(use_cases[0]), with_labels=True)
+    plt.show()
 
 
 if __name__ == '__main__':
