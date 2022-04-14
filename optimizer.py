@@ -48,7 +48,7 @@ LEED_CONFIG = {
     "set-1KB": {"max_throughput": 0.6183814944660193, "partition_num": 3},
     "set-256B": {"max_throughput": 0.174570798097404, "partition_num": 3},
     "get-1KB": {"max_throughput": 0.954875698868065, "partition_num": 2},
-    "get-256B": {"max_throughput": 0.682102077007382, "partition_num": 2},
+    "get-256B": {"max_throughput": 0.238858411135757, "partition_num": 2},
     "del-1KB": {"max_throughput": 0.755765818447113, "partition_num": 2},
     "del-256B": {"max_throughput": 0.18812962077641487, "partition_num": 2},
 }
