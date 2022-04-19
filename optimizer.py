@@ -99,18 +99,20 @@ def leed_mixed(get_pct, get_max_lat, set_max_lat):
     config = read_config('graphs/v2/LEED/get&set-1KB-4SSDs.yml')
     partitions = np.random.random(5)
     x0 = np.concatenate(([0.0], partitions / np.sum(partitions)))
-    bounds = [(0, None)] * x0.shape[0]
+    bounds = [(0.01, None)] + [(0, None)] * (x0.shape[0] - 1)
     constr = [{'type': "eq", 'fun': lambda x: 1 - sum(x[1:])},
               # {'type': "eq", 'fun': lambda x: get_max_lat - max(calc_latency(*create_graph(x), return_all=True)) * 1e6},
-              {'type': "eq", 'fun': lambda x: get_max_lat - calc_latency(*create_graph(x)) * 1e6},
-              # {'type': "eq", 'fun': lambda x: get_max_lat - calc_latency(*create_graph(x), return_all=True)[0] * 1e6},
-              # {'type': "eq", 'fun': lambda x: set_max_lat - calc_latency(*create_graph(x), return_all=True)[1] * 1e6}
+              # {'type': "eq", 'fun': lambda x: get_max_lat - calc_latency(*create_graph(x)) * 1e6},
+              {'type': "ineq", 'fun': lambda x: get_max_lat - calc_latency(*create_graph(x), return_all=True)[0] * 1e6},
+              {'type': "ineq", 'fun': lambda x: set_max_lat - calc_latency(*create_graph(x), return_all=True)[1] * 1e6},
+              # {'type': "ineq", 'fun': lambda x: calc_real_throughput(*create_graph(x)) / x[0] - 0.99},
               ]
     res = minimize(lambda x: - calc_real_throughput(*create_graph(x)), x0, method='SLSQP', bounds=bounds,
                    constraints=constr)['x']
     print(*res)
     hardware_cfg, use_cases = create_graph(res)
-    print(calc_real_throughput(hardware_cfg, use_cases), calc_latency(hardware_cfg, use_cases) * 1e6)
+    get_lat, set_lat = calc_latency(hardware_cfg, use_cases, return_all=True)
+    print(calc_real_throughput(hardware_cfg, use_cases), get_lat * 1e6, set_lat * 1e6)
 
 
 if __name__ == '__main__':
@@ -122,4 +124,5 @@ if __name__ == '__main__':
     # leed_operation('get-1KB', max_lat=200)
     # leed_operation('del-256B', percentage=0.80)
     # leed_operation('del-256B', max_lat=120)
-    leed_mixed(0.0, 180, 110)
+    for i in range(100):
+        leed_mixed(0.25, 500, 160)
