@@ -40,7 +40,7 @@ def create_dags(use_cases):
         for k, v in use_case['edges'].items():
             e = k.split("-")
             assert len(e) == 2 and e[0] in use_case['nodes'] and e[1] in use_case['nodes']
-            dag.add_edge(e[0], e[1], **{i: j * w for i, j in v.items()})
+            dag.add_edge(e[0], e[1], **v)
         dag.graph['g_in'] = dag.graph['granularity-in'] / float(1 << 30)
         dag.graph['weight'] = w
         dags.append(dag)
@@ -60,23 +60,24 @@ def calc_throughput(hardware_cfg, use_cases, print_tag=False, return_all=False):
     for dag_i, dag in enumerate(use_cases):
         for k, v in dag.edges.items():
             ip_ip = tuple(sorted([dag.nodes[k[0]]['phy_node'], dag.nodes[k[1]]['phy_node']]))
-            bw_edges[ip_ip]["f"] += v["total"]
+            bw_edges[ip_ip]["f"] += v["total"] * dag.graph['weight']
             v["bw"] = bw_edges[ip_ip]["bw"]
-            interface += v["INTF"]
-            memory += v["DRAM"]
+            interface += v["INTF"] * dag.graph['weight']
+            memory += v["DRAM"] * dag.graph['weight']
 
         for k, v in dag.nodes.items():
             total = sum([dag.edges[(i, k)]["total"] for i in dag.predecessors(k)])
             if v["performance"] is None or total == 0:
                 continue
-            throughput.append(
-                {"v": v["performance"] * v["partition"] / total, "name": f"compute:{v['phy_node']}({dag_i}-{k})"})
+            throughput.append({"v": v["performance"] * v["partition"] / total / dag.graph['weight'],
+                               "name": f"compute:{v['phy_node']}({dag_i}-{k})"})
 
     for k, v in bw_edges.items():
         throughput.append({"v": v["bw"] / v["f"], "name": f"BW:{k[0]}-{k[1]}"})
-
-    throughput.append({"v": hardware_cfg["interface"] / interface, "name": f"BW:interface"})
-    throughput.append({"v": hardware_cfg["memory"] / memory, "name": f"BW:memory"})
+    if interface != 0:
+        throughput.append({"v": hardware_cfg["interface"] / interface, "name": f"BW:interface"})
+    if memory != 0:
+        throughput.append({"v": hardware_cfg["memory"] / memory, "name": f"BW:memory"})
     throughput.sort(key=lambda x: x['v'])
 
     if print_tag:
@@ -179,7 +180,7 @@ def run_model(graph, model_range, bw_lat, no_lat=False, log_scale=False):
 
     for i, j in to_log_scale(*bw_lat) if log_scale else zip(*bw_lat):
         use_cases[0].graph['bandwidth-in'] = i
-        latency = calc_latency(config["hardware"], use_cases)
+        latency = calc_latency(config["hardware"], use_cases, return_all=True)[0]
         print(i, j, latency * 1E6)
     # nx.draw(use_cases[0], pos=nx.spring_layout(use_cases[0]), with_labels=True)
     # plt.show()
@@ -198,11 +199,15 @@ if __name__ == '__main__':
     # run_model('graphs/v2/LEED/get-1KB-4SSDs.yml', 96, read_leed_data("data/LEED/1KB-get.txt", 1024, data_range=10))
     # run_model('graphs/v2/LEED/get-256B-4SSDs.yml', 95, read_leed_data("data/LEED/256B-get.txt", 256, data_range=10))
     # run_model('graphs/v2/LEED/set-1KB-4SSDs.yml', 98, read_leed_data("data/LEED/1KB-set.txt", 1024, data_range=10))
-    run_model('graphs/v2/LEED/set-256B-4SSDs.yml', 98, read_leed_data("data/LEED/256B-set.txt", 256, data_range=10))
+    # run_model('graphs/v2/LEED/set-256B-4SSDs.yml', 98, read_leed_data("data/LEED/256B-set.txt", 256, data_range=10))
     # run_model('graphs/v2/LEED/del-1KB-4SSDs.yml', 97, read_leed_data("data/LEED/1KB-del.txt", 1024, data_range=10))
     # run_model('graphs/v2/LEED/del-256B-4SSDs.yml', 97, read_leed_data("data/LEED/256B-del.txt", 256, data_range=10))
     # run_model('graphs/v2/LEED/get&set-256B-4SSDs.yml', 100, None, True)
+    data_0 = [1778, 3653, 6121, 8643, 143879, 148157, 151425, 153582, 154561, 154918]
+    data = []
+    for i, j in enumerate(range(10, 110, 10)):
+        data.append((j / 8, data_0[i] / 10 ** 3))
+    run_model('graphs/v2/switch/1.yml', 150, list(zip(*data)))
     # for j in (1, 2, 4, 8, 16):
     #     plt.plot([calc_pn(i / 100.0, j) for i in range(100)])
     # plt.show()
-    pass

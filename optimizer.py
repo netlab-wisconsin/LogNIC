@@ -1,4 +1,4 @@
-from model_v2 import *
+from model_v2 import calc_throughput, read_config, create_dags, calc_latency, calc_real_throughput
 from scipy.optimize import minimize
 import numpy as np
 

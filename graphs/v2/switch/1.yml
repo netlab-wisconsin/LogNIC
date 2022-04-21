@@ -1,0 +1,47 @@
+hardware:
+  interface: 12.5
+  memory: 12.5
+  nodes:
+    stage3:
+  edges:
+    stage3-egress: 12.5
+    stage3-ingress: 12.5
+software:
+  - bandwidth-in: 6.25
+    granularity-in: 1500
+    nodes:
+      stage3:
+        phy_node: stage3
+        partition: 1.0
+        performance: 12.5
+        Q_num: 1
+        Q_len: 1293.3333
+        overhead: 0.0e-9
+    edges:
+      ingress-stage3:
+        INTF: 1.0
+        DRAM: 0.0
+        total: 1.07
+      stage3-egress:
+        INTF: 0.0
+        DRAM: 0.0
+        total: 1.0
+  - bandwidth-in: 6.25
+    granularity-in: 1500
+    nodes:
+      stage3:
+        phy_node: stage3
+        partition: 1.0
+        performance: 12.5
+        Q_num: 1
+        Q_len: 1293.3333
+        overhead: 0.0e-9
+    edges:
+      ingress-stage3:
+        INTF: 1.0
+        DRAM: 0.0
+        total: 1.07
+      stage3-egress:
+        INTF: 0.0
+        DRAM: 0.0
+        total: 1.0
