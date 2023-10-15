@@ -1,5 +1,5 @@
 from data import read_ssd_data
-from model_v2 import read_config, create_dags, calc_latency, calc_real_throughput
+from model import read_config, create_dags, calc_latency, calc_real_throughput
 import matplotlib.pyplot as plt
 import networkx as nx
 from scipy.optimize import curve_fit
@@ -8,7 +8,7 @@ import numpy as np
 
 def fit():
     def func(x, Q_num, Q_len):
-        config = read_config('graphs/v2/switch/1.yml')
+        config = read_config('graphs/switch/1.yml')
         config["software"][0]['nodes']['stage3'].update({'Q_num': Q_num, 'Q_len': Q_len})
         config["software"][1]['nodes']['stage3'].update({'Q_num': Q_num, 'Q_len': Q_len})
         # config["software"][0]['edges']['ingress-stage3']['partition'] = Q_len
@@ -54,7 +54,7 @@ def switch(Q_num=None, Q_len=None):
     with open("data/switch/SwitchML.txt") as f:
         for line in f.readlines():
             d = list(map(float, line.split()))
-            config = read_config('graphs/v2/switch/1.yml')
+            config = read_config('graphs/switch/1.yml')
             if Q_num is not None:
                 config["software"][0]['nodes']['stage3'].update({'Q_num': Q_num, 'Q_len': Q_len})
                 config["software"][1]['nodes']['stage3'].update({'Q_num': Q_num, 'Q_len': Q_len})

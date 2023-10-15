@@ -1,5 +1,5 @@
 from data import read_ssd_data
-from model_v2 import read_config, create_dags, calc_latency
+from model import read_config, create_dags, calc_latency
 import matplotlib.pyplot as plt
 import networkx as nx
 from scipy.optimize import curve_fit
@@ -22,7 +22,7 @@ def main():
     global dag, config
     data_range = 12
     bw, lat = read_ssd_data("data/SSD/512B-seqwrite.txt")
-    config = read_config("graphs/v2/single-ip.yml")
+    config = read_config("graphs/single-ip.yml")
     dag = create_dags(config['software'])[0]
     arg, _ = curve_fit(func, bw[:data_range], lat[:data_range], bounds=((0, 0, 1, 0), (np.inf, np.inf, np.inf, np.inf)))
     print("performance(GB/s) Q_num Q_len overhead(us)")

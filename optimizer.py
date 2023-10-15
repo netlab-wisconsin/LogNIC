@@ -1,4 +1,4 @@
-from model_v2 import calc_throughput, read_config, create_dags, calc_latency, calc_real_throughput
+from model import calc_throughput, read_config, create_dags, calc_latency, calc_real_throughput
 from scipy.optimize import minimize
 import numpy as np
 
@@ -10,7 +10,7 @@ def rw_mixed():
         return -calc_throughput(config["hardware"], use_cases, print_tag)
 
     for i in range(1, 10):
-        config = read_config('graphs/v2/NVMe-oF/4KB-rwmixed.yml')
+        config = read_config('graphs/NVMe-oF/4KB-rwmixed.yml')
         config["software"][0]['bandwidth-in'] = 1 - i / 10.0
         config["software"][1]['bandwidth-in'] = i / 10.0
         use_cases = create_dags(config["software"])
@@ -31,7 +31,7 @@ def get_set_mixed():
         return config["hardware"], use_cases
 
     for i in range(0, 11):
-        config = read_config('graphs/v2/LEED/get&set-1KB-4SSDs.yml')
+        config = read_config('graphs/LEED/get&set-1KB-4SSDs.yml')
         config["software"][0]['bandwidth-in'] = 1 - i / 10.0
         config["software"][1]['bandwidth-in'] = i / 10.0
         use_cases = create_dags(config["software"])
@@ -64,7 +64,7 @@ def leed_operation(op, percentage=0.3, max_lat=None):
                 dags[0].nodes[f"SSD{i}_{j}"]['partition'] = x[1 + j]
         return config["hardware"], dags
 
-    config = read_config(f'graphs/v2/LEED/{op}-4SSDs.yml')
+    config = read_config(f'graphs/LEED/{op}-4SSDs.yml')
     partitions = np.random.random(LEED_CONFIG[op]["partition_num"])
     x0 = np.concatenate(([0.0], partitions / np.sum(partitions)))
     bounds = [(0, None)] * x0.shape[0]
@@ -96,7 +96,7 @@ def leed_mixed(get_pct, get_max_lat, set_max_lat):
             dags[1].nodes[f"SSD{j}_2"]['partition'] = x[5]
         return config["hardware"], dags
 
-    config = read_config('graphs/v2/LEED/get&set-1KB-4SSDs.yml')
+    config = read_config('graphs/LEED/get&set-1KB-4SSDs.yml')
     partitions = np.random.random(5)
     x0 = np.concatenate(([0.0], partitions / np.sum(partitions)))
     bounds = [(0.01, None)] + [(0, None)] * (x0.shape[0] - 1)
